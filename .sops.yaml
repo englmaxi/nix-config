@@ -1,0 +1,12 @@
+keys:
+- &users:
+  - &admin age1540eh29d9gmrglc59dyp6jwhqwsvn9phfgwp53sr7pnlskqccggqzxhhje
+- &hosts: # cat /etc/ssh/ssh_host_ed25519_key.pub | ssh-to-age
+  - &xps13 age1zrvkcmum2celygh2l26jjjrul3v90p78q5qyqzfrmc3vqm23gezqecy208
+
+creation_rules:
+- path_regex: secrets.yaml$
+  key_groups:
+  - age:
+    - *admin
+    - *xps13
