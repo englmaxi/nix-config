@@ -11,6 +11,7 @@ in {
     ../../modules/home-manager/optional/editor/neovim.nix
     ../../modules/home-manager/optional/editor/vscode.nix
     ../../modules/home-manager/optional/impermanence.nix
+    ../../modules/home-manager/optional/sops.nix
     ../../modules/home-manager/optional/spotify.nix
     ../../modules/home-manager/optional/terminal/kitty.nix
   ];

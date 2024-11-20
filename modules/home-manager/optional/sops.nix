@@ -1,14 +1,23 @@
 {
+  config,
   inputs,
   pkgs,
   ...
 }: {
-  home-manager.sharedModules = [
+  imports = [
     inputs.sops-nix.homeManagerModules.sops
   ];
 
   sops = {
-    age.sshKeyPaths = [ "/home/user/path-to-ssh-key" ];
+    age.keyFile = "${config.home.homeDirectory}/.config/sops/age/keys.txt";
+
+    defaultSopsFile = ../../../secrets.yaml;
+
+    secrets = {
+      "ssh_keys/lori" = {
+        path = "${config.home.homeDirectory}/.ssh/id_lori";
+      };
+    };
   };
 
   home.packages = with pkgs; [
