@@ -19,7 +19,7 @@
     ../../modules/nixos/optional/desktop/gnome.nix
     ../../modules/nixos/optional/impermanence.nix
     ../../modules/nixos/optional/theme/catppuccin-mocha
-    # ../../modules/nixos/optional/theme/rebecca
+    ../../modules/nixos/optional/yubikey.nix
 
     # users
     ../../modules/nixos/user/engl

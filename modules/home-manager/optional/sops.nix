@@ -17,6 +17,7 @@
       "ssh_keys/lori" = {
         path = "${config.home.homeDirectory}/.ssh/id_lori";
       };
+      "config/git/email" = {};
     };
   };
 

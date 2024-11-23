@@ -9,7 +9,7 @@
 
     ./locales.nix
     ./nix.nix
-    ./services/openssh.nix
+    ./openssh.nix
     ./sops.nix
   ];
 
