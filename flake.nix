@@ -55,7 +55,7 @@
     };
 
     secrets = {
-      url = "git+ssh://git@gitlab.com/englmaxi/nixos-secrets.git?shallow=1";
+      url = "git+ssh://git@github.com/englmaxi/nixos-secrets.git?shallow=1";
       flake = false;
     };
 

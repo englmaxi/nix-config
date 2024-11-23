@@ -11,13 +11,12 @@
   sops = {
     age.keyFile = "${config.home.homeDirectory}/.config/sops/age/keys.txt";
 
-    defaultSopsFile = ../../../secrets.yaml;
+    defaultSopsFile = "${builtins.toString inputs.secrets}/secrets.yaml";
 
     secrets = {
       "ssh_keys/lori" = {
         path = "${config.home.homeDirectory}/.ssh/id_lori";
       };
-      "config/git/email" = {};
     };
   };
 
