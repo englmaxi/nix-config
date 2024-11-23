@@ -1,6 +1,5 @@
 {
   config,
-  inputs,
   lib,
   pkgs,
   ...
@@ -13,9 +12,10 @@
       jnoortheen.nix-ide
     ];
     userSettings = {
-      "nix.serverPath" = "nixd";
+      "editor.fontLigatures" = true;
       "nix.enableLanguageServer" = true;
-      "nix"."serverSettings" = {
+      "nix.serverPath" = "nixd";
+      "nix.serverSettings" = {
         "nixd" = {
           "formatting" = {
             "command" = [
@@ -39,6 +39,4 @@
         "/persist/${config.home.homeDirectory}".directories = [".config/Code/User"];
       };
     };
-
-  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 }

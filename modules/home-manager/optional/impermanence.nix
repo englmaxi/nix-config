@@ -21,7 +21,6 @@
         config.xdg.userDirs.documents
       ])
       "git"
-      "nixos-config"
     ];
     allowOther = true;
   };

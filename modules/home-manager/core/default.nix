@@ -1,4 +1,5 @@
 {
+  inputs,
   outputs,
   pkgs,
   ...
@@ -29,6 +30,7 @@
     screen
   ];
 
+  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
   nixpkgs = {
     config.allowUnfree = true;
     overlays = builtins.attrValues outputs.overlays;

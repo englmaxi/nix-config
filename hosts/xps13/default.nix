@@ -2,7 +2,9 @@
   inputs,
   pkgs,
   ...
-}: {
+}: let
+  hostName = "xps13";
+in {
   imports = [
     # modules
     inputs.nixos-hardware.nixosModules.dell-xps-13-9360
@@ -32,7 +34,7 @@
   };
 
   networking = {
-    hostName = "xps13";
+    inherit hostName;
     networkmanager.enable = true;
   };
 
