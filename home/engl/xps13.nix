@@ -1,4 +1,4 @@
-{config, ...}: let
+{inputs, ...}: let
   userName = "engl";
 in {
   imports = [
@@ -20,7 +20,7 @@ in {
     core = {
       git = {
         userName = "englmaxi";
-        email = "engl@disroot.org";
+        email = inputs.secrets.config.git.email;
       };
       user-dirs = {
         createDirs = true;

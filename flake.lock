@@ -577,17 +577,17 @@
       }
     },
     "secrets": {
-      "flake": false,
       "locked": {
         "lastModified": 1732380217,
         "narHash": "sha256-IdU7t/42WUD9KTGYbWm9gHVdS5fRzlEm1/NVksvPwPo=",
-        "ref": "refs/heads/main",
+        "ref": "main",
         "rev": "4112bad9ac18029b61a83cfe0580e0875e64b436",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/englmaxi/nixos-secrets.git"
       },
       "original": {
+        "ref": "main",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/englmaxi/nixos-secrets.git"
