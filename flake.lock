@@ -578,19 +578,19 @@
     },
     "secrets": {
       "locked": {
-        "lastModified": 1732380217,
-        "narHash": "sha256-IdU7t/42WUD9KTGYbWm9gHVdS5fRzlEm1/NVksvPwPo=",
+        "lastModified": 1732389213,
+        "narHash": "sha256-TOsdwybukmYjjeogKvpgTx1F5PCLM5XRLcEn6kNjzOk=",
         "ref": "main",
-        "rev": "4112bad9ac18029b61a83cfe0580e0875e64b436",
+        "rev": "5bd184cc8fcec31f58d4a49d163baa39966ab9a2",
         "shallow": true,
         "type": "git",
-        "url": "ssh://git@github.com/englmaxi/nixos-secrets.git"
+        "url": "ssh://git@github.com/englmaxi/nix-secrets.git"
       },
       "original": {
         "ref": "main",
         "shallow": true,
         "type": "git",
-        "url": "ssh://git@github.com/englmaxi/nixos-secrets.git"
+        "url": "ssh://git@github.com/englmaxi/nix-secrets.git"
       }
     },
     "sops-nix": {
