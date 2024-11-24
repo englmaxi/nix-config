@@ -5,6 +5,7 @@
   ...
 }: {
   imports = [
+    ./comma.nix
     ./fonts.nix
     ./git.nix
     ./nh.nix

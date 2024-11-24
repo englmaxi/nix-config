@@ -463,6 +463,26 @@
         "type": "github"
       }
     },
+    "nix-index-database": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1732419467,
+        "narHash": "sha256-TjuKScXbj4Ddr0L+kEOLFaYOhzbS/k/EFL543wkjN5E=",
+        "owner": "nix-community",
+        "repo": "nix-index-database",
+        "rev": "0ef970b7021e0ee9ab93437d0e28296e86669b03",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nix-index-database",
+        "type": "github"
+      }
+    },
     "nixos-hardware": {
       "locked": {
         "lastModified": 1731797098,
@@ -567,6 +587,7 @@
         "firefox-addons": "firefox-addons",
         "home-manager": "home-manager",
         "impermanence": "impermanence",
+        "nix-index-database": "nix-index-database",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",
@@ -578,10 +599,10 @@
     },
     "secrets": {
       "locked": {
-        "lastModified": 1732389213,
-        "narHash": "sha256-TOsdwybukmYjjeogKvpgTx1F5PCLM5XRLcEn6kNjzOk=",
+        "lastModified": 1732455716,
+        "narHash": "sha256-bkd+VSRCWwaCmT1GIzdXZqufemc+EGTug37uLQKsSaw=",
         "ref": "main",
-        "rev": "5bd184cc8fcec31f58d4a49d163baa39966ab9a2",
+        "rev": "9f5a2050d8c7b2d3f42adad47801bf7018c2dc15",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/englmaxi/nix-secrets.git"

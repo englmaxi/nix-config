@@ -54,10 +54,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    secrets = {
-      url = "git+ssh://git@github.com/englmaxi/nix-secrets.git?ref=main&shallow=1";
-      inputs = {};
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    secrets.url = "git+ssh://git@github.com/englmaxi/nix-secrets.git?ref=main&shallow=1";
 
     sops-nix = {
       url = "github:mic92/sops-nix";

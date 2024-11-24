@@ -20,16 +20,24 @@ in {
   programs.ssh = {
     enable = true;
 
-    matchBlocks = {
-      "git" = {
-        host = "gitlab.com github.com";
-        user = "git";
-        forwardAgent = true;
-        identitiesOnly = true;
-        identityFile = [
-          "${config.home.homeDirectory}/.ssh/id_lori"
-        ];
-      };
-    } // hostsMatchBlocks;
+    matchBlocks =
+      {
+        "git" = {
+          host = "gitlab.com github.com";
+          user = "git";
+          forwardAgent = true;
+          identitiesOnly = true;
+          identityFile = [
+            "${config.home.homeDirectory}/.ssh/id_lori"
+          ];
+        };
+      }
+      // hostsMatchBlocks;
+  };
+
+  home = lib.optionalAttrs (builtins.hasAttr "persistence" config.home) {
+    persistence = {
+      "/persist/${config.home.homeDirectory}".directories = [".ssh/known_hosts"];
+    };
   };
 }
