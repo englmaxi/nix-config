@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: let
   weatherLocation = with lib.gvariant; [
@@ -17,7 +18,7 @@
   ];
 in {
   dconf.settings = {
-    # dconf-editor
+    # $ dconf-editor
     "org/gnome/desktop/interface" = {
       clock-show-weekday = true;
       show-battery-percentage = true;
@@ -34,6 +35,14 @@ in {
     "org/gnome/shell" = {
       welcome-dialog-last-shown-version = "47.0";
       favorite-apps = [];
+      disable-user-extensions = false;
+
+      # $ gnome-extensions list
+      enabled-extensions = [
+        "trayIconsReloaded@selfmade.pl"
+        "launch-new-instance@gnome-shell-extensions.gcampax.github.com"
+        "status-icons@gnome-shell-extensions.gcampax.github.com"
+      ];
     };
     "org/gnome/GWeather4" = {
       temperature-unit = "centigrade";
@@ -63,6 +72,11 @@ in {
         ];
     };
   };
+
+  #home.packages = with pkgs.gnomeExtensions; [
+  #  tray-icons-reloaded
+  #  appindicator
+  #];
 
   home = {
     sessionVariables.TERMINAL = "blackbox";

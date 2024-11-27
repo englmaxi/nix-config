@@ -13,6 +13,7 @@ in {
     ../../modules/home-manager/optional/impermanence.nix
     ../../modules/home-manager/optional/sops.nix
     ../../modules/home-manager/optional/spotify.nix
+    ../../modules/home-manager/optional/social/discord.nix
     ../../modules/home-manager/optional/terminal/kitty.nix
   ];
 
