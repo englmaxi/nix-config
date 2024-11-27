@@ -12,7 +12,7 @@
       map kitty_mod+t new_tab_with_cwd
       map kitty_mod+enter new_window_with_cwd
       enable_audio_bell no
-      background_opacity 0.5
+      # background_opacity 0.5
     '';
   };
 }
