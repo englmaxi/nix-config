@@ -37,7 +37,7 @@ in {
 
   home = lib.optionalAttrs (builtins.hasAttr "persistence" config.home) {
     persistence = {
-      "/persist/${config.home.homeDirectory}".directories = [".ssh/known_hosts"];
+      "/persist/${config.home.homeDirectory}".files = [".ssh/known_hosts"];
     };
   };
 }

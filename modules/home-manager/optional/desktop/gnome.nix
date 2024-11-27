@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }: let
   weatherLocation = with lib.gvariant; [
@@ -72,11 +71,6 @@ in {
         ];
     };
   };
-
-  #home.packages = with pkgs.gnomeExtensions; [
-  #  tray-icons-reloaded
-  #  appindicator
-  #];
 
   home = {
     sessionVariables.TERMINAL = "blackbox";

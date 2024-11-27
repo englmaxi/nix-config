@@ -86,10 +86,10 @@
     lib.optionalAttrs (builtins.hasAttr "persistence" config.home)
     {
       persistence = {
-        "/persist/${config.home.homeDirectory}".directories = [
-          ".config/vesktop/sessionData"
-          ".config/vesktop/state.json"
-        ];
+        "/persist/${config.home.homeDirectory}" = {
+          directories = [".config/vesktop/sessionData"];
+          files = [".config/vesktop/state.json"];
+        };
       };
     };
 }
