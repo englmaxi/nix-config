@@ -69,5 +69,7 @@
     };
 
     stylix.url = "github:danth/stylix";
+
+    xremap.url = "github:xremap/nix-flake";
   };
 }

@@ -2,7 +2,6 @@
   programs = {
     zsh = {
       enable = true;
-      autosuggestion.enable = true;
 
       plugins = [
       ];
@@ -25,6 +24,11 @@
       settings = {
         add_newline = true;
       };
+    };
+
+    carapace = {
+      enable = true;
+      enableZshIntegration = true;
     };
 
     direnv = {
