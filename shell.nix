@@ -9,6 +9,7 @@
       nix
       sops
       ssh-to-age
+      tmux
       vim
     ];
   };
