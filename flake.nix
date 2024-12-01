@@ -22,6 +22,13 @@
     );
 
     nixosConfigurations = {
+      pc = lib.nixosSystem {
+        inherit specialArgs;
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/pc
+        ];
+      };
       xps13 = lib.nixosSystem {
         inherit specialArgs;
         system = "x86_64-linux";

@@ -9,6 +9,7 @@
       nix
       sops
       ssh-to-age
+      vim
     ];
   };
 }
