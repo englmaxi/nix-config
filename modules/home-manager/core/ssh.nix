@@ -19,6 +19,9 @@
 in {
   programs.ssh = {
     enable = true;
+    userKnownHostsFile = "${
+      lib.optionalString (lib.hasAttr "persistence" config.home) "/persist"
+    }/home/${config.home.username}/.ssh/known_hosts";
 
     matchBlocks =
       {
@@ -33,11 +36,5 @@ in {
         };
       }
       // hostsMatchBlocks;
-  };
-
-  home = lib.optionalAttrs (builtins.hasAttr "persistence" config.home) {
-    persistence = {
-      "/persist/${config.home.homeDirectory}".files = [".ssh/known_hosts"];
-    };
   };
 }

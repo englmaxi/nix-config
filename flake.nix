@@ -4,15 +4,25 @@
   outputs = {
     self,
     nixpkgs,
+    systems,
     ...
   } @ inputs: let
+    inherit (nixpkgs) lib;
     inherit (self) outputs;
     specialArgs = {inherit inputs outputs;};
+    forAllSystems = lib.genAttrs (import systems);
   in {
     overlays = import ./overlays specialArgs;
 
+    devShells = forAllSystems (
+      system: let
+        pkgs = nixpkgs.legacyPackages.${system};
+      in
+        import ./shell.nix {inherit pkgs;}
+    );
+
     nixosConfigurations = {
-      xps13 = nixpkgs.lib.nixosSystem {
+      xps13 = lib.nixosSystem {
         inherit specialArgs;
         system = "x86_64-linux";
         modules = [
@@ -69,6 +79,8 @@
     };
 
     stylix.url = "github:danth/stylix";
+
+    systems.url = "github:nix-systems/default-linux";
 
     xremap.url = "github:xremap/nix-flake";
   };
