@@ -1,4 +1,5 @@
 {
+  config,
   inputs,
   pkgs,
   ...
@@ -49,4 +50,13 @@ in {
     vim
     wget
   ];
+
+  hardware.graphics = {
+    enable = true;
+  };
+
+  hardware.nvidia = {
+    open = false;
+    nvidiaSettings = true;
+  };
 }
