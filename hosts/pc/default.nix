@@ -35,6 +35,8 @@ in {
     };
   };
 
+  boot.supportedFilesystems = [ "ntfs" ];
+
   networking = {
     inherit hostName;
     networkmanager.enable = true;
