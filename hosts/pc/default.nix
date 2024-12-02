@@ -8,7 +8,7 @@ in {
   imports = [
     # modules
     inputs.nixos-hardware.nixosModules.common-pc-ssd
-    inputs.nixos-hardware.nixosModules.common-cpu-haswell
+    inputs.nixos-hardware.nixosModules.common-cpu-intel-haswell
     inputs.nixos-hardware.nixosModules.common-gpu-nvidia-ampere
     inputs.disko.nixosModules.disko
 
