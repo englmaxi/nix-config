@@ -22,6 +22,7 @@ in {
     ../../modules/nixos/optional/impermanence.nix
     ../../modules/nixos/optional/theme/catppuccin-mocha
     ../../modules/nixos/optional/yubikey.nix
+    ../../modules/nixos/optional/xremap.nix
 
     # users
     ../../modules/nixos/user/engl

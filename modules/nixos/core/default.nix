@@ -11,7 +11,6 @@
     ./nix.nix
     ./openssh.nix
     ./sops.nix
-    ./xremap.nix
   ];
 
   home-manager = {
