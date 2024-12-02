@@ -1,4 +1,8 @@
-{lib, ...}: let
+{
+  config,
+  lib,
+  ...
+}: let
   weatherLocation = with lib.gvariant; [
     (mkVariant (mkTuple [
       (mkUint32 2)
@@ -57,4 +61,12 @@ in {
       power-button-action = "interactive";
     };
   };
+
+  home =
+    lib.optionalAttrs (builtins.hasAttr "persistence" config.home)
+    {
+      persistence = {
+        "/persist/${config.home.homeDirectory}".files = [".config/monitors.xml"];
+      };
+    };
 }
