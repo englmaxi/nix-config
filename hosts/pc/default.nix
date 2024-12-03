@@ -9,7 +9,7 @@ in {
     # modules
     inputs.nixos-hardware.nixosModules.common-pc-ssd
     inputs.nixos-hardware.nixosModules.common-cpu-intel
-    inputs.nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
+    inputs.nixos-hardware.nixosModules.common-gpu-nvidia
     inputs.disko.nixosModules.disko
 
     # hardware
@@ -35,7 +35,7 @@ in {
     };
   };
 
-  boot.supportedFilesystems = [ "ntfs" ];
+  boot.supportedFilesystems = ["ntfs"];
 
   networking = {
     inherit hostName;
@@ -59,5 +59,14 @@ in {
   hardware.nvidia = {
     open = false;
     nvidiaSettings = true;
+    powerManagement = {
+      enable = true;
+      finegrained = true;
+    };
+    prime = {
+      # lshw -c display
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
+    };
   };
 }
