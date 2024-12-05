@@ -29,6 +29,7 @@
     usbutils
     killall
     screen
+    wget
   ];
 
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];

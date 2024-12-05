@@ -1,8 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: let
+{inputs, ...}: let
   hostName = "xps13";
 in {
   imports = [
@@ -43,9 +39,4 @@ in {
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
   };
-
-  environment.systemPackages = with pkgs; [
-    vim
-    wget
-  ];
 }

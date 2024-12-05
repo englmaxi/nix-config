@@ -29,9 +29,9 @@ with lib; {
         download = "${hd}/dl";
         documents = "${hd}/docs";
         pictures = "${hd}/pics";
-        music = "${hd}/music";
-        videos = "${hd}/videos";
         extraConfig = {
+          XDG_MUSIC_DIR = "/var/empty";
+          XDG_VIDEOS_DIR = "/var/empty";
           XDG_PUBLICSHARE_DIR = "/var/empty";
           XDG_TEMPLATES_DIR = "/var/empty";
         };

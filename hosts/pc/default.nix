@@ -1,8 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: let
+{inputs, ...}: let
   hostName = "pc";
 in {
   imports = [
@@ -46,11 +42,6 @@ in {
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
   };
-
-  environment.systemPackages = with pkgs; [
-    vim
-    wget
-  ];
 
   hardware.graphics = {
     enable = true;
