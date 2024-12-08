@@ -7,7 +7,7 @@
 
   hostsMatchBlocks = lib.attrsets.mergeAttrsList (
     lib.lists.map (host: {
-      "${host}" = {
+      "${host}.local" = {
         hostname = host;
         identityFile = [
           "${config.home.homeDirectory}/.ssh/id_lori"
