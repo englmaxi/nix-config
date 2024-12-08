@@ -5,5 +5,6 @@
     gimp
     veracrypt
     vlc
+    zoom-us
   ];
 }
