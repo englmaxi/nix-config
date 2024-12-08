@@ -28,4 +28,13 @@
     enable = true;
     enableCompletion = true;
   };
+
+  services = {
+    avahi = {
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = true;
+    };
+    printing.enable = true;
+  };
 }

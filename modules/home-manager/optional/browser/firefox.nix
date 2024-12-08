@@ -1,9 +1,14 @@
 {
   config,
+  inputs,
   lib,
   pkgs,
   ...
 }: {
+  imports = [
+    inputs.nur.modules.homeManager.default
+  ];
+
   programs.firefox = {
     enable = true;
 
@@ -116,10 +121,11 @@
         "dom.security.https_only_mode" = true;
         "extensions.autoDisableScopes" = 0;
       };
-      extensions = with pkgs.inputs.firefox-addons; [
+      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         ublock-origin
         bitwarden
         clearurls
+        enhancer-for-youtube
         sponsorblock
         return-youtube-dislikes
         translate-web-pages
