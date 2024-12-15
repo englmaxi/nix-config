@@ -48,7 +48,7 @@ in {
   };
 
   hardware.nvidia = {
-    open = false;
+    open = true;
     nvidiaSettings = true;
     powerManagement = {
       enable = true;

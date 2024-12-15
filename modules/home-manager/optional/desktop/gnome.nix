@@ -69,4 +69,13 @@ in {
         "/persist/${config.home.homeDirectory}".files = [".config/monitors.xml"];
       };
     };
+  
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "image/png" = "org.gnome.Loupe.desktop";
+      "image/jpeg" = "org.gnome.Loupe.desktop";
+      "text/plain" = "org.gnome.TextEditor.desktop";
+    };
+  };
 }
