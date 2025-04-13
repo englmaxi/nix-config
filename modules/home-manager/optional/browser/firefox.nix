@@ -24,7 +24,7 @@
       search = {
         force = true;
         default = "Searx";
-        order = ["Searx" "Google"];
+        order = ["Searx" "google"];
         engines = {
           "Nix Packages" = {
             urls = [
@@ -93,18 +93,18 @@
           };
           "NixOS Wiki" = {
             urls = [{template = "https://nixos.wiki/index.php?search={searchTerms}";}];
-            iconUpdateURL = "https://nixos.wiki/favicon.png";
+            icon= "https://nixos.wiki/favicon.png";
             updateInterval = 24 * 60 * 60 * 1000; # every day
             definedAliases = ["@nw"];
           };
           "Searx" = {
             urls = [{template = "https://searx.aicampground.com/?q={searchTerms}";}];
-            iconUpdateURL = "https://nixos.wiki/favicon.png";
+            icon = "https://nixos.wiki/favicon.png";
             updateInterval = 24 * 60 * 60 * 1000; # every day
             definedAliases = ["@searx"];
           };
-          "Bing".metaData.hidden = true;
-          "Google".metaData.alias = "@g";
+          "bing".metaData.hidden = true;
+          "google".metaData.alias = "@g";
         };
       };
 
@@ -121,7 +121,7 @@
         "dom.security.https_only_mode" = true;
         "extensions.autoDisableScopes" = 0;
       };
-      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+      extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
         ublock-origin
         bitwarden
         clearurls

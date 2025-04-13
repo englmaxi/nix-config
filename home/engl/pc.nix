@@ -13,6 +13,7 @@ in {
     ../../modules/home-manager/optional/extra-gui.nix
     ../../modules/home-manager/optional/impermanence.nix
     ../../modules/home-manager/optional/megasync.nix
+    ../../modules/home-manager/optional/games/minecraft.nix
     ../../modules/home-manager/optional/prusa-slicer.nix
     ../../modules/home-manager/optional/sops.nix
     ../../modules/home-manager/optional/spotify.nix

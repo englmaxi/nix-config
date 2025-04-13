@@ -1,11 +1,18 @@
-{inputs, ...}: let
+{
+  config,
+  inputs,
+  pkgs,
+  ...
+}: let
   hostName = "pc";
 in {
   imports = [
     # modules
+    inputs.nixos-hardware.nixosModules.common-pc
     inputs.nixos-hardware.nixosModules.common-pc-ssd
-    inputs.nixos-hardware.nixosModules.common-cpu-intel
-    inputs.nixos-hardware.nixosModules.common-gpu-nvidia
+    inputs.nixos-hardware.nixosModules.common-cpu-intel-cpu-only
+    inputs.nixos-hardware.nixosModules.common-gpu-intel-disable
+    inputs.nixos-hardware.nixosModules.common-gpu-nvidia-sync
     inputs.disko.nixosModules.disko
 
     # hardware
@@ -17,6 +24,7 @@ in {
 
     # optional
     ../../modules/nixos/optional/desktop/gnome.nix
+    ../../modules/nixos/optional/docker.nix
     ../../modules/nixos/optional/impermanence.nix
     ../../modules/nixos/optional/theme/catppuccin-mocha
     ../../modules/nixos/optional/yubikey.nix
@@ -43,21 +51,28 @@ in {
     efi.canTouchEfiVariables = true;
   };
 
-  hardware.graphics = {
-    enable = true;
-  };
+  nixpkgs.config.nvidia.acceptLicense = true;
 
-  hardware.nvidia = {
-    open = true;
-    nvidiaSettings = true;
-    powerManagement = {
+  hardware = {
+    graphics = {
       enable = true;
-      finegrained = true;
+      extraPackages = with pkgs; [nvidia-vaapi-driver];
     };
-    prime = {
-      # lshw -c display
-      intelBusId = "PCI:0:2:0";
-      nvidiaBusId = "PCI:1:0:0";
+
+    nvidia = {
+      open = true;
+      nvidiaSettings = true;
+      modesetting.enable = true;
+      package = config.boot.kernelPackages.nvidiaPackages.beta;
+      powerManagement = {
+        enable = true;
+        finegrained = false;
+      };
+      prime = {
+        # lshw -c display
+        intelBusId = "PCI:0:2:0";
+        nvidiaBusId = "PCI:1:0:0";
+      };
     };
   };
 }

@@ -8,7 +8,6 @@
     ./comma.nix
     ./fonts.nix
     ./git.nix
-    ./nh.nix
     ./ssh.nix
     ./user-dirs.nix
     ./zsh.nix
