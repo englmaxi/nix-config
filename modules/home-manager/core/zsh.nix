@@ -3,17 +3,35 @@
     zsh = {
       enable = true;
 
-      plugins = [
-      ];
-
-      oh-my-zsh = {
+      prezto = {
         enable = true;
-        plugins = [
-          "sudo"
-          "git"
-          "colored-man-pages"
+        caseSensitive = false;
+        tmux = {
+          autoStartRemote = true;
+        };
+        pmodules = [
+          "environment"
+          "terminal"
+          "editor"
+          "autosuggestions"
+          "history"
+          "directory"
+          "spectrum"
+          "utility"
+          "tmux"
+          "completion"
+          "prompt"
         ];
       };
+
+      # oh-my-zsh = {
+      #   enable = true;
+      #   plugins = [
+      #     "sudo"
+      #     "git"
+      #     "colored-man-pages"
+      #   ];
+      # };
     };
 
     starship = {
