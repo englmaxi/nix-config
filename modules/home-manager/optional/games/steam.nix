@@ -3,18 +3,20 @@
   lib,
   pkgs,
   ...
-}: {
-  home =
+}: {  home =
     {
-      packages = [pkgs.prusa-slicer];
+      packages = with pkgs; [
+        steam
+        gamescope
+        protontricks
+      ];
     }
     // lib.optionalAttrs (builtins.hasAttr "persistence" config.home)
     {
       persistence = {
         "/persist/${config.home.homeDirectory}" = {
           directories = [
-            ".local/share/prusa-slicer"
-            ".config/PrusaSlicer"
+            ".local/share/Steam"
           ];
         };
       };

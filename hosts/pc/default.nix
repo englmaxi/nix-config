@@ -24,8 +24,8 @@ in {
 
     # optional
     ../../modules/nixos/optional/desktop/gnome.nix
-    ../../modules/nixos/optional/docker.nix
     ../../modules/nixos/optional/impermanence.nix
+    ../../modules/nixos/optional/podman.nix
     ../../modules/nixos/optional/theme/catppuccin-mocha
     ../../modules/nixos/optional/yubikey.nix
 

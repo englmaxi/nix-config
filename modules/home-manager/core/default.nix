@@ -9,6 +9,7 @@
     ./fonts.nix
     ./git.nix
     ./ssh.nix
+    ./tmux.nix
     ./user-dirs.nix
     ./zsh.nix
   ];
@@ -29,6 +30,8 @@
     killall
     screen
     wget
+    xsel
+    wl-clipboard
   ];
 
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];

@@ -5,6 +5,7 @@
   ...
 }: let
   userName = "engl";
+  ifTheyExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
 in {
   home-manager.users.${userName} = import (../../../../home + "/${userName}/${config.networking.hostName}.nix");
 
@@ -13,7 +14,13 @@ in {
 
     users.${userName} = {
       isNormalUser = true;
-      extraGroups = ["wheel"];
+      extraGroups = ifTheyExist [
+        "audio"
+        "network"
+        "video"
+        "podman"
+        "wheel"
+      ];
       home = "/home/${userName}";
       hashedPasswordFile = config.sops.secrets."hashed_passwords/${userName}".path;
       shell = pkgs.zsh;

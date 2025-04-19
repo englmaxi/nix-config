@@ -14,8 +14,6 @@
           "colored-man-pages"
         ];
       };
-
-      initExtra = "eval \"\$(direnv hook zsh)\"";
     };
 
     starship = {

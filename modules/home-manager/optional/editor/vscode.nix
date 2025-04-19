@@ -13,6 +13,7 @@
         jnoortheen.nix-ide
         rust-lang.rust-analyzer
         arrterian.nix-env-selector
+        ms-vscode-remote.remote-containers
       ];
       userSettings = {
         "editor.fontLigatures" = true;
