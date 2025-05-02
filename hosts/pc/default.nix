@@ -51,6 +51,13 @@ in {
     efi.canTouchEfiVariables = true;
   };
 
+  swapDevices = [
+    {
+      device = "/swap/swapfile";
+      size = 16392;
+    }
+  ];
+
   nixpkgs.config.nvidia.acceptLicense = true;
 
   hardware = {

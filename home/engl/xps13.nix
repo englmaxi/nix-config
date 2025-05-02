@@ -7,7 +7,7 @@ in {
 
     # optional
     ../../modules/home-manager/optional/browser/firefox.nix
-    ../../modules/home-manager/optional/desktop/gnome.nix
+    ../../modules/home-manager/optional/desktop/hyprland
     ../../modules/home-manager/optional/editor/neovim.nix
     ../../modules/home-manager/optional/editor/vscode.nix
     ../../modules/home-manager/optional/extra-gui.nix

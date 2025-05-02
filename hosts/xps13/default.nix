@@ -14,7 +14,7 @@ in {
     ../../modules/nixos/core
 
     # optional
-    ../../modules/nixos/optional/desktop/gnome.nix
+    ../../modules/nixos/optional/desktop/hyprland.nix
     ../../modules/nixos/optional/impermanence.nix
     ../../modules/nixos/optional/theme/catppuccin-mocha
     ../../modules/nixos/optional/yubikey.nix
@@ -32,11 +32,33 @@ in {
 
   networking = {
     inherit hostName;
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
+      wifi.powersave = true;
+    };
   };
 
-  boot.loader = {
-    systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
+  boot = {
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+    kernelParams = [
+      "resume_offset=64562432" # "$ btrfs inspect-internal map-swapfile -r /swap/swapfile"
+    ];
+    resumeDevice = "/dev/disk/by-label/nixos";
+  };
+
+  swapDevices = [
+    {
+      device = "/swap/swapfile";
+      size = 16392;
+    }
+  ];
+
+  services = {
+    upower = {
+      enable = true;
+    };
   };
 }

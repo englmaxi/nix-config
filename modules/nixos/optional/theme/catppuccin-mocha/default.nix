@@ -12,6 +12,7 @@
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     polarity = "dark";
     image = ./wallpaper.png;
+    opacity.desktop = 0.75;
     fonts = {
       serif = {
         package = pkgs.fira;

@@ -1,5 +1,7 @@
 {
+  config,
   inputs,
+  lib,
   pkgs,
   ...
 }: {
@@ -18,4 +20,14 @@
       keyboardShortcut
     ];
   };
+
+  home =
+    lib.optionalAttrs (builtins.hasAttr "persistence" config.home)
+    {
+      persistence = {
+        "/persist/${config.home.homeDirectory}".directories = [
+          ".config/spotify"
+        ];
+      };
+    };
 }

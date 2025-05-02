@@ -9,6 +9,8 @@
     inputs.nur.modules.homeManager.default
   ];
 
+  stylix.targets.firefox.profileNames = ["default"];
+
   programs.firefox = {
     enable = true;
 
@@ -46,7 +48,7 @@
                 ];
               }
             ];
-            icon = "''${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+            icon = "https://nixos.wiki/favicon.png";
             definedAliases = ["@np"];
           };
           "NixOS Options" = {
@@ -69,7 +71,7 @@
                 ];
               }
             ];
-            icon = "''${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+            icon = "https://nixos.wiki/favicon.png";
             definedAliases = ["@nixos"];
           };
           "Home-Manager Options" = {
@@ -88,12 +90,12 @@
                 ];
               }
             ];
-            icon = "''${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+            icon = "https://nixos.wiki/favicon.png";
             definedAliases = ["@hm"];
           };
           "NixOS Wiki" = {
             urls = [{template = "https://nixos.wiki/index.php?search={searchTerms}";}];
-            icon= "https://nixos.wiki/favicon.png";
+            icon = "https://nixos.wiki/favicon.png";
             updateInterval = 24 * 60 * 60 * 1000; # every day
             definedAliases = ["@nw"];
           };

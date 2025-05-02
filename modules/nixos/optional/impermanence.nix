@@ -30,7 +30,7 @@
 
   # TODO: remove this once we have a proper solution for this
   # see https://github.com/nix-community/impermanence/issues/229
-  systemd.suppressedSystemUnits = ["systemd-machine-id-commit.service"];
+  # systemd.suppressedSystemUnits = ["systemd-machine-id-commit.service"];
 
   environment.systemPackages = [
     (pkgs.writeScriptBin "listNonPersistent" ''
@@ -70,8 +70,15 @@
   boot.initrd.systemd.services.rollback = {
     description = "Rollback BTRFS root subvolume";
     wantedBy = ["initrd.target"];
-    after = ["systemd-cryptsetup@crypted.service"];
-    before = ["sysroot.mount"];
+    requires = [ "initrd-root-device.target" ];
+    after = [
+      "initrd-root-device.target"
+      "local-fs-pre.target"
+    ];
+    before = [
+      "sysroot.mount"
+      "create-needed-for-boot-dirs.service"
+    ];
     unitConfig.DefaultDependencies = "no";
     serviceConfig.Type = "oneshot";
     script = ''
