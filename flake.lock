@@ -110,6 +110,26 @@
         "type": "github"
       }
     },
+    "auto-cpufreq": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1746268454,
+        "narHash": "sha256-cUrVjYzFn1zzR6m2hc02CdjlSPIADtAVo+7BE7qq0ZA=",
+        "owner": "AdnanHodzic",
+        "repo": "auto-cpufreq",
+        "rev": "3ffbee11df46921c9a60f118d3450a7e460f7b13",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AdnanHodzic",
+        "repo": "auto-cpufreq",
+        "type": "github"
+      }
+    },
     "base16": {
       "inputs": {
         "fromYaml": "fromYaml"
@@ -1565,6 +1585,7 @@
     "root": {
       "inputs": {
         "ags": "ags",
+        "auto-cpufreq": "auto-cpufreq",
         "disko": "disko",
         "home-manager": "home-manager",
         "hyprland": "hyprland",

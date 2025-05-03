@@ -40,6 +40,8 @@
     overlays = builtins.attrValues outputs.overlays;
   };
 
+  xdg.mimeApps.enable = true;
+
   programs.home-manager.enable = true;
   home.stateVersion = "24.05";
 }

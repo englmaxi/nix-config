@@ -8,6 +8,7 @@
     inputs.home-manager.nixosModules.home-manager
 
     ./locales.nix
+    ./logind.nix
     ./nix.nix
     ./openssh.nix
     ./sops.nix
@@ -42,5 +43,6 @@
       };
     };
     printing.enable = true;
+    udisks2.enable = true;
   };
 }

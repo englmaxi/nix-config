@@ -28,6 +28,7 @@
             };
           };
         };
+        "vim.useSystemClipboard" = true;
       };
     };
   };

@@ -11,8 +11,8 @@
       copycat
     ];
     extraConfig = ''
-      bind | split-window -h
-      bind - split-window -v
+      bind | split-window -h -c "#{pane_current_path}"
+      bind - split-window -v -c "#{pane_current_path}"
       bind > swap-pane -D
       bind < swap-pane -U
       bind c new-window -c "#{pane_current_path}"

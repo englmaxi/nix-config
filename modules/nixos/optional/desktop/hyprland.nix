@@ -16,6 +16,7 @@
 
   security.rtkit.enable = true;
   services = {
+    blueman.enable = true;
     pipewire = {
       enable = true;
       alsa = {

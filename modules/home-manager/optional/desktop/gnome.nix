@@ -72,7 +72,6 @@ in {
     };
   
   xdg.mimeApps = {
-    enable = true;
     defaultApplications = {
       "image/png" = "org.gnome.Loupe.desktop";
       "image/jpeg" = "org.gnome.Loupe.desktop";

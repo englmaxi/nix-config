@@ -14,6 +14,7 @@ in {
     ../../modules/nixos/core
 
     # optional
+    ../../modules/nixos/optional/auto-cpufreq.nix
     ../../modules/nixos/optional/desktop/hyprland.nix
     ../../modules/nixos/optional/impermanence.nix
     ../../modules/nixos/optional/theme/catppuccin-mocha
@@ -55,6 +56,13 @@ in {
       size = 16392;
     }
   ];
+
+  hardware = {
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
+  };
 
   services = {
     upower = {
