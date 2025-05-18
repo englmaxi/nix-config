@@ -3,43 +3,47 @@
     zsh = {
       enable = true;
 
-      prezto = {
-        enable = true;
-        caseSensitive = false;
-        tmux = {
-          autoStartRemote = true;
-        };
-        pmodules = [
-          "environment"
-          "terminal"
-          "editor"
-          "autosuggestions"
-          "history"
-          "directory"
-          "spectrum"
-          "utility"
-          "tmux"
-          "completion"
-          "prompt"
-        ];
-      };
+      # zprof.enable = true;
 
-      initExtra = ''
-        setopt HIST_IGNORE_ALL_DUPS
-        setopt HIST_IGNORE_DUPS
-        setopt HIST_IGNORE_SPACE
-        setopt HIST_SAVE_NO_DUPS
-        setopt INC_APPEND_HISTORY
-      '';
-
-      # oh-my-zsh = {
+      # prezto = {
       #   enable = true;
-      #   plugins = [
-      #     "sudo"
-      #     "git"
-      #     "colored-man-pages"
+      #   caseSensitive = false;
+      #   tmux = {
+      #     autoStartRemote = true;
+      #   };
+      #   pmodules = [
+      #     "environment"
+      #     "terminal"
+      #     "editor"
+      #     "autosuggestions"
+      #     "history"
+      #     "directory"
+      #     "spectrum"
+      #     "utility"
+      #     "tmux"
+      #     "completion"
+      #     "prompt"
       #   ];
       # };
+
+      history = {
+        ignoreDups = true;
+        ignoreAllDups = true;
+        ignoreSpace = true;
+        saveNoDups = true;
+        share = true;
+        append = true;
+      };
+
+      autosuggestion.enable = true;
+
+      oh-my-zsh = {
+        enable = true;
+        plugins = [
+          "sudo"
+          "git"
+        ];
+      };
     };
 
     starship = {
@@ -55,10 +59,10 @@
       enableZshIntegration = true;
     };
 
-    direnv = {
-      enable = true;
-      nix-direnv.enable = true;
-      enableZshIntegration = true;
-    };
+    # direnv = {
+    #   enable = false;
+    #   nix-direnv.enable = true;
+    #   enableZshIntegration = true;
+    # };
   };
 }

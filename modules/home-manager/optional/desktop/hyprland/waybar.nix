@@ -31,7 +31,7 @@
           "disk"
           "memory"
           "cpu"
-          "network"
+          # "network"
           "pulseaudio"
           "backlight"
           "battery"
@@ -128,6 +128,8 @@
         "hyprland/workspaces" = {
           format = " {icon} {windows}";
           format-window-separator = "";
+          on-scroll-up = "hyprctl dispatch workspace e+1";
+          on-scroll-down = "hyprctl dispatch workspace e-1";
           window-rewrite-default = " ";
           window-rewrite = {
             "title<.*youtube.*>" = " ";

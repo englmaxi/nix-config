@@ -14,7 +14,10 @@
     light.enable = true;
   };
 
-  security.rtkit.enable = true;
+  security = {
+    polkit.enable = true;
+    rtkit.enable = true;
+  };
   services = {
     blueman.enable = true;
     pipewire = {
@@ -25,13 +28,13 @@
       };
       pulse.enable = true;
     };
-    udev.extraRules = '' # allow executing light without sudo
-      ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="intel_backlight", MODE="0666", RUN+="${pkgs.coreutils}/bin/chmod a+w /sys/class/backlight/%k/brightness"
+    udev.extraRules = ''      # allow executing light without sudo
+           ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="intel_backlight", MODE="0666", RUN+="${pkgs.coreutils}/bin/chmod a+w /sys/class/backlight/%k/brightness"
     '';
 
     greetd = let
       cmd = "uwsm start hyprland-uwsm.desktop";
-      options = "--time --remember --remember-user-session";
+      options = "--time --remember --remember-user-session --asterisks";
     in {
       enable = true;
       settings = {

@@ -137,6 +137,7 @@
       imageDisplay.type = "kitty";
     };
     dunst.enable = true;
+    hyprpolkitagent.enable = true;
     blueman-applet.enable = true;
     udiskie.enable = true;
   };

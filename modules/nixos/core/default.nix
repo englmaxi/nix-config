@@ -27,7 +27,7 @@
 
   programs.zsh = {
     enable = true;
-    enableCompletion = true;
+    #enableCompletion = true;
   };
 
   services = {
