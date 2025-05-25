@@ -6,9 +6,7 @@
 }: {
   home =
     {
-      packages = with pkgs; [
-        prismlauncher
-      ];
+      packages = [pkgs.prismlauncher];
     }
     // lib.optionalAttrs (builtins.hasAttr "persistence" config.home)
     {

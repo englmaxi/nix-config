@@ -1,8 +1,11 @@
 {pkgs, ...}: {
-  home.packages = with pkgs; [
-    nerd-fonts.fira-code
-    nerd-fonts.symbols-only
-  ];
+  home.packages = builtins.attrValues {
+    inherit
+      (pkgs.nerd-fonts)
+      fira-code
+      symbols-only
+      ;
+  };
 
   fonts.fontconfig = {
     enable = true;

@@ -20,9 +20,9 @@
     };
   };
 
-  home.packages = with pkgs; [
-    age
-    ssh-to-age
-    sops
+  home.packages = [
+    pkgs.age
+    pkgs.ssh-to-age
+    pkgs.sops
   ];
 }

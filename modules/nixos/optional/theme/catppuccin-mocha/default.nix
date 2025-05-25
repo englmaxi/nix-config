@@ -14,25 +14,17 @@
     image = ./wallpaper.png;
     opacity.desktop = 0.75;
     fonts = {
-      serif = {
-        package = pkgs.fira;
-        name = "Fira Serif";
-      };
+      serif.package = pkgs.fira;
+      serif.name = "Fira Serif";
 
-      sansSerif = {
-        package = pkgs.fira;
-        name = "Fira Sans";
-      };
+      sansSerif.package = pkgs.fira;
+      sansSerif.name = "Fira Sans";
 
-      monospace = {
-        package = pkgs.nerd-fonts.fira-code;
-        name = "FiraCode Nerd Font Mono";
-      };
+      monospace.package = pkgs.nerd-fonts.fira-code;
+      monospace.name = "FiraCode Nerd Font Mono";
 
-      emoji = {
-        package = pkgs.noto-fonts-emoji;
-        name = "Noto Color Emoji";
-      };
+      emoji.package = pkgs.noto-fonts-emoji;
+      emoji.name = "Noto Color Emoji";
     };
     cursor = {
       package = pkgs.phinger-cursors;

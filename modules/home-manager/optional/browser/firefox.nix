@@ -11,7 +11,9 @@
 
   stylix.targets.firefox.profileNames = ["default"];
 
-  programs.firefox = {
+  programs.firefox = let
+    c = config.lib.stylix.colors;
+  in {
     enable = true;
 
     profiles.default = {
@@ -123,22 +125,25 @@
         "dom.security.https_only_mode" = true;
         "extensions.autoDisableScopes" = 0;
       };
-      extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
-        ublock-origin
-        bitwarden
-        clearurls
-        enhancer-for-youtube
-        sponsorblock
-        return-youtube-dislikes
-        translate-web-pages
-      ];
+      extensions.packages = builtins.attrValues {
+        inherit
+          (pkgs.nur.repos.rycee.firefox-addons)
+          ublock-origin
+          bitwarden
+          clearurls
+          enhancer-for-youtube
+          sponsorblock
+          return-youtube-dislikes
+          translate-web-pages
+          ;
+      };
       userContent = ''
         @-moz-document url("about:newtab"), url("about:home") {
             body {
-                background-color: #${config.lib.stylix.colors.base00} !important;
+                background-color: #${c.base00} !important;
             }
             .search-handoff-button, .tile {
-                background-color: #${config.lib.stylix.colors.base01}  !important;
+                background-color: #${c.base01}  !important;
                 backdrop-filter: blur(10px);
             }
         }
@@ -167,7 +172,7 @@
         }
 
         .tab-background[selected] {
-            background: #${config.lib.stylix.colors.base0E} !important;
+            background: #${c.base0E} !important;
             opacity: 0.3;
         }
 

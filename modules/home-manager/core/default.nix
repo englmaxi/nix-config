@@ -14,25 +14,28 @@
     ./zsh.nix
   ];
 
-  home.packages = with pkgs; [
-    btop
-    fd
-    tree
-    fzf
-    ripgrep
-    neofetch
-    ncdu
-    p7zip
-    zip
-    unzip
-    unrar
-    usbutils
-    killall
-    screen
-    wget
-    xsel
-    wl-clipboard
-  ];
+  home.packages = builtins.attrValues {
+    inherit
+      (pkgs)
+      btop
+      fd
+      tree
+      fzf
+      ripgrep
+      neofetch
+      ncdu
+      p7zip
+      zip
+      unzip
+      unrar
+      usbutils
+      killall
+      screen
+      wget
+      xsel
+      wl-clipboard
+      ;
+  };
 
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
   nixpkgs = {

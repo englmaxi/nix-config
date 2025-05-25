@@ -63,7 +63,7 @@ in {
   hardware = {
     graphics = {
       enable = true;
-      extraPackages = with pkgs; [nvidia-vaapi-driver];
+      extraPackages = [pkgs.nvidia-vaapi-driver];
     };
 
     nvidia = {
@@ -71,10 +71,8 @@ in {
       nvidiaSettings = true;
       modesetting.enable = true;
       package = config.boot.kernelPackages.nvidiaPackages.beta;
-      powerManagement = {
-        enable = true;
-        finegrained = false;
-      };
+      powerManagement.enable = true;
+      powerManagement.finegrained = false;
       prime = {
         # lshw -c display
         intelBusId = "PCI:0:2:0";

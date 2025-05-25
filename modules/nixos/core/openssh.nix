@@ -17,10 +17,8 @@
       enable = true;
       ports = [cfg.port];
 
-      settings = {
-        PasswordAuthentication = false;
-        PermitRootLogin = "no";
-      };
+      settings.PasswordAuthentication = false;
+      settings.PermitRootLogin = "no";
 
       hostKeys = [
         {

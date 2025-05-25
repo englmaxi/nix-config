@@ -35,9 +35,9 @@
 
   home =
     {
-      packages = with pkgs; [
-        alejandra
-        nixd
+      packages = [
+        pkgs.alejandra
+        pkgs.nixd
       ];
     }
     // lib.optionalAttrs (builtins.hasAttr "persistence" config.home) {

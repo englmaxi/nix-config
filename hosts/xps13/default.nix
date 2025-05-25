@@ -33,17 +33,13 @@ in {
 
   networking = {
     inherit hostName;
-    networkmanager = {
-      enable = true;
-      wifi.powersave = true;
-    };
+    networkmanager.enable = true;
+    networkmanager.wifi.powersave = true;
   };
 
   boot = {
-    loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-    };
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
     kernelParams = [
       "resume_offset=64562432" # "$ btrfs inspect-internal map-swapfile -r /swap/swapfile"
     ];
@@ -58,15 +54,11 @@ in {
   ];
 
   hardware = {
-    bluetooth = {
-      enable = true;
-      powerOnBoot = true;
-    };
+    bluetooth.enable = true;
+    bluetooth.powerOnBoot = true;
   };
 
   services = {
-    upower = {
-      enable = true;
-    };
+    upower.enable = true;
   };
 }

@@ -7,14 +7,10 @@
   programs.auto-cpufreq = {
     enable = true;
     settings = {
-      charger = {
-        governor = "performance";
-        turbo = "auto";
-      };
-      battery = {
-        governor = "powersave";
-        turbo = "auto";
-      };
+      charger.governor = "performance";
+      charger.turbo = "auto";
+      battery.governor = "powersave";
+      battery.turbo = "auto";
     };
   };
 }

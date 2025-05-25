@@ -3,9 +3,9 @@
     enable = true;
     package = pkgs.rofi-wayland;
     cycle = true;
-    plugins = with pkgs; [
-      rofi-calc
-      rofi-emoji-wayland
+    plugins = [
+      pkgs.rofi-calc
+      pkgs.rofi-emoji-wayland
     ];
   };
 }

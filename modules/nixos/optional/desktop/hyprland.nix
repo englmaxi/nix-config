@@ -22,10 +22,8 @@
     blueman.enable = true;
     pipewire = {
       enable = true;
-      alsa = {
-        enable = true;
-        support32Bit = true;
-      };
+      alsa.enable = true;
+      alsa.support32Bit = true;
       pulse.enable = true;
     };
     udev.extraRules = ''      # allow executing light without sudo
@@ -38,10 +36,8 @@
     in {
       enable = true;
       settings = {
-        default_session = {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet ${options} --cmd '${cmd}'";
-          user = "greeter";
-        };
+        default_session.command = "${pkgs.greetd.tuigreet}/bin/tuigreet ${options} --cmd '${cmd}'";
+        default_session.user = "greeter";
       };
     };
   };

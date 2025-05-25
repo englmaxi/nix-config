@@ -4,9 +4,7 @@
   pkgs,
   ...
 }: {
-  home.packages = with pkgs; [
-    blackbox-terminal
-  ];
+  home.packages = [pkgs.blackbox-terminal];
 
   dconf.settings = {
     "com/raggesilver/BlackBox" = {
@@ -17,7 +15,13 @@
         p = mkUint32 18;
       in
         mkTuple [p p p p];
-      font = with config.stylix.fonts;
+      font = let
+        inherit
+          (config.stylix.fonts)
+          monospace
+          sizes
+          ;
+      in
         lib.strings.concatStringsSep " " [
           monospace.name
           (
@@ -32,13 +36,14 @@
     sessionVariables.TERMINAL = "blackbox";
     file = {
       ".local/share/blackbox/schemes/stylix-base16.json" = {
-        text = with config.lib.stylix.colors.withHashtag;
-          builtins.toJSON {
-            name = "stylix-base16";
-            foreground-color = base05;
-            background-color = base00;
-            use-theme-colors = false;
-            palette = [
+        text = builtins.toJSON {
+          name = "stylix-base16";
+          foreground-color = base05;
+          background-color = base00;
+          use-theme-colors = false;
+          palette = builtins.attrValues {
+            inherit
+              (builtins.attrValues)
               base00
               base08
               base0B
@@ -55,8 +60,9 @@
               base06
               base0F
               base07
-            ];
+              ;
           };
+        };
       };
     };
   };

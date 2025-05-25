@@ -5,9 +5,7 @@
       displayManager.gdm.enable = true;
       desktopManager.gnome.enable = true;
     };
-    udev.packages = with pkgs; [
-      gnome-settings-daemon
-    ];
+    udev.packages = [pkgs.gnome-settings-daemon];
   };
 
   programs.nautilus-open-any-terminal = {
@@ -16,11 +14,7 @@
   };
 
   environment = {
-    systemPackages = with pkgs; [
-      gnome-tweaks
-    ];
-    gnome.excludePackages = with pkgs; [
-      gnome-console
-    ];
+    systemPackages = [pkgs.gnome-tweaks];
+    gnome.excludePackages = [pkgs.gnome-console];
   };
 }

@@ -39,15 +39,9 @@
           passes = 3;
         };
       };
-      input = {
-        kb_layout = "de";
-        touchpad = {
-          natural_scroll = true;
-        };
-      };
-      gestures = {
-        workspace_swipe = true;
-      };
+      input.kb_layout = "de";
+      input.touchpad.natural_scroll = true;
+      gestures.workspace_swipe = true;
       "$mod" = "SUPER";
       "$terminal" = "kitty";
       "$fileManager" = "nautilus";
@@ -118,12 +112,15 @@
     };
   };
 
-  home.packages = with pkgs; [
-    hyprshot
-    nautilus
-    qimgv
-    evince
-  ];
+  home.packages = builtins.attrValues {
+    inherit
+      (pkgs)
+      hyprshot
+      nautilus
+      qimgv
+      evince
+      ;
+  };
 
   stylix.iconTheme = {
     enable = true;
@@ -132,10 +129,8 @@
   };
 
   services = {
-    clipse = {
-      enable = true;
-      imageDisplay.type = "kitty";
-    };
+    clipse.enable = true;
+    clipse.imageDisplay.type = "kitty";
     dunst.enable = true;
     hyprpolkitagent.enable = true;
     blueman-applet.enable = true;

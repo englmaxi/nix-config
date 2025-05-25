@@ -5,10 +5,8 @@
 }: {
   programs.kitty = {
     enable = true;
-    font = {
-      size = 12;
-      name = lib.mkDefault "FiraCode Nerd Font Mono";
-    };
+    font.size = 12;
+    font.name = lib.mkDefault "FiraCode Nerd Font Mono";
     extraConfig = ''
       window_padding_width 8
       map kitty_mod+up resize_window taller

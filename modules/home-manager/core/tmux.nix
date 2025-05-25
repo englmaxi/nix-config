@@ -5,11 +5,14 @@
     shortcut = "a";
     aggressiveResize = true;
     disableConfirmationPrompt = true;
-    plugins = with pkgs.tmuxPlugins; [
-      sensible
-      yank
-      copycat
-    ];
+    plugins = builtins.attrValues {
+      inherit
+        (pkgs.tmuxPlugins)
+        sensible
+        yank
+        copycat
+        ;
+    };
     extraConfig = ''
       bind | split-window -h -c "#{pane_current_path}"
       bind - split-window -v -c "#{pane_current_path}"

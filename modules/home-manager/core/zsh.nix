@@ -49,15 +49,11 @@
     starship = {
       enable = true;
       enableZshIntegration = true;
-      settings = {
-        add_newline = true;
-      };
+      settings.add_newline = true;
     };
 
-    carapace = {
-      enable = true;
-      enableZshIntegration = true;
-    };
+    carapace.enable = true;
+    carapace.enableZshIntegration = true;
 
     # direnv = {
     #   enable = false;
