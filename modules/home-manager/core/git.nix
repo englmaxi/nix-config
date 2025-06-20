@@ -2,9 +2,8 @@
   config,
   lib,
   ...
-}:
-with lib; {
-  options.modules.home-manager.core.git = {
+}: {
+  options.modules.home-manager.core.git = with lib; {
     userName = mkOption {
       type = types.str;
       default = "";

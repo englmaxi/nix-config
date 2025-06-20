@@ -11,7 +11,7 @@
 
     language = mkOption {
       type = types.str;
-      default = "en_US.utf8";
+      default = "en_US.UTF-8";
     };
 
     keyMap = mkOption {

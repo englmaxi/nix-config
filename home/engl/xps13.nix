@@ -30,6 +30,12 @@ in {
         shortNames = true;
       };
     };
+    optional.desktop.hyprland = {
+      monitors = [
+        "eDP-1,preferred,0x0,1"
+        ",preferred,auto,auto,mirror,eDP-1"
+      ];
+    };
   };
 
   home = {

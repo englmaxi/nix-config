@@ -23,7 +23,7 @@ in {
     ../../modules/nixos/core
 
     # optional
-    ../../modules/nixos/optional/desktop/gnome.nix
+    ../../modules/nixos/optional/desktop/hyprland.nix
     ../../modules/nixos/optional/impermanence.nix
     ../../modules/nixos/optional/podman.nix
     ../../modules/nixos/optional/theme/catppuccin-mocha

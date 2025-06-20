@@ -7,7 +7,7 @@ in {
 
     # optional
     ../../modules/home-manager/optional/browser/firefox.nix
-    ../../modules/home-manager/optional/desktop/gnome.nix
+    ../../modules/home-manager/optional/desktop/hyprland
     ../../modules/home-manager/optional/editor/nvim
     ../../modules/home-manager/optional/editor/vscode.nix
     ../../modules/home-manager/optional/extra-gui.nix
@@ -33,6 +33,12 @@ in {
         createDirs = true;
         shortNames = true;
       };
+    };
+    optional.desktop.hyprland = {
+      monitors = [
+        "DP-2,highrr,0x0,1"
+        "HDMI-A-3,highres,3440x-270,1,transform,1"
+      ];
     };
   };
 
