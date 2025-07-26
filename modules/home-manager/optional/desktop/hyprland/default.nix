@@ -51,6 +51,9 @@
             passes = 3;
           };
         };
+        dwindle = {
+          smart_split = true;
+        };
         input.kb_layout = "de";
         input.touchpad.natural_scroll = true;
         gestures.workspace_swipe = true;
