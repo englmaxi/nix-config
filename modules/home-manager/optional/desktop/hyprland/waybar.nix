@@ -138,7 +138,7 @@
             "kitty" = " ";
             "code" = "󰨞 ";
             "spotify" = " ";
-            "vesktop" = " ";
+            "vesktop" = " ";
           };
         };
       };

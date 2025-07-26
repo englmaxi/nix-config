@@ -11,6 +11,7 @@
     ./ssh.nix
     ./tmux.nix
     ./user-dirs.nix
+    ./yazi.nix
     ./zsh.nix
   ];
 
