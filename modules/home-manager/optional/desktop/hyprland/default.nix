@@ -39,6 +39,10 @@
           "float, class:(clipse)"
           "size 850 700 , class:(clipse)"
           "stayfocused, class:(clipse)"
+          "float, class:(^(MEGAsync)$)"
+          "noborder, class:(^(MEGAsync)$)"
+          "noblur, class:(^(MEGAsync)$)"
+          "noshadow, class:(^(MEGAsync)$)"
         ];
         decoration = {
           active_opacity = 0.9;

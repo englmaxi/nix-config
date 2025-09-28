@@ -12,6 +12,7 @@
         installRustc = false;
         installCargo = false;
       };
+      zls.enable = true;
     };
     postConfig = ''
       vim.diagnostic.config {
