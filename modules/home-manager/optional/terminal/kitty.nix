@@ -13,6 +13,7 @@
       map kitty_mod+down resize_window shorter 3
       map kitty_mod+t new_tab_with_cwd
       map kitty_mod+enter new_window_with_cwd
+      map kitty_mod+f toggle_layout stack
       enable_audio_bell no
       cursor_trail 1
       # background_opacity ${builtins.toString config.stylix.opacity.desktop}

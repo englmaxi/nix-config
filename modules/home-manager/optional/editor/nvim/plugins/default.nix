@@ -4,6 +4,7 @@
     ./conform-nvim.nix
     ./gitblame.nix
     ./guess-indent.nix
+    ./indent-blankline.nix
     ./lsp.nix
     ./lsp-lines.nix
     ./lsp-signature.nix
