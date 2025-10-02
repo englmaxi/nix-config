@@ -28,7 +28,7 @@
         "stylix.theme.css"
       ];
       plugins = {
-        hideAttachments.enable = true;
+        # hideAttachments.enable = true;
         ignoreActivities = {
           enable = true;
           ignorePlaying = true;

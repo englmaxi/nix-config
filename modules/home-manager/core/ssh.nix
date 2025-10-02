@@ -19,10 +19,7 @@
 in {
   programs.ssh = {
     enable = true;
-    userKnownHostsFile = "${
-      lib.optionalString (lib.hasAttr "persistence" config.home) "/persist"
-    }/home/${config.home.username}/.ssh/known_hosts";
-
+    enableDefaultConfig = false;
     matchBlocks =
       {
         "git" = {
@@ -33,6 +30,20 @@ in {
           identityFile = [
             "${config.home.homeDirectory}/.ssh/id_lori"
           ];
+        };
+        "*" = {
+          forwardAgent = false;
+          addKeysToAgent = "no";
+          compression = false;
+          serverAliveInterval = 0;
+          serverAliveCountMax = 3;
+          hashKnownHosts = false;
+          userKnownHostsFile = "${
+            lib.optionalString (lib.hasAttr "persistence" config.home) "/persist"
+          }/home/${config.home.username}/.ssh/known_hosts";
+          controlMaster = "no";
+          controlPath = "~/.ssh/master-%r@%n:%p";
+          controlPersist = "no";
         };
       }
       // hostsMatchBlocks;

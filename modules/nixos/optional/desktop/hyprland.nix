@@ -36,7 +36,7 @@
     in {
       enable = true;
       settings = {
-        default_session.command = "${pkgs.greetd.tuigreet}/bin/tuigreet ${options} --cmd '${cmd}'";
+        default_session.command = "${pkgs.tuigreet}/bin/tuigreet ${options} --cmd '${cmd}'";
         default_session.user = "greeter";
       };
     };
@@ -54,3 +54,4 @@
       persistence."/persist".directories = ["/var/cache/tuigreet"];
     };
 }
+

@@ -1,10 +1,10 @@
 {...}: {
-  services.logind = {
-    powerKey = "poweroff";
-    powerKeyLongPress = "reboot";
+  services.logind.settings.Login = {
+    HandlePowerKey = "poweroff";
+    HanldePowerKeyLongPress = "reboot";
 
-    lidSwitch = "suspend-then-hibernate";
-    lidSwitchExternalPower = "lock";
-    lidSwitchDocked = "ignore";
+    HandleLidSwitch = "suspend-then-hibernate";
+    HandleLidSwitchExternalPower = "lock";
+    HandleLidSwitchDocked = "ignore";
   };
 }
