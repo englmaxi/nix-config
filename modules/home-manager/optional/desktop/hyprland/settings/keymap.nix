@@ -71,6 +71,10 @@
     "$mod, ALT_L,     resizewindow"
   ];
 
+  gestures = [
+    "3, horizontal, workspace"
+  ];
+
   cfg = config.modules.home-manager.optional.desktop.hyprland;
 in {
   wayland.windowManager.hyprland.settings = {
@@ -86,12 +90,11 @@ in {
 
     bindel = mediaBinds;
     bindm = mouseBinds;
+    gesture = gestures;
 
     input = {
       kb_layout = cfg.keyMap;
       touchpad.natural_scroll = true;
     };
-
-    gestures.workspace_swipe = true;
   };
 }
