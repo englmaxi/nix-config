@@ -23,7 +23,7 @@
       tree
       fzf
       ripgrep
-      neofetch
+      fastfetch
       ncdu
       p7zip
       zip
