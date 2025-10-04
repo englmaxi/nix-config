@@ -33,17 +33,6 @@
           ++ [
             ", preferred, auto, 1"
           ];
-        decoration = {
-          active_opacity = 0.9;
-          inactive_opacity = 0.65;
-          fullscreen_opacity = 1.0;
-          rounding = 4;
-          blur = {
-            enabled = true;
-            size = 8;
-            passes = 3;
-          };
-        };
         dwindle = {
           smart_split = true;
         };

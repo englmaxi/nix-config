@@ -17,7 +17,7 @@ in {
     ../../modules/nixos/optional/auto-cpufreq.nix
     ../../modules/nixos/optional/desktop/hyprland.nix
     ../../modules/nixos/optional/impermanence.nix
-    ../../modules/nixos/optional/theme/catppuccin-mocha
+    ../../modules/nixos/optional/theme/rebecca
     ../../modules/nixos/optional/yubikey.nix
     ../../modules/nixos/optional/xremap.nix
 

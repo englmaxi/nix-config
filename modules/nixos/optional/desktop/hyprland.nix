@@ -54,4 +54,3 @@
       persistence."/persist".directories = ["/var/cache/tuigreet"];
     };
 }
-
