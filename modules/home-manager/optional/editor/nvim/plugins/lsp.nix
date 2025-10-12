@@ -12,6 +12,7 @@
         installRustc = false;
         installCargo = false;
       };
+      qmlls.enable = true;
       zls.enable = true;
     };
     postConfig = ''

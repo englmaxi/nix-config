@@ -7,9 +7,8 @@
 
   mod = "SUPER";
   terminal = "kitty";
-  fileManager = "nautilus";
+  fileManager = "kitty -e yazi";
 
-  # binds
   wsBinds = concatLists (genList (
       i: let
         ws = i + 1;
@@ -53,6 +52,15 @@
     "$mod SHIFT, right, swapwindow, r"
     "$mod SHIFT, up,    swapwindow, u"
     "$mod SHIFT, down,  swapwindow, d"
+
+    "$mod, S, togglespecialworkspace, hidden"
+    "$mod, S, movetoworkspace,        +0"
+    "$mod, S, togglespecialworkspace, hidden"
+    "$mod, S, movetoworkspace,        special:hidden"
+    "$mod, S, togglespecialworkspace, hidden"
+
+    "$mod,       N, togglespecialworkspace, scratchpad"
+    "$mod SHIFT, N, movetoworkspace,        special:scratchpad"
   ];
 
   mediaBinds = [
@@ -73,6 +81,9 @@
 
   gestures = [
     "3, horizontal, workspace"
+    "3, up,         fullscreen, maximize"
+    "3, down,       special,    scratchpad"
+    "4, down,       close"
   ];
 
   cfg = config.modules.home-manager.optional.desktop.hyprland;

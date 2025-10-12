@@ -1,0 +1,21 @@
+system: "base16"
+name: "e-ink"
+author: "Algilbert Gomez (https://github.com/e-ink-colorscheme)"
+variant: "light"
+palette:
+  base00: "#CCCCCC" # default background
+  base01: "#C2C2C2" # lighter background (selection)
+  base02: "#5E5E5E" # selection background
+  base03: "#4A4A4A" # comments, invisibles
+  base04: "#B8B8B8" # dark foreground (status bar)
+  base05: "#5E5E5E" # default foreground
+  base06: "#727272" # light foreground
+  base07: "#7C7C7C" # light background
+  base08: "#333333" # variables
+  base09: "#333333" # constants
+  base0A: "#868686" # search text background
+  base0B: "#9A9A9A" # strings
+  base0C: "#4A4A4A" # regex, escaped chars
+  base0D: "#727272" # functions
+  base0E: "#AEAEAE" # keywords
+  base0F: "#474747"
