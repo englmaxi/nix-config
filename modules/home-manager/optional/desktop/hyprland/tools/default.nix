@@ -13,6 +13,7 @@
       nautilus
       qimgv
       evince
+      playerctl
       ;
   };
 

@@ -14,8 +14,6 @@
   in {
     enable = true;
     enabledExtensions = with spicePkgs.extensions; [
-      shuffle
-      skipOrPlayLikedSongs
       powerBar
       keyboardShortcut
     ];

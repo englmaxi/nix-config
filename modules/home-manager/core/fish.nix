@@ -18,10 +18,11 @@
           "fish-bd"
           "fish-you-should-use"
           "fzf-fish"
-          #   "grc"
+          "grc"
           "plugin-sudope"
         ];
     };
+
 
     starship = {
       enable = true;
@@ -29,7 +30,9 @@
       settings.add_newline = true;
     };
 
+
     carapace.enable = true;
     carapace.enableFishIntegration = true;
   };
+  home.packages = [pkgs.grc]; # dependency for grc plugin
 }

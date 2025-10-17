@@ -7,6 +7,7 @@
   imports = [
     ./settings
     ./tools
+    ./plugins
   ];
 
   options.modules.home-manager.optional.desktop.hyprland = with lib; {
@@ -55,5 +56,12 @@
         "text/plain" = "nvim.desktop";
       };
     };
+    home =
+      lib.optionalAttrs (builtins.hasAttr "persistence" config.home)
+      {
+        persistence."/persist/${config.home.homeDirectory}".directories = [
+          ".local/state/wireplumber"
+        ];
+      };
   };
 }

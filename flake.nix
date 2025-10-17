@@ -49,6 +49,9 @@
 
     hyprland.url = "github:hyprwm/Hyprland";
 
+    hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
+    hyprland-plugins.inputs.hyprland.follows = "hyprland";
+
     impermanence.url = "github:nix-community/impermanence";
 
     nix-index-database.url = "github:nix-community/nix-index-database";

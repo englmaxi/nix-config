@@ -14,7 +14,11 @@ in {
       ];
 
     windowrule =
-      mkWindowRule "class:clipse" [
+      mkWindowRule "floating:1" [
+        "maxsize 1200 800"
+        "center 1"
+      ]
+      ++ mkWindowRule "class:clipse" [
         "float"
         "size 850 700"
         "stayfocused"
@@ -36,11 +40,18 @@ in {
         "noborder"
         "noinitialfocus"
         "opacity 1.0 override"
+      ]
+      ++ mkWindowRule "class:^(org.pulseaudio.pavucontrol)$" [
+        "float"
+        "size 45%"
+        "center"
       ];
 
     workspace = [
+      "s[true], gapsout:60"
+
       "special:scratchpad, on-created-empty:$terminal"
-      "special:scratchpad, gapsout:100"
+      "special:spotify,    on-created-empty:spotify"
     ];
   };
 }

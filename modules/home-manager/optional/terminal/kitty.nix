@@ -8,7 +8,7 @@
     font.size = 12;
     font.name = lib.mkDefault "FiraCode Nerd Font Mono";
     extraConfig = ''
-      window_padding_width 8
+      window_padding_width 0 8 8
       map kitty_mod+up resize_window taller
       map kitty_mod+down resize_window shorter 3
       map kitty_mod+t new_tab_with_cwd

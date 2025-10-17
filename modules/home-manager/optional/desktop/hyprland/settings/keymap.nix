@@ -44,8 +44,9 @@
     "$mod,       F, fullscreen, 1"
     "$mod SHIFT, F, fullscreen, 0"
 
-    "$mod, V, togglefloating,"
+    "$mod, V, togglefloating"
     "$mod, P, pin"
+    "$mod, G, togglegroup"
 
     "$mod, left,  movefocus, l"
     "$mod, right, movefocus, r"
@@ -65,12 +66,18 @@
 
     "$mod,       N, togglespecialworkspace, scratchpad"
     "$mod SHIFT, N, movetoworkspace,        special:scratchpad"
+
+    "$mod, P, togglespecialworkspace, spotify"
   ];
 
   mediaBinds = [
     ", XF86AudioRaiseVolume, exec, pamixer -i 5"
     ", XF86AudioLowerVolume, exec, pamixer -d 5"
     ", XF86AudioMute,        exec, pamixer -t"
+    ", XF86AudioPlay,        exec, playerctl play-pause"
+    ", XF86AudioPause,       exec, playerctl play-pause"
+    ", XF86AudioNext,        exec, playerctl next"
+    ", XF86AudioPrev,        exec, playerctl previous"
 
     ", XF86MonBrightnessUp,   exec, light -A 5"
     ", XF86MonBrightnessDown, exec, light -U 5"
@@ -85,9 +92,8 @@
 
   gestures = [
     "3, horizontal, workspace"
-    "3, up,         fullscreen, maximize"
     "3, down,       special,    scratchpad"
-    "4, down,       close"
+    "3, up,         special,    scratchpad"
   ];
 
   cfg = config.modules.home-manager.optional.desktop.hyprland;
