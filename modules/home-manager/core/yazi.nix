@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   programs.yazi = {
     enable = true;
+    enableFishIntegration = true;
     enableZshIntegration = true;
     plugins = {
       git = pkgs.yaziPlugins.git;

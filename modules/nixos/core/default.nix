@@ -25,10 +25,8 @@
     pkgs.vim
   ];
 
-  programs.zsh = {
-    enable = true;
-    #enableCompletion = true;
-  };
+  programs.zsh.enable = true;
+  programs.fish.enable = true;
 
   services = {
     avahi = {

@@ -1,5 +1,5 @@
 {inputs, ...}: let
-  userName = "engl";
+  userName = builtins.baseNameOf (builtins.toString ./.);
 in {
   imports = [
     # core

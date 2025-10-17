@@ -1,5 +1,5 @@
 {inputs, ...}: let
-  hostName = "xps13";
+  hostName = builtins.baseNameOf (builtins.toString ./.);
 in {
   imports = [
     # modules

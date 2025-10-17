@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  hostName = "pc";
+  hostName = builtins.baseNameOf (builtins.toString ./.);
 in {
   imports = [
     # modules

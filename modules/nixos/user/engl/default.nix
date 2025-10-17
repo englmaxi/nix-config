@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  userName = "engl";
+  userName = builtins.baseNameOf (builtins.toString ./.);
   ifTheyExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
 in {
   home-manager.users.${userName} = import (../../../../home + "/${userName}/${config.networking.hostName}.nix");
@@ -23,7 +23,7 @@ in {
       ];
       home = "/home/${userName}";
       hashedPasswordFile = config.sops.secrets."hashed_passwords/${userName}".path;
-      shell = pkgs.zsh;
+      shell = pkgs.fish;
       packages = [pkgs.home-manager];
 
       openssh.authorizedKeys.keys =

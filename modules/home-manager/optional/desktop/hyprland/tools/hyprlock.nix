@@ -29,9 +29,21 @@
           check_color = "rgb(${c.base0A})";
           outline_thickness = 2;
           size = "200, 50";
-          position = "0, -80";
+          position = "0, -120";
           monitor = "";
           dots_center = true;
+        }
+      ];
+
+      label = [
+        {
+          text = ''cmd[update:1000] echo "<b><big> $(date +"%H:%M") </big></b>"'';
+          color = "rgb(${c.base05})";
+          font_size = 96;
+          position = "0, 200";
+          halign = "center";
+          valign = "center";
+          monitor = "";
         }
       ];
     };

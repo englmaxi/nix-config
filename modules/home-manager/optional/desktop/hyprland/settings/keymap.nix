@@ -24,6 +24,10 @@
     "$mod,       E,      exec, $fileManager"
     "$mod,       SPACE,  exec, rofi -show combi -modes \"calc,combi\" -combi-modes \"drun,run,emoji\""
     "$mod ALT_L, V,      exec, kitty --class clipse -e clipse"
+
+    "$mod,       L, exec, loginctl lock-session"
+    "$mod SHIFT, L, exec, systemctl suspend-then-hibernate"
+    "$mod ALT_L, L, exec, systemctl hibernate"
   ];
 
   screenshotDir = "${config.xdg.userDirs.pictures}/screenshots";

@@ -12,7 +12,7 @@
     ./tmux.nix
     ./user-dirs.nix
     ./yazi.nix
-    ./zsh.nix
+    ./fish.nix
   ];
 
   home.packages = builtins.attrValues {
