@@ -44,7 +44,7 @@
         betterRoleDot.enable = true;
         betterUploadButton.enable = true;
         callTimer.enable = true;
-        clearURLs.enable = true;
+        # clearURLs.enable = true;
         crashHandler.enable = true;
         dearrow.enable = true;
         fullSearchContext.enable = true;
@@ -85,11 +85,9 @@
   home =
     lib.optionalAttrs (builtins.hasAttr "persistence" config.home)
     {
-      persistence = {
-        "/persist/${config.home.homeDirectory}" = {
-          directories = [".config/vesktop/sessionData"];
-          files = [".config/vesktop/state.json"];
-        };
+      persistence."/persist" = {
+        directories = [".config/vesktop/sessionData"];
+        files = [".config/vesktop/state.json"];
       };
     };
 }

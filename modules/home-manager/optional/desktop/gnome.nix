@@ -67,7 +67,7 @@ in {
     lib.optionalAttrs (builtins.hasAttr "persistence" config.home)
     {
       persistence = {
-        "/persist/${config.home.homeDirectory}".files = [".config/monitors.xml"];
+        "/persist".files = [".config/monitors.xml"];
       };
     };
   

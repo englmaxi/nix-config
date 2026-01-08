@@ -41,8 +41,6 @@
       ];
     }
     // lib.optionalAttrs (builtins.hasAttr "persistence" config.home) {
-      persistence = {
-        "/persist/${config.home.homeDirectory}".directories = [".config/Code/User"];
-      };
+      persistence."/persist".directories = [".config/Code/User"];
     };
 }

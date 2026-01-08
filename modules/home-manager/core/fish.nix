@@ -14,7 +14,6 @@
         [
           "autopair"
           "done"
-          "exercism-cli-fish-wrapper"
           "fish-bd"
           "fish-you-should-use"
           "fzf-fish"
@@ -23,13 +22,11 @@
         ];
     };
 
-
     starship = {
       enable = true;
       enableFishIntegration = true;
       settings.add_newline = true;
     };
-
 
     carapace.enable = true;
     carapace.enableFishIntegration = true;

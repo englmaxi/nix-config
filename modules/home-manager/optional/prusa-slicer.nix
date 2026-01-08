@@ -10,13 +10,11 @@
     }
     // lib.optionalAttrs (builtins.hasAttr "persistence" config.home)
     {
-      persistence = {
-        "/persist/${config.home.homeDirectory}" = {
-          directories = [
-            ".local/share/prusa-slicer"
-            ".config/PrusaSlicer"
-          ];
-        };
+      persistence."/persist" = {
+        directories = [
+          ".local/share/prusa-slicer"
+          ".config/PrusaSlicer"
+        ];
       };
     };
 }

@@ -4,65 +4,70 @@
 in {
   wayland.windowManager.hyprland.settings = {
     layerrule =
-      mkLayerRule "waybar" [
-        "blur"
-        "ignorezero"
+      mkLayerRule "match:namespace waybar" [
+        "blur on"
+        "ignore_alpha 0"
       ]
-      ++ mkLayerRule "rofi" [
-        "blur"
-        "ignorealpha"
+      ++ mkLayerRule "match:namespace rofi" [
+        "blur on"
+        "ignore_alpha 0"
       ];
 
     windowrule =
-      mkWindowRule "floating:1" [
-        "maxsize 1200 800"
-        "center 1"
+      mkWindowRule "match:class .*" [
+        "suppress_event maximize"
       ]
-      ++ mkWindowRule "class:clipse" [
-        "float"
+      ++ mkWindowRule "match:float true" [
+        "max_size 1200 800"
+        "center on"
+      ]
+      ++ mkWindowRule "match:class clipse" [
+        "float on"
         "size 850 700"
-        "stayfocused"
+        "stay_focused on"
       ]
-      ++ mkWindowRule "class:^(Gimp)$" [
+      ++ mkWindowRule "match:class ^(Gimp)$" [
         "opacity 1.0 override"
       ]
-      ++ mkWindowRule "class:^(MEGAsync)$" [
-        "float"
-        "noborder"
-        "noblur"
-        "noshadow"
+      ++ mkWindowRule "match:class ^(MEGAsync)$" [
+        "float on"
+        "border_size 0"
+        "no_blur on"
+        "no_shadow on"
         "opacity 1.0 override"
       ]
-      ++ mkWindowRule "class:^(MEGAsync)$,title:^(Add sync)$" [
-        "float"
+      ++ mkWindowRule "match:class ^(MEGAsync)$, match:title ^(Add sync)$" [
+        "float on"
         "size 800 600"
-        "center"
-        "nofocus"
-        "noborder"
-        "noblur"
-        "noshadow"
+        "center on"
+        "no_focus on"
+        "border_size 0"
+        "no_blur on"
+        "no_shadow on"
         "opacity 1.0 override"
       ]
-      ++ mkWindowRule "title:^(Picture-in-Picture)$" [
-        "float"
-        "pin"
+      ++ mkWindowRule "match:title ^(Picture-in-Picture)$" [
+        "float on"
+        "pin on"
         "size 270 204"
         "move 100%-270 100%-204"
-        "noborder"
-        "noinitialfocus"
+        "border_size 0"
+        "no_initial_focus on"
         "opacity 1.0 override"
       ]
-      ++ mkWindowRule "class:^(org.pulseaudio.pavucontrol)$" [
-        "float"
+      ++ mkWindowRule "match:class ^(org.pulseaudio.pavucontrol)$" [
+        "float on"
         "size 45%"
-        "center"
+        "center on"
       ];
 
     workspace = [
-      "s[true], gapsout:60"
+      "s[true], gapsout:80"
 
       "special:scratchpad, on-created-empty:$terminal"
       "special:spotify,    on-created-empty:spotify"
+
+      "w[tv1]s[false]m[DP-2], gapsout:20 520"
     ];
   };
 }

@@ -20,9 +20,11 @@
     programs = {
       git = {
         enable = true;
-        userName = cfg.userName;
-        userEmail = cfg.email;
-        extraConfig.init.defaultBranch = "main";
+        settings = {
+          user.name = cfg.userName;
+          user.email = cfg.email;
+          init.defaultBranch = "main";
+        };
       };
       lazygit.enable = true;
     };

@@ -17,12 +17,10 @@
     }
     // lib.optionalAttrs (builtins.hasAttr "persistence" config.home)
     {
-      persistence = {
-        "/persist/${config.home.homeDirectory}" = {
-          directories = [
-            ".local/share/Steam"
-          ];
-        };
+      persistence."/persist" = {
+        directories = [
+          ".local/share/Steam"
+        ];
       };
     };
 }

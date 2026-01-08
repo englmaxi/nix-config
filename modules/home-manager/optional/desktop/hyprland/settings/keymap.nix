@@ -20,10 +20,10 @@
     9);
 
   appBinds = [
-    "$mod,       RETURN, exec, $terminal"
-    "$mod,       E,      exec, $fileManager"
-    "$mod,       SPACE,  exec, rofi -show combi -modes \"calc,combi\" -combi-modes \"drun,run,emoji\""
-    "$mod ALT_L, V,      exec, kitty --class clipse -e clipse"
+    "$mod,       RETURN, exec, uwsm app -- $terminal"
+    "$mod,       E,      exec, uwsm app -- $fileManager"
+    "$mod,       SPACE,  exec, uwsm app -- rofi -show combi -modes \"calc,combi\" -combi-modes \"drun,run,emoji\""
+    "$mod ALT_L, V,      exec, uwsm app -- kitty --class clipse -e clipse"
 
     "$mod,       L, exec, loginctl lock-session"
     "$mod SHIFT, L, exec, systemctl suspend-then-hibernate"
@@ -32,9 +32,9 @@
 
   screenshotDir = "${config.xdg.userDirs.pictures}/screenshots";
   screenshotBinds = [
-    ",           PRINT, exec, hyprshot -o ${screenshotDir} -zm region"
-    "$mod,       PRINT, exec, hyprshot -o ${screenshotDir} -zm window"
-    "$mod SHIFT, PRINT, exec, hyprshot -o ${screenshotDir} -zm output"
+    ",           PRINT, exec, uwsm app -- hyprshot -o ${screenshotDir} -zm region"
+    "$mod,       PRINT, exec, uwsm app -- hyprshot -o ${screenshotDir} -zm window"
+    "$mod SHIFT, PRINT, exec, uwsm app -- hyprshot -o ${screenshotDir} -zm output"
   ];
 
   windowBinds = [

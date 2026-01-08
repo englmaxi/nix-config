@@ -10,12 +10,10 @@
     }
     // lib.optionalAttrs (builtins.hasAttr "persistence" config.home)
     {
-      persistence = {
-        "/persist/${config.home.homeDirectory}" = {
-          directories = [
-            ".local/share/PrismLauncher"
-          ];
-        };
+      persistence."/persist" = {
+        directories = [
+          ".local/share/PrismLauncher"
+        ];
       };
     };
 }

@@ -14,6 +14,10 @@
     light.enable = true;
   };
 
+  xdg.portal = {
+    enable = true;
+  };
+
   security = {
     polkit.enable = true;
     rtkit.enable = true;
@@ -31,8 +35,10 @@
     '';
 
     greetd = let
-      cmd = "uwsm start hyprland-uwsm.desktop";
-      options = "--time --remember --remember-user-session --asterisks";
+      # cmd = "uwsm start hyprland-uwsm.desktop"; see issue #12661
+      # options = "--time --remember --remember-user-session --asterisks";
+      cmd = "uwsm start hyprland.desktop";
+      options = "--time --remember --asterisks";
     in {
       enable = true;
       settings = {

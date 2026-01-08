@@ -4,11 +4,7 @@
   lib,
   ...
 }: {
-  imports = [
-    inputs.impermanence.homeManagerModules.impermanence
-  ];
-
-  home.persistence."/persist/${config.home.homeDirectory}" = let
+  home.persistence."/persist" = let
     fromHome = path:
       with lib.strings;
         removePrefix
@@ -22,6 +18,5 @@
       ])
       "git"
     ];
-    allowOther = true;
   };
 }

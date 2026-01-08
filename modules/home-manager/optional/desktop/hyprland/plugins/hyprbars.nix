@@ -28,8 +28,8 @@
         on_double_click = "hyprctl dispatch fullscreen 1";
       };
       windowrule = [
-        "plugin:hyprbars:nobar, onworkspace:s[true]"
-        "plugin:hyprbars:nobar, floating:1, pinned:1"
+        "hyprbars:no_bar 1, match:workspace s[true]"
+        "hyprbars:no_bar 1, match:float 1, match:pin 1"
       ];
     };
   };

@@ -46,9 +46,13 @@ in {
     networkmanager.enable = true;
   };
 
-  boot.loader = {
-    systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
+  boot = {
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
+    kernelParams = [
+      "resume_offset=48243968" # "$ btrfs inspect-internal map-swapfile -r /swap/swapfile"
+    ];
+    resumeDevice = "/dev/disk/by-label/nixos";
   };
 
   swapDevices = [
@@ -61,6 +65,9 @@ in {
   nixpkgs.config.nvidia.acceptLicense = true;
 
   hardware = {
+    bluetooth.enable = true;
+    bluetooth.powerOnBoot = true;
+
     graphics = {
       enable = true;
       extraPackages = [pkgs.nvidia-vaapi-driver];

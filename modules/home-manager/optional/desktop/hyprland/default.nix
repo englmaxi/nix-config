@@ -36,6 +36,8 @@
           ];
         dwindle = {
           smart_split = true;
+          pseudotile = true;
+          preserve_split = true;
         };
         misc = {
           vfr = true;
@@ -43,7 +45,7 @@
       };
     };
 
-    stylix.iconTheme = {
+    stylix.icons = {
       enable = true;
       package = pkgs.papirus-icon-theme;
       dark = "Papirus-Dark";
@@ -59,7 +61,7 @@
     home =
       lib.optionalAttrs (builtins.hasAttr "persistence" config.home)
       {
-        persistence."/persist/${config.home.homeDirectory}".directories = [
+        persistence."/persist".directories = [
           ".local/state/wireplumber"
         ];
       };
