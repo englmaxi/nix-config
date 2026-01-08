@@ -31,6 +31,17 @@ in {
         "noborder"
         "noblur"
         "noshadow"
+        "opacity 1.0 override"
+      ]
+      ++ mkWindowRule "class:^(MEGAsync)$,title:^(Add sync)$" [
+        "float"
+        "size 800 600"
+        "center"
+        "nofocus"
+        "noborder"
+        "noblur"
+        "noshadow"
+        "opacity 1.0 override"
       ]
       ++ mkWindowRule "title:^(Picture-in-Picture)$" [
         "float"

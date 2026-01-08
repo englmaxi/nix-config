@@ -13,6 +13,8 @@ in {
     ../../modules/home-manager/optional/extra-gui.nix
     ../../modules/home-manager/optional/impermanence.nix
     ../../modules/home-manager/optional/megasync.nix
+    ../../modules/home-manager/optional/obsidian.nix
+    ../../modules/home-manager/optional/podman.nix
     ../../modules/home-manager/optional/sops.nix
     ../../modules/home-manager/optional/spotify.nix
     ../../modules/home-manager/optional/social/discord.nix

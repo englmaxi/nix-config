@@ -6,7 +6,7 @@
 }: {
   home =
     {
-      packages = [pkgs.megasync];
+      packages = [pkgs.megasync pkgs.megacmd];
     }
     // lib.optionalAttrs (builtins.hasAttr "persistence" config.home)
     {
