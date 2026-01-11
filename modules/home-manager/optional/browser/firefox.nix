@@ -24,14 +24,14 @@
       name = "default";
       isDefault = true;
       settings = {
-        "browser.startup.homepage" = "https://searx.aicampground.com";
-        "browser.search.defaultenginename" = "Searx";
-        "browser.search.order.1" = "Searx";
+        "browser.startup.homepage" = "https://www.startpage.com";
+        "browser.search.defaultenginename" = "Startpage";
+        "browser.search.order.1" = "Startpage";
       };
       search = {
         force = true;
-        default = "Searx";
-        order = ["Searx" "google"];
+        default = "Startpage";
+        order = ["Startpage" "Searx" "google"];
         engines = {
           "Nix Packages" = {
             urls = [
@@ -109,6 +109,22 @@
             icon = "https://nixos.wiki/favicon.png";
             updateInterval = 24 * 60 * 60 * 1000; # every day
             definedAliases = ["@searx"];
+          };
+          "Startpage" = {
+            urls = [
+              {
+                template = "https://www.startpage.com/do/search";
+                params = [
+                  {
+                    name = "query";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
+            icon = "https://cdn.startpage.com/sp/cdn/favicons/mobile/apple-icon-180x180.png";
+            updateInterval = 24 * 60 * 60 * 1000; # every day
+            definedAliases = ["@sp"];
           };
           "bing".metaData.hidden = true;
           "google".metaData.alias = "@g";

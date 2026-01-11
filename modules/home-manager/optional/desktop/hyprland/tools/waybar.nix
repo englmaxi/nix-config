@@ -96,13 +96,23 @@
           format = "<b>{:%a %d. %b  %H:%M}</b>";
           format-alt = "<b>{:%d.%m.%Y  %H:%M:%S}</b>";
           on-click-left = "mode";
-          tooltip-format = "{calendar}";
+          tooltip-format = "<span size='${builtins.toString config.stylix.fonts.sizes.desktop}pt' font='${config.stylix.fonts.monospace.name}'>{calendar}</span>";
           calendar = {
             weeks-pos = "right";
+            mode-mon-col = 3;
+            on-scroll = 1;
             format = {
-              today = "<span><b><u>{}</u></b></span>";
-              weeks = "<span><b>{}</b></span>";
+              months = "<b>{}</b>";
+              days = "{}";
+              weeks = "<b>W{:%V}</b>";
+              weekdays = "<b>{}</b>";
+              today = "<b><u>{}</u></b>";
             };
+          };
+          actions = {
+            on-click-right = "mode";
+            on-scroll-up = "shift_up";
+            on-scroll-down = "shift_down";
           };
         };
 
@@ -118,7 +128,7 @@
         };
 
         "hyprland/window" = {
-          max-length = 50;
+          max-length = 100;
           rewrite = {
             "(.*) — Mozilla Firefox" = "  $1";
             "(.*) - Visual Studio Code" = "󰨞  $1";
@@ -133,8 +143,8 @@
           window-rewrite-default = " ";
           window-rewrite = {
             "title<.*youtube.*>" = " ";
-            "class<firefox>" = " ";
             "class<firefox> title<.*github.*>" = " ";
+            "class<firefox>" = " ";
             "kitty" = " ";
             "code" = "󰨞 ";
             "spotify" = " ";
@@ -153,7 +163,7 @@
 
       * {
         border: solid;
-        border-radius: 8px;
+        border-radius: 10px;
         background: transparent;
         font-family: "${config.stylix.fonts.sansSerif.name}";
         font-size: ${builtins.toString config.stylix.fonts.sizes.desktop}pt;
@@ -168,9 +178,9 @@
       }
       #workspaces button {
         background: @theme_base_color;
-        margin: 5 3px;
-        padding: 2 10px;
-        border-radius: 8px
+        margin: 4px;
+        padding: 2px 10px;
+        border-radius: 6px
       }
       #workspaces button.active {
         border: none;
@@ -183,7 +193,7 @@
         color: shade(@theme_text_color, 0.4);
       }
       #tray {
-        padding-right: 8px;
+        padding-right: 10px;
       }
     '';
   };
