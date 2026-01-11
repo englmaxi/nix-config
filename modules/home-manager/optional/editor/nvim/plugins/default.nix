@@ -3,6 +3,7 @@
     ./blink-cmp.nix
     ./conform-nvim.nix
     ./gitblame.nix
+    ./gitsigns.nix
     ./guess-indent.nix
     ./indent-blankline.nix
     ./lsp.nix

@@ -27,6 +27,9 @@
         };
       };
       lazygit.enable = true;
+      lazygit.settings = {
+        disableStartupPopups = true;
+      };
     };
   };
 }
