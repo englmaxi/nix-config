@@ -57,7 +57,9 @@ in {
       ]
       ++ mkWindowRule "match:class ^(org.pulseaudio.pavucontrol)$" [
         "float on"
-        "size 45%"
+        "size 1200 800"
+        "stay_focused on"
+        "dim_around on"
         "center on"
       ];
 
