@@ -26,6 +26,15 @@
         border = mkLiteral "0px 0px 2px";
         border-color = mkLiteral "@selected-normal-background";
       };
+      mode-switcher = {
+        padding = mkLiteral "10px 0px 0px";
+        border = mkLiteral "2px 0px 0px";
+        border-color = mkLiteral "@selected-normal-background";
+      };
+      button = {
+        border-radius = mkLiteral "10px";
+        padding = mkLiteral "4px";
+      };
       entry = {
         font = let inherit (config.stylix) fonts; in "${fonts.monospace.name} Bold ${toString (fonts.sizes.popups + 1)}";
       };

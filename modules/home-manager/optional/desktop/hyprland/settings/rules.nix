@@ -11,6 +11,7 @@ in {
       ++ mkLayerRule "match:namespace rofi" [
         "blur on"
         "ignore_alpha 0"
+        "dim_around on"
       ];
 
     windowrule =

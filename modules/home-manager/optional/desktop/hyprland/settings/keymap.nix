@@ -3,11 +3,20 @@
   lib,
   ...
 }: let
-  inherit (lib) concatLists genList;
+  inherit (lib) concatLists genList concatStringsSep;
 
   mod = "SUPER";
   terminal = "kitty";
   fileManager = "kitty -e yazi";
+  launcherCmd = concatStringsSep " " [
+    "rofi -show combi"
+    "-modes \"calc,combi,window\""
+    "-combi-modes \"drun,run,emoji\""
+    # "-show-icons"
+    "-display-drun \"\""
+    "-display-run \" ❯\""
+    "-sidebar-mode"
+  ];
 
   wsBinds = concatLists (genList (
       i: let
@@ -22,7 +31,7 @@
   appBinds = [
     "$mod,       RETURN, exec, uwsm app -- $terminal"
     "$mod,       E,      exec, uwsm app -- $fileManager"
-    "$mod,       SPACE,  exec, uwsm app -- rofi -show combi -modes \"calc,combi\" -combi-modes \"drun,run,emoji\""
+    "$mod,       SPACE,  exec, uwsm app -- ${launcherCmd}"
     "$mod ALT_L, V,      exec, uwsm app -- kitty --class clipse -e clipse"
 
     "$mod,       L, exec, loginctl lock-session"
