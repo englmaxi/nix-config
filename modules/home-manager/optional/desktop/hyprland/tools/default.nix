@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   imports = [
+    ./dunst.nix
     ./hypridle.nix
     ./hyprlock.nix
     ./rofi.nix
@@ -20,7 +21,6 @@
   services = {
     clipse.enable = true;
     clipse.imageDisplay.type = "kitty";
-    dunst.enable = true;
     hyprpolkitagent.enable = true;
     blueman-applet.enable = true;
     udiskie.enable = true;

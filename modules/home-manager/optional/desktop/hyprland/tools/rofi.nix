@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   ...
 }: {
@@ -9,6 +10,7 @@
     plugins = [
       pkgs.rofi-calc
       pkgs.rofi-emoji
+      pkgs.rofi-nerdy
     ];
     theme = let
       inherit (config.lib.formats.rasi) mkLiteral;

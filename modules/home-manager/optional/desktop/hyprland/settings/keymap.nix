@@ -11,7 +11,7 @@
   launcherCmd = concatStringsSep " " [
     "rofi -show combi"
     "-modes \"calc,combi,window\""
-    "-combi-modes \"drun,run,emoji\""
+    "-combi-modes \"drun,run,nerdy,emoji\""
     # "-show-icons"
     "-display-drun \"\""
     "-display-run \" ❯\""
