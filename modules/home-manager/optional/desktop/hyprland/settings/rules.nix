@@ -36,6 +36,7 @@ in {
         "no_blur on"
         "no_shadow on"
         "opacity 1.0 override"
+        # "fullscreen on" # enable if there are problems while configurating
       ]
       ++ mkWindowRule "match:class ^(MEGAsync)$, match:title ^(Add sync)$" [
         "float on"

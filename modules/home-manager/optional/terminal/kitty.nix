@@ -16,6 +16,7 @@
       map kitty_mod+f toggle_layout stack
       enable_audio_bell no
       cursor_trail 1
+      copy_on_select 1
       # background_opacity ${builtins.toString config.stylix.opacity.desktop}
     '';
   };

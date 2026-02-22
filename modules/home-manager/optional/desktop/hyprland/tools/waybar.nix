@@ -106,7 +106,7 @@
               days = "{}";
               weeks = "<b>W{:%V}</b>";
               weekdays = "<b>{}</b>";
-              today = "<b><u>{}</u></b>";
+              today = "<b>{}</b>";
             };
           };
           actions = {
