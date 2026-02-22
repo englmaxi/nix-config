@@ -22,7 +22,7 @@
       monospace.package = pkgs.nerd-fonts.fira-code;
       monospace.name = "FiraCode Nerd Font Mono";
 
-      emoji.package = pkgs.noto-fonts-emoji;
+      emoji.package = pkgs.noto-fonts-color-emoji;
       emoji.name = "Noto Color Emoji";
     };
     cursor = {
