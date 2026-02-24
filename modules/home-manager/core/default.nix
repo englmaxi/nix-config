@@ -35,6 +35,12 @@
       wget
       xsel
       wl-clipboard
+      dust
+      dua
+      tldr
+      uutils-coreutils-noprefix
+      hyperfine
+      just
       ;
   };
 
