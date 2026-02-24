@@ -24,6 +24,7 @@
       set -ga terminal-overrides ",*256col*:Tc"
       set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
       set-environment -g COLORTERM "truecolor"
+      set -g mode-keys vi
 
       set -s escape-time 10
       set -sg repeat-time 600
