@@ -4,7 +4,7 @@
       (pkgs)
       android-tools
       audacity
-      calibre
+      # calibre
       gimp
       scrcpy
       veracrypt

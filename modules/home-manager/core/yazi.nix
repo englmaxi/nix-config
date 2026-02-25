@@ -3,6 +3,7 @@
     enable = true;
     enableFishIntegration = true;
     enableZshIntegration = true;
+    shellWrapperName = "y";
     plugins = {
       git = pkgs.yaziPlugins.git;
       ouch = pkgs.yaziPlugins.ouch;

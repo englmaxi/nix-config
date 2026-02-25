@@ -30,10 +30,10 @@ with lib; {
         documents = "${hd}/docs";
         pictures = "${hd}/pics";
         extraConfig = {
-          XDG_MUSIC_DIR = "/var/empty";
-          XDG_VIDEOS_DIR = "/var/empty";
-          XDG_PUBLICSHARE_DIR = "/var/empty";
-          XDG_TEMPLATES_DIR = "/var/empty";
+          MUSIC = "/var/empty";
+          VIDEOS = "/var/empty";
+          PUBLICSHARE = "/var/empty";
+          TEMPLATES = "/var/empty";
         };
       };
   };

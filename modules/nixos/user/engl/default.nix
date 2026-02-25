@@ -20,6 +20,8 @@ in {
         "video"
         "podman"
         "wheel"
+        "uucp"
+        "dialout"
       ];
       home = "/home/${userName}";
       hashedPasswordFile = config.sops.secrets."hashed_passwords/${userName}".path;

@@ -16,5 +16,6 @@
         popups = true;
       };
     };
+    misc.disable_splash_rendering = true;
   };
 }
