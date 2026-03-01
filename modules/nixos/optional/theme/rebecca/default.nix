@@ -18,14 +18,14 @@
     polarity = "dark";
     image = ./wallpaper.png;
     fonts = {
-      serif.package = pkgs.fira;
-      serif.name = "Fira Serif";
+      sansSerif.package = pkgs.atkinson-hyperlegible-next;
+      sansSerif.name = "Atkinson Hyperlegible Next";
 
-      sansSerif.package = pkgs.fira;
-      sansSerif.name = "Fira Sans";
+      serif.package = pkgs.atkinson-hyperlegible-next;
+      serif.name = "Atkinson Hyperlegible Next";
 
-      monospace.package = pkgs.nerd-fonts.fira-code;
-      monospace.name = "FiraCode Nerd Font Mono";
+      monospace.package = pkgs.nerd-fonts.jetbrains-mono;
+      monospace.name = "JetBrainsMono Nerd Font Mono";
 
       emoji.package = pkgs.noto-fonts-color-emoji;
       emoji.name = "Noto Color Emoji";

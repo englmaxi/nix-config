@@ -6,16 +6,28 @@
     };
     decoration = {
       active_opacity = 0.9;
-      inactive_opacity = 0.65;
+      inactive_opacity = 0.75;
       fullscreen_opacity = 1.0;
       rounding = 10;
       blur = {
         enabled = true;
         size = 8;
         passes = 3;
-        popups = true;
+        popups = false;
       };
     };
-    misc.disable_splash_rendering = true;
+    dwindle = {
+      smart_split = false;
+      pseudotile = true;
+      preserve_split = true;
+    };
+    misc = {
+      vfr = true;
+      disable_splash_rendering = true;
+    };
+    group.groupbar = {
+      font_size = 16;
+      rounding = 2;
+    };
   };
 }

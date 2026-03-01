@@ -34,14 +34,6 @@
           ++ [
             ", preferred, auto, 1"
           ];
-        dwindle = {
-          smart_split = true;
-          pseudotile = true;
-          preserve_split = true;
-        };
-        misc = {
-          vfr = true;
-        };
       };
     };
 

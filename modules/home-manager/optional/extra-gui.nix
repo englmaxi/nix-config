@@ -5,6 +5,7 @@
       android-tools
       audacity
       # calibre
+      chromium
       gimp
       scrcpy
       veracrypt

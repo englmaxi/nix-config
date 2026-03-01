@@ -18,15 +18,21 @@
     "-sidebar-mode"
   ];
 
-  wsBinds = concatLists (genList (
-      i: let
-        ws = i + 1;
-      in [
-        "$mod,       code:1${toString i}, workspace,       ${toString ws}"
-        "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
-      ]
-    )
-    9);
+  wsBinds =
+    concatLists (genList (
+        i: let
+          ws = i + 1;
+        in [
+          "$mod,       code:1${toString i}, workspace,       ${toString ws}"
+          "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
+        ]
+      )
+      9)
+    ++ [
+      "ALT_L,      TAB, workspace, m+1"
+      "$mod ALT_L, TAB, workspace, empty"
+      "$mod,        0,  workspace, empty"
+    ];
 
   appBinds = [
     "$mod,       RETURN, exec, uwsm app -- $terminal"
@@ -36,7 +42,7 @@
 
     "$mod,       L, exec, loginctl lock-session"
     "$mod SHIFT, L, exec, systemctl suspend-then-hibernate"
-    "$mod ALT_L, L, exec, systemctl hibernate"
+    "$mod ALT,   L, exec, systemctl hibernate"
   ];
 
   screenshotDir = "${config.xdg.userDirs.pictures}/screenshots";
@@ -47,7 +53,7 @@
   ];
 
   windowBinds = [
-    "$mod, Q,  killactive"
+    "$mod, C,  killactive"
     "ALT,  F4, forcekillactive"
 
     "$mod,       F, fullscreen, 1"
@@ -55,7 +61,11 @@
 
     "$mod, V, togglefloating"
     "$mod, P, pin"
-    "$mod, G, togglegroup"
+    "$mod, S, layoutmsg, togglesplit"
+
+    "$mod,         G,     togglegroup"
+    "$mod Control, left,  changegroupactive, l"
+    "$mod Control, right, changegroupactive, r"
 
     "$mod, left,  movefocus, l"
     "$mod, right, movefocus, r"
@@ -66,12 +76,6 @@
     "$mod SHIFT, right, swapwindow, r"
     "$mod SHIFT, up,    swapwindow, u"
     "$mod SHIFT, down,  swapwindow, d"
-
-    "$mod, S, togglespecialworkspace, hidden"
-    "$mod, S, movetoworkspace,        +0"
-    "$mod, S, togglespecialworkspace, hidden"
-    "$mod, S, movetoworkspace,        special:hidden"
-    "$mod, S, togglespecialworkspace, hidden"
 
     "$mod,       N, togglespecialworkspace, scratchpad"
     "$mod SHIFT, N, movetoworkspace,        special:scratchpad"

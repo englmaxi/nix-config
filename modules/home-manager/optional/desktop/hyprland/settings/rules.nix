@@ -31,23 +31,23 @@ in {
         "opacity 1.0 override"
       ]
       ++ mkWindowRule "match:class ^(MEGAsync)$" [
-        "float on"
+        # "float on"
         "border_size 0"
         "no_blur on"
         "no_shadow on"
         "opacity 1.0 override"
         # "fullscreen on" # enable if there are problems while configurating
       ]
-      ++ mkWindowRule "match:class ^(MEGAsync)$, match:title ^(Add sync)$" [
-        "float on"
-        "size 800 600"
-        "center on"
-        "no_focus on"
-        "border_size 0"
-        "no_blur on"
-        "no_shadow on"
-        "opacity 1.0 override"
-      ]
+      # ++ mkWindowRule "match:class ^(MEGAsync)$, match:title ^(Add sync)$" [
+      #   "float on"
+      #   "size 800 600"
+      #   "center on"
+      #   "no_focus on"
+      #   "border_size 0"
+      #   "no_blur on"
+      #   "no_shadow on"
+      #   "opacity 1.0 override"
+      # ]
       ++ mkWindowRule "match:title ^(Picture-in-Picture)$" [
         "float on"
         "pin on"
@@ -67,6 +67,7 @@ in {
 
     workspace = [
       "s[true], gapsout:80"
+      "s[true]m[DP-2], gapsout:80 600"
 
       "special:scratchpad, on-created-empty:$terminal"
       "special:spotify,    on-created-empty:spotify"
