@@ -48,6 +48,9 @@
         "image/png" = "qimgv.desktop";
         "image/jpeg" = "qimgv.desktop";
         "text/plain" = "nvim.desktop";
+        "text/html" = "firefox.desktop";
+        "x-scheme-handler/http" = "firefox.desktop";
+        "x-scheme-handler/https" = "firefox.desktop";
       };
     };
     home =
