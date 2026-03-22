@@ -11,7 +11,6 @@
       portalPackage = pkgs.inputs.hyprland.xdg-desktop-portal-hyprland;
       withUWSM = true;
     };
-    light.enable = true;
   };
 
   xdg.portal = {
@@ -53,6 +52,7 @@
       systemPackages = with pkgs; [
         pamixer
         networkmanagerapplet
+        brightnessctl
       ];
     }
     // lib.optionalAttrs (builtins.hasAttr "persistence" config.environment)

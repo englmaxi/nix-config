@@ -10,7 +10,7 @@
   ];
 
   sops = {
-    defaultSopsFile = "${builtins.toString inputs.secrets}/secrets.yaml";
+    defaultSopsFile = "${toString inputs.secrets}/secrets.yaml";
 
     age = {
       sshKeyPaths = [

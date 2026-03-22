@@ -24,12 +24,10 @@
     nixosConfigurations = {
       pc = lib.nixosSystem {
         inherit specialArgs;
-        system = "x86_64-linux";
         modules = [./hosts/pc];
       };
       xps13 = lib.nixosSystem {
         inherit specialArgs;
-        system = "x86_64-linux";
         modules = [./hosts/xps13];
       };
     };
@@ -45,7 +43,7 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland.url = "github:hyprwm/Hyprland/0002f148c9a4fe421a9d33c0faa5528cdc411e62"; # pin till hyprbars is fixed
 
     hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
     hyprland-plugins.inputs.hyprland.follows = "hyprland";
