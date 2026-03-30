@@ -28,6 +28,7 @@ in {
     ../../modules/nixos/optional/podman.nix
     ../../modules/nixos/optional/theme/rebecca
     ../../modules/nixos/optional/yubikey.nix
+    ../../modules/nixos/optional/distrobox.nix
 
     # users
     ../../modules/nixos/user/engl
