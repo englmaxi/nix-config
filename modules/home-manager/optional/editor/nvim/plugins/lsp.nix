@@ -1,31 +1,49 @@
 {...}: {
-  programs.nixvim.plugins.lsp = {
-    enable = true;
-    servers = {
-      ts_ls.enable = true;
-      lua_ls.enable = true;
-      pyright.enable = true;
-      clangd.enable = true;
-      nixd.enable = true;
-      rust_analyzer = {
-        enable = true;
-        installRustc = false;
-        installCargo = false;
+  programs.nixvim = {
+    plugins.lsp = {
+      enable = true;
+      servers = {
+        ts_ls.enable = true;
+        lua_ls.enable = true;
+        pyright.enable = true;
+        clangd.enable = true;
+        nixd.enable = true;
+        rust_analyzer = {
+          enable = true;
+          installRustc = false;
+          installCargo = false;
+        };
+        qmlls.enable = true;
+        zls.enable = true;
+        bashls.enable = true;
       };
-      qmlls.enable = true;
-      zls.enable = true;
-    };
-    postConfig = ''
-      vim.diagnostic.config {
-        signs = {
-          text = {
-            [vim.diagnostic.severity.ERROR] = "",
-            [vim.diagnostic.severity.WARN] = "",
-            [vim.diagnostic.severity.INFO] = "󰋼",
-            [vim.diagnostic.severity.HINT] = "󰌵",
-          },
+      postConfig = ''
+        vim.diagnostic.config {
+          signs = {
+            text = {
+              [vim.diagnostic.severity.ERROR] = "",
+              [vim.diagnostic.severity.WARN] = "",
+              [vim.diagnostic.severity.INFO] = "󰋼",
+              [vim.diagnostic.severity.HINT] = "󰌵",
+            },
+          }
         }
+      '';
+      keymaps.lspBuf = {
+        K = "hover";
+        gD = "references";
+        gd = "definition";
+        gi = "implementation";
+        gt = "type_definition";
+      };
+    };
+    keymaps = [
+      {
+        action = ":LspClangdSwitchSourceHeader<CR>";
+        key = "<leader>th";
+        mode = "n";
+        options.desc = "[T]oggle Source/[H]header";
       }
-    '';
+    ];
   };
 }

@@ -3,11 +3,12 @@
 
   outputs = {
     self,
+    home-manager,
     nixpkgs,
     systems,
     ...
   } @ inputs: let
-    inherit (nixpkgs) lib;
+    lib = nixpkgs.lib // home-manager.lib;
     inherit (self) outputs;
     specialArgs = {inherit inputs outputs;};
     forAllSystems = lib.genAttrs (import systems);
@@ -29,6 +30,14 @@
       xps13 = lib.nixosSystem {
         inherit specialArgs;
         modules = [./hosts/xps13];
+      };
+    };
+
+    homeConfigurations = {
+      "mel3048@ewsowks1276" = lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages."x86_64-linux";
+        extraSpecialArgs = specialArgs;
+        modules = [./home/mel3048/ewsowks1276.nix];
       };
     };
   };

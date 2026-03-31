@@ -997,10 +997,10 @@
     },
     "secrets": {
       "locked": {
-        "lastModified": 1774796485,
-        "narHash": "sha256-UeWWBBZV95DwWLZ08Uw0gtDvDd0dJOeM7obnsew/YZs=",
+        "lastModified": 1774980866,
+        "narHash": "sha256-XyH2ijA1IKXP+J8OpdRDKyEmHDRvkxiZxU1VW1hHoBQ=",
         "ref": "main",
-        "rev": "21e03585fa7598519965ec6987b0a59d11eca9c0",
+        "rev": "828232f7a990feb3e524e5557ddebb6d1afedccc",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/englmaxi/nix-secrets.git"
