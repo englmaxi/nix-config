@@ -41,6 +41,7 @@
       uutils-coreutils-noprefix
       hyperfine
       just
+      glow
       ;
   };
 
