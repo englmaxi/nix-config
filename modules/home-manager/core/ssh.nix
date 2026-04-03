@@ -24,15 +24,24 @@
 
   gitMatchBlocks = lib.attrsets.mergeAttrsList (
     map (entry: {
-      "git-${entry.host}" = {
-        host = entry.host;
-        user = "git";
-        forwardAgent = true;
-        identitiesOnly = true;
-        identityFile = [
-          "${config.home.homeDirectory}/.ssh/${entry.key}"
-        ];
-      };
+      "git-${entry.host}" =
+        {
+          host = entry.host;
+          user = "git";
+          forwardAgent = true;
+          identitiesOnly = true;
+          identityFile = [
+            "${config.home.homeDirectory}/.ssh/${
+              if entry.key != null
+              then entry.key
+              else cfg.defaultKey
+            }"
+          ];
+        }
+        // lib.optionalAttrs (entry.sshTunnel != null) {
+          hostname = "${entry.sshTunnel}.${entry.host}";
+          port = 443;
+        };
     })
     cfg.git
   );
@@ -52,19 +61,23 @@ in {
             description = "Git host (e.g. github.com)";
           };
           key = lib.mkOption {
-            type = lib.types.str;
+            type = lib.types.nullOr lib.types.str;
+            default = null;
             description = "SSH key name in ~/.ssh/";
+          };
+          sshTunnel = lib.mkOption {
+            type = lib.types.nullOr lib.types.str;
+            default = null;
+            description = "Tunnel ssh over HTTPS (<value>.hostname)";
           };
         };
       });
       default = [
         {
           host = "github.com";
-          key = "id_lori";
         }
         {
           host = "gitlab.com";
-          key = "id_lori";
         }
       ];
       description = "Git SSH host/key mappings.";
@@ -73,7 +86,7 @@ in {
     defaultKey = lib.mkOption {
       type = lib.types.str;
       default = "id_lori";
-      description = "Default SSH key for non-git hosts.";
+      description = "Default SSH key";
     };
   };
 
@@ -88,13 +101,13 @@ in {
             forwardAgent = false;
             addKeysToAgent = "no";
             compression = false;
-            serverAliveInterval = 0;
+            serverAliveInterval = 60;
             serverAliveCountMax = 3;
-            hashKnownHosts = false;
+            hashKnownHosts = true;
             userKnownHostsFile = "${lib.optionalString (lib.hasAttr "persistence" config.home) "/persist"}/home/${config.home.username}/.ssh/known_hosts";
-            controlMaster = "no";
+            controlMaster = "auto";
             controlPath = "~/.ssh/master-%r@%n:%p";
-            controlPersist = "no";
+            controlPersist = "5m";
           };
         }
         // gitMatchBlocks

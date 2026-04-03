@@ -16,21 +16,22 @@ in {
       git = {
         userName = inputs.secrets.config.git.work.userName;
         email = inputs.secrets.config.git.work.email;
+        signingKey = "id_rsa";
       };
       ssh = {
         hostMatchBlocks = false;
         git = [
           {
             host = "gitlab.com";
-            key = "id_rsa";
+            sshTunnel = "altssh";
           }
           {
             host = inputs.secrets.config.git.work.instance;
-            key = "id_rsa";
           }
           {
             host = "github.com";
             key = "id_ed25519_sk_rk";
+            sshTunnel = "ssh";
           }
         ];
         defaultKey = "id_rsa";

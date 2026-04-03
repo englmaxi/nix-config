@@ -12,6 +12,10 @@
       type = types.str;
       default = "";
     };
+    signingKey = mkOption {
+      type = types.nullOr types.str;
+      default = null;
+    };
   };
 
   config = let
@@ -20,11 +24,17 @@
     programs = {
       git = {
         enable = true;
-        settings = {
-          user.name = cfg.userName;
-          user.email = cfg.email;
-          init.defaultBranch = "main";
-        };
+        settings =
+          {
+            user.name = cfg.userName;
+            user.email = cfg.email;
+            init.defaultBranch = "main";
+          }
+          // lib.optionalAttrs (cfg.signingKey != null) {
+            user.signingkey = "${config.home.homeDirectory}/.ssh/${cfg.signingKey}.pub";
+            gpg.format = "ssh";
+            commit.pgpsign = true;
+          };
       };
       lazygit.enable = true;
       lazygit.settings = {
