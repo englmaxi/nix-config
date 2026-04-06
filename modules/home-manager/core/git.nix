@@ -31,7 +31,7 @@
             init.defaultBranch = "main";
           }
           (lib.optionalAttrs (cfg.signingKey != null) {
-            user.signingkey = "${config.home.homeDirectory}/.ssh/${cfg.signingKey}.pub";
+            user.signingkey = "${config.home.homeDirectory}/.ssh/${cfg.signingKey}";
             gpg.format = "ssh";
             commit.gpgsign = true;
           });
