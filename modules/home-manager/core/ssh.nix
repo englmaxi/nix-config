@@ -82,6 +82,7 @@
                 else cfg.defaultKey
               }"
             ];
+            addKeysToAgent = "yes";
           }
           // lib.optionalAttrs (entry.sshTunnel != null) {
             hostname = "${entry.sshTunnel}.${entry.host}";
