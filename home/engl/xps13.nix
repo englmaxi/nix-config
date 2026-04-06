@@ -25,7 +25,8 @@ in {
     core = {
       git = {
         userName = "englmaxi";
-        email = inputs.secrets.config.git.email;
+        email = inputs.secrets.personal.config.git.email;
+        signingKey = "id_lori";
       };
       user-dirs = {
         createDirs = true;

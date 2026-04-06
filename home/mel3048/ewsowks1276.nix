@@ -14,8 +14,8 @@ in {
   modules.home-manager = {
     core = {
       git = {
-        userName = inputs.secrets.config.git.work.userName;
-        email = inputs.secrets.config.git.work.email;
+        userName = inputs.secrets.work.config.git.userName;
+        email = inputs.secrets.work.config.git.email;
         signingKey = "id_rsa";
       };
       ssh = {

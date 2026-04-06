@@ -2,50 +2,7 @@
   config,
   lib,
   ...
-}: let
-  cfg = config.modules.home-manager.core.ssh;
-
-  hosts =
-    if cfg.hostMatchBlocks
-    then builtins.attrNames (builtins.readDir ../../../hosts)
-    else [];
-
-  hostsMatchBlocks = lib.attrsets.mergeAttrsList (
-    map (host: {
-      "${host}.local" = {
-        hostname = host;
-        identityFile = [
-          "${config.home.homeDirectory}/.ssh/${cfg.defaultKey}"
-        ];
-      };
-    })
-    hosts
-  );
-
-  gitMatchBlocks = lib.attrsets.mergeAttrsList (
-    map (entry: {
-      "git-${entry.host}" =
-        {
-          host = entry.host;
-          user = "git";
-          forwardAgent = true;
-          identitiesOnly = true;
-          identityFile = [
-            "${config.home.homeDirectory}/.ssh/${
-              if entry.key != null
-              then entry.key
-              else cfg.defaultKey
-            }"
-          ];
-        }
-        // lib.optionalAttrs (entry.sshTunnel != null) {
-          hostname = "${entry.sshTunnel}.${entry.host}";
-          port = 443;
-        };
-    })
-    cfg.git
-  );
-in {
+}: {
   options.modules.home-manager.core.ssh = {
     hostMatchBlocks = lib.mkOption {
       type = lib.types.bool;
@@ -90,7 +47,50 @@ in {
     };
   };
 
-  config = {
+  config = let
+    cfg = config.modules.home-manager.core.ssh;
+
+    hosts =
+      if cfg.hostMatchBlocks
+      then builtins.attrNames (builtins.readDir ../../../hosts)
+      else [];
+
+    hostsMatchBlocks = lib.attrsets.mergeAttrsList (
+      map (host: {
+        "${host}.local" = {
+          hostname = host;
+          identityFile = [
+            "${config.home.homeDirectory}/.ssh/${cfg.defaultKey}"
+          ];
+        };
+      })
+      hosts
+    );
+
+    gitMatchBlocks = lib.attrsets.mergeAttrsList (
+      map (entry: {
+        "git-${entry.host}" =
+          {
+            host = entry.host;
+            user = "git";
+            forwardAgent = true;
+            identitiesOnly = true;
+            identityFile = [
+              "${config.home.homeDirectory}/.ssh/${
+                if entry.key != null
+                then entry.key
+                else cfg.defaultKey
+              }"
+            ];
+          }
+          // lib.optionalAttrs (entry.sshTunnel != null) {
+            hostname = "${entry.sshTunnel}.${entry.host}";
+            port = 443;
+          };
+      })
+      cfg.git
+    );
+  in {
     programs.ssh = {
       enable = true;
       enableDefaultConfig = false;

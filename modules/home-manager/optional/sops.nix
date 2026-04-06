@@ -40,6 +40,18 @@
         cfg.sshKeys);
     };
 
+    home.activation.generatePublicKeys = lib.hm.dag.entryAfter ["writeBoundary"] ''
+      for key in ${lib.concatStringsSep " " cfg.sshKeys}; do
+        privKeyPath="${config.home.homeDirectory}/.ssh/$key"
+        pubKeyPath="$privKeyPath.pub"
+
+        if [ -f "$privKeyPath" ] && [ ! -f "$pubKeyPath" ]; then
+          run sh -c "${pkgs.openssh}/bin/ssh-keygen -y -f '$privKeyPath' > '$pubKeyPath'"
+          run chmod 644 "$pubKeyPath"
+        fi
+      done
+    '';
+
     home.packages = [
       pkgs.age
       pkgs.ssh-to-age
