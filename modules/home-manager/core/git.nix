@@ -33,7 +33,7 @@
           (lib.optionalAttrs (cfg.signingKey != null) {
             user.signingkey = "${config.home.homeDirectory}/.ssh/${cfg.signingKey}.pub";
             gpg.format = "ssh";
-            commit.pgpsign = true;
+            commit.gpgsign = true;
           });
       };
       lazygit.enable = true;

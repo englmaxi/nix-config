@@ -113,5 +113,6 @@
         // gitMatchBlocks
         // hostsMatchBlocks;
     };
+    services.ssh-agent.enable = true;
   };
 }

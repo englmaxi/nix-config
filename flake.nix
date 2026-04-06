@@ -35,7 +35,7 @@
 
     homeConfigurations = {
       "mel3048@ewsowks1276" = lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages."x86_64-linux";
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = specialArgs;
         modules = [./home/mel3048/ewsowks1276.nix];
       };
