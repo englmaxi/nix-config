@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{config, pkgs, ...}: {
   programs.tmux = {
     enable = true;
     mouse = true;
@@ -13,7 +13,7 @@
         copycat
         ;
     };
-    extraConfig = ''
+    extraConfig = with config.lib.stylix.colors.withHashtag;''
       bind | split-window -h -c "#{pane_current_path}"
       bind - split-window -v -c "#{pane_current_path}"
       bind > swap-pane -D
@@ -29,8 +29,16 @@
       set -s escape-time 10
       set -sg repeat-time 600
       set -g renumber-windows on
-      set -g status-justify centre
-      set -g status-right '%Y-%m-%d %H:%M '
+      set -g status-style "fg=${base04},bg=${base00}"
+      set -g window-status-style "fg=${base04},bg=${base00}"
+      set -g window-status-current-style "fg=${base0A},bg=${base00}"
+      set -g status-position bottom
+      set -g status-justify left
+      set -g status-right ' '
+      set -g status-left '#[bg=${base00},fg=${base01}]#[bold,fg=${base04},bg=${base01}] #S#[bg=${base00},fg=${base01}]   '
+      set -g status-left-length 100
+      set -g window-status-current-format '#[bold,fg=${base01}]#[fg=${base0A},bg=${base01}]#I #[fg=${base0A},bg=${base00}] #W '
+      set -g window-status-format '#[nobold,fg=${base01}]#[bg=${base01},fg=${base04}]#I  #W#[bg=${base00},fg=${base01}]'
     '';
   };
 }
