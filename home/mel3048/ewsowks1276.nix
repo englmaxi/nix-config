@@ -26,7 +26,7 @@ in {
             sshTunnel = "altssh";
           }
           {
-            host = inputs.secrets.config.git.work.instance;
+            host = inputs.secrets.work.config.git.instance;
           }
           {
             host = "github.com";
