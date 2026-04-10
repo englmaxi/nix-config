@@ -1,4 +1,8 @@
-{config, pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   programs.tmux = {
     enable = true;
     mouse = true;
@@ -13,7 +17,8 @@
         copycat
         ;
     };
-    extraConfig = with config.lib.stylix.colors.withHashtag;''
+    tmuxinator.enable = true;
+    extraConfig = with config.lib.stylix.colors.withHashtag; ''
       bind | split-window -h -c "#{pane_current_path}"
       bind - split-window -v -c "#{pane_current_path}"
       bind > swap-pane -D
@@ -40,5 +45,18 @@
       set -g window-status-current-format '#[bold,fg=${base01}]#[fg=${base0A},bg=${base01}]#I #[fg=${base0A},bg=${base00}] #W '
       set -g window-status-format '#[nobold,fg=${base01}]#[bg=${base01},fg=${base04}]#I  #W#[bg=${base00},fg=${base01}]'
     '';
+  };
+
+  programs.fzf.tmux.enableShellIntegration = true; # needed for sesh
+  programs.sesh = {
+    enable = true;
+    enableTmuxIntegration = true;
+    enableAlias = true;
+    settings = {
+      sort_order = ["tmux" "tmuxinator" "config" "zoxide"];
+      default_session = {
+        preview_command = "eza -1a --group-directories-first --git --icons --color=always {}";
+      };
+    };
   };
 }
