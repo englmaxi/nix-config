@@ -32,11 +32,13 @@
       set-environment -g COLORTERM "truecolor"
       set -g mode-keys vi
 
-      bind-key x kill-pane # skip "kill-pane 1? (y/n)" prompt
-      set -g detach-on-destroy off  # don't exit from tmux when closing a session
+      bind-key x kill-pane
+      set -g detach-on-destroy off
 
       set -g display-panes-active-colour "${base08}"
       set -g display-panes-colour "${base02}"
+      set -g pane-border-style "fg=${base01}"
+      set -g pane-active-border-style "fg=${base01}"
 
       set -s escape-time 10
       set -sg repeat-time 600
@@ -47,8 +49,6 @@
       set -g status-position bottom
       set -g status-justify left
       set -g status-right ' '
-      set -g @left-normal '#[bg=${base01},fg=${base04}]'
-      set -g @left-prefix '#[bg=${base04},fg=${base01}]'
       set -g status-left '#[bold,bg=${base00},fg=${base01}]#[bg=${base01}]#[#{?client_prefix,fg=${base0E},fg=${base04}}]#{?client_prefix,,} #[fg=${base04}]#S#[bg=${base00},fg=${base01}] #[fg=${base01}]| '
       set -g status-left-length 100
       set -g window-status-current-format '#[bold,fg=${base01}]#[fg=${base0A},bg=${base01}]#I #[fg=${base0A},bg=${base00}] #W '
