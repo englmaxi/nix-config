@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   programs = {
     fish = {
       enable = true;
@@ -7,7 +12,10 @@
         ll = "eza -l --group-directories-first";
         la = "eza -a --group-directories-first";
         lla = "eza -la --group-directories-first";
-        cat = "bat";
+        cat = "bat -Pp";
+        man = "batman";
+        diff = "batdiff";
+        tree = "eza --tree --icons --git-ignore";
       };
       interactiveShellInit = ''
         set fish_greeting # Disable greeting
@@ -43,7 +51,14 @@
     carapace.enable = true;
     carapace.enableFishIntegration = true;
 
-    bat.enable = true;
+    bat = {
+      enable = true;
+      config.pager = "moor";
+      extraPackages = with pkgs.bat-extras; [
+        batdiff
+        batman
+      ];
+    };
 
     zoxide = {
       enable = true;
@@ -51,5 +66,14 @@
       options = ["--cmd cd"];
     };
   };
-  home.packages = [pkgs.grc pkgs.eza]; # dependencies
+  home =
+    {
+      packages = [pkgs.grc pkgs.eza pkgs.moor]; # dependencies
+    }
+    // lib.optionalAttrs (builtins.hasAttr "persistence" config.home)
+    {
+      persistence = {
+        "/persist".directories = [".local/share/zoxide"];
+      };
+    };
 }

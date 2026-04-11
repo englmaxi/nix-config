@@ -23,6 +23,7 @@ with lib; {
       {
         enable = true;
         createDirectories = cfg.createDirs;
+        setSessionVariables = true;
       }
       // ifEnable cfg.shortNames {
         desktop = "${hd}/desktop";

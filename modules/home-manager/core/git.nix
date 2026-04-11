@@ -24,17 +24,19 @@
     programs = {
       git = {
         enable = true;
-        settings =
-          lib.attrsets.recursiveUpdate {
-            user.name = cfg.userName;
-            user.email = cfg.email;
-            init.defaultBranch = "main";
+        settings = {
+          user.name = cfg.userName;
+          user.email = cfg.email;
+          init.defaultBranch = "main";
+        };
+        signing =
+          {
+            format = "ssh";
           }
-          (lib.optionalAttrs (cfg.signingKey != null) {
-            user.signingkey = "${config.home.homeDirectory}/.ssh/${cfg.signingKey}";
-            gpg.format = "ssh";
-            commit.gpgsign = true;
-          });
+          // lib.optionalAttrs (cfg.signingKey != null) {
+            key = "${config.home.homeDirectory}/.ssh/${cfg.signingKey}";
+            signByDefault = true;
+          };
       };
       lazygit.enable = true;
       lazygit.settings = {
