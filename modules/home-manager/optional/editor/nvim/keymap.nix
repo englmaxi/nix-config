@@ -56,6 +56,6 @@
       ++ km "v" ">" ">gv" "Indent right and reselect"
       # newline
       ++ km "n" "<CR>" "<Cmd>call append(line('.'), repeat([''], v:count1))<CR>" "Add blank line below"
-      ++ km "n" "<S-CR>" "<Cmd>call append(line('.') - 1, repeat([''], v:count1))<CR>" "Add blank line above";
+      ++ km "n" "<leader><CR>" "<Cmd>call append(line('.') - 1, repeat([''], v:count1))<CR>" "Add blank line above";
   };
 }

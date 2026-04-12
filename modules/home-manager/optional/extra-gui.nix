@@ -10,6 +10,7 @@
       scrcpy
       veracrypt
       vlc
+      zmk-studio
       zoom-us
       ;
   };
