@@ -1,6 +1,7 @@
 {...}: {
   imports = [
     ./blink-cmp.nix
+    ./colorizer.nix
     ./conform-nvim.nix
     ./gitblame.nix
     ./gitsigns.nix

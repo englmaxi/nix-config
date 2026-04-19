@@ -16,6 +16,7 @@
         man = "batman";
         diff = "batdiff";
         tree = "eza --tree --icons --git-ignore";
+        nd = "nix develop -c $SHELL";
       };
       interactiveShellInit = ''
         set fish_greeting # Disable greeting
