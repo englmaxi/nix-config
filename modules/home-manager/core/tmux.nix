@@ -30,6 +30,7 @@
       set -ga terminal-overrides ",*256col*:Tc"
       set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
       set-environment -g COLORTERM "truecolor"
+      set -g clock-mode-style 24
       set -g mode-keys vi
 
       bind-key x kill-pane
