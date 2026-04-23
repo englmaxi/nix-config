@@ -41,6 +41,8 @@
       lazygit.enable = true;
       lazygit.settings = {
         disableStartupPopups = true;
+        quitOnTopLevelReturn = true;
+        git.overrideGpg = true;
       };
     };
   };

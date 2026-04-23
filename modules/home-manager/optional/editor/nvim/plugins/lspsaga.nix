@@ -2,8 +2,10 @@
   programs.nixvim = {
     plugins.lspsaga = {
       enable = true;
-      ui.codeAction = "󰌵";
-      lightbulb.sign = false;
+      settings = {
+        ui.code_action = " 󰌵";
+        lightbulb.sign = false;
+      };
     };
     keymaps = [
       {
