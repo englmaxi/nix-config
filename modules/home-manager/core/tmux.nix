@@ -13,9 +13,9 @@
     plugins = builtins.attrValues {
       inherit
         (pkgs.tmuxPlugins)
+        fuzzback
         sensible
         yank
-        copycat
         ;
     };
     tmuxinator.enable = true;
