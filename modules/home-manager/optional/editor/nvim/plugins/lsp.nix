@@ -7,6 +7,7 @@
         lua_ls.enable = true;
         pyright.enable = true;
         clangd.enable = true;
+        lemminx.enable = true;
         nixd.enable = true;
         rust_analyzer = {
           enable = true;
@@ -16,6 +17,7 @@
         qmlls.enable = true;
         zls.enable = true;
         bashls.enable = true;
+        typos_lsp.enable = true;
       };
       postConfig = ''
         vim.diagnostic.config {

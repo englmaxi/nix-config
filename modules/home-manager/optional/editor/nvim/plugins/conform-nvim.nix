@@ -40,6 +40,9 @@
         clang_format = {
           command = lib.getExe' pkgs.clang-tools "clang-format";
         };
+        xml-formatter = {
+          command = lib.getExe pkgs.xmlformat;
+        };
       };
       formatters_by_ft = {
         nix = ["alejandra"];
@@ -53,6 +56,7 @@
         typescript = ["prettierd"];
         html = ["prettierd"];
         rust = ["rustfmt"];
+        xml = ["xml-formatter"];
         "_" = [
           "squeeze_blanks"
           "trim_whitespace"

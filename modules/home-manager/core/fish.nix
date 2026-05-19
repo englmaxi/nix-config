@@ -34,6 +34,7 @@
         })
         [
           "autopair"
+          "bass"
           "done"
           "fish-bd"
           "fish-you-should-use"

@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   programs.nixvim.plugins = {
     blink-cmp = {
       enable = true;
@@ -12,27 +12,33 @@
             "snippets"
             "buffer"
             "dictionary"
-            "spell"
+            "thesaurus"
           ];
           providers = {
-            dictionary = {
-              module = "blink-cmp-dictionary";
-              name = "Dict";
-              score_offset = 100;
-              min_keyword_length = 3;
-              opts = {};
+            thesaurus = {
+              name = "blink-cmp-words";
+              module = "blink-cmp-words.thesaurus";
+              opts = {
+                score_offset = 0;
+                definition_pointers = ["!" "&" "^"];
+                similarity_pointers = ["&" "^"];
+                similarity_depth = 2;
+              };
             };
-            spell = {
-              module = "blink-cmp-spell";
-              name = "Spell";
-              score_offset = 100;
-              opts = {};
+            dictionary = {
+              name = "blink-cmp-words";
+              module = "blink-cmp-words.dictionary";
+              opts = {
+                dictionary_search_threshold = 3;
+                score_offset = 0;
+                definition_pointers = ["!" "&" "^"];
+              };
             };
           };
         };
       };
     };
-    blink-cmp-dictionary.enable = true;
-    blink-cmp-spell.enable = true;
+    blink-cmp-words.enable = true;
   };
+  home.packages = [pkgs.wordnet];
 }
