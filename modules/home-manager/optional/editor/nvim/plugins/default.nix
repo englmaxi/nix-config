@@ -3,9 +3,11 @@
     ./blink-cmp.nix
     ./colorizer.nix
     ./conform-nvim.nix
+    ./eyeliner.nix
     ./gitblame.nix
     ./gitsigns.nix
     ./guess-indent.nix
+    ./illuminate.nix
     ./indent-blankline.nix
     ./lsp.nix
     ./lsp-lines.nix

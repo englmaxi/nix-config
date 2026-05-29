@@ -7,7 +7,7 @@
       cursorline = true;
       wrap = false;
       breakindent = true;
-      scrolloff = 10;
+      scrolloff = 3;
       sidescrolloff = 10;
 
       tabstop = 4;
@@ -22,17 +22,17 @@
 
       signcolumn = "yes";
       colorcolumn = "80";
- 
+
       undodir.__raw = "vim.fs.normalize('~/.undodir')";
       undofile = true;
       backup = false;
       writebackup = false;
       autowrite = false;
-      
+
       mouse = "a";
       showmode = false;
       clipboard = "unnamedplus";
-      
+
       updatetime = 250;
       timeoutlen = 300;
       ttimeoutlen = 0;
@@ -44,7 +44,6 @@
       listchars = {
         tab = "» ";
         trail = "·";
-        space = "·";
         nbsp = "␣";
       };
 

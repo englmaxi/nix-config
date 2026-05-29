@@ -32,7 +32,7 @@
         }
       '';
       keymaps.lspBuf = {
-        K = "hover";
+        # K = "hover";
         gD = "references";
         gd = "definition";
         gi = "implementation";

@@ -19,7 +19,7 @@
               name = "blink-cmp-words";
               module = "blink-cmp-words.thesaurus";
               opts = {
-                score_offset = 0;
+                score_offset = 5;
                 definition_pointers = ["!" "&" "^"];
                 similarity_pointers = ["&" "^"];
                 similarity_depth = 2;
@@ -30,7 +30,7 @@
               module = "blink-cmp-words.dictionary";
               opts = {
                 dictionary_search_threshold = 3;
-                score_offset = 0;
+                score_offset = 5;
                 definition_pointers = ["!" "&" "^"];
               };
             };

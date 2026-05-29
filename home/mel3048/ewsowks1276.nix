@@ -9,6 +9,7 @@ in {
     ../../modules/home-manager/optional/editor/nvim
     ../../modules/home-manager/optional/sops.nix
     ../../modules/home-manager/optional/stylix.nix
+    ../../modules/home-manager/optional/cargo.nix
   ];
 
   modules.home-manager = {
