@@ -28,6 +28,7 @@
       enable = true;
       package = pkgs.inputs.hyprland.hyprland;
       systemd.enable = false;
+      configType = "hyprlang";
       settings = {
         monitor =
           cfg.monitors

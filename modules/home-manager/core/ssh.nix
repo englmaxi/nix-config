@@ -7,7 +7,7 @@
     hostMatchBlocks = lib.mkOption {
       type = lib.types.bool;
       default = true;
-      description = "Enable automatic match blocks for local hosts.";
+      description = "Enable automatic match blocks for local hosts";
     };
 
     git = lib.mkOption {
@@ -69,9 +69,8 @@
 
     gitMatchBlocks = lib.attrsets.mergeAttrsList (
       map (entry: {
-        "git-${entry.host}" =
+        "${entry.host}" =
           {
-            host = entry.host;
             user = "git";
             forwardAgent = true;
             identitiesOnly = true;
@@ -96,7 +95,7 @@
       enable = true;
       enableDefaultConfig = false;
 
-      matchBlocks =
+      settings =
         {
           "*" = {
             forwardAgent = false;

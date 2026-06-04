@@ -26,13 +26,14 @@ with lib; {
         setSessionVariables = true;
       }
       // ifEnable cfg.shortNames {
-        desktop = "${hd}/desktop";
         download = "${hd}/dl";
         documents = "${hd}/docs";
         pictures = "${hd}/pics";
         extraConfig = {
+          DESKTOP = "/var/empty";
           MUSIC = "/var/empty";
           VIDEOS = "/var/empty";
+          PROJECTS = "/var/empty";
           PUBLICSHARE = "/var/empty";
           TEMPLATES = "/var/empty";
         };

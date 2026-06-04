@@ -34,18 +34,24 @@
     '';
 
     greetd = let
-      # cmd = "uwsm start hyprland-uwsm.desktop"; see issue #12661
-      # options = "--time --remember --remember-user-session --asterisks";
       cmd = "uwsm start hyprland.desktop";
-      options = "--time --remember --asterisks";
     in {
       enable = true;
       settings = {
-        default_session.command = "${pkgs.tuigreet}/bin/tuigreet ${options} --cmd '${cmd}'";
+        default_session.command = "${lib.getExe pkgs.tuigreet} --cmd '${cmd}'";
         default_session.user = "greeter";
       };
     };
   };
+
+  users.users.greeter = {
+    isSystemUser = true;
+    group = "greeter";
+    home = "/var/lib/greeter";
+    createHome = true;
+  };
+
+  users.groups.greeter = {};
 
   environment =
     {
@@ -53,7 +59,29 @@
         pamixer
         networkmanagerapplet
         brightnessctl
+        tuigreet
       ];
+      etc."tuigreet/config.toml".text = ''
+        [display]
+        show_time = true
+
+        [secret]
+        mode = "characters"
+        characters = "*"
+
+        [remember]
+        username = true
+        session = false
+        user_session = false
+
+        [[outputs]]
+        connector = "DP-2"
+        primary = true
+
+        [[outputs]]
+        connector = "HDMI-A-3"
+        enabled = false
+      '';
     }
     // lib.optionalAttrs (builtins.hasAttr "persistence" config.environment)
     {

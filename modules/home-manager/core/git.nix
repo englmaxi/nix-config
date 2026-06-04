@@ -43,6 +43,9 @@
         disableStartupPopups = true;
         quitOnTopLevelReturn = true;
         git.overrideGpg = true;
+        gui.showRandomTip = false;
+        gui.fileTreeSortOrder = "foldersFirst";
+        gui.nerdFontsVersion = "3";
       };
     };
   };

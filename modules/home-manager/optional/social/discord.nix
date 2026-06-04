@@ -40,7 +40,7 @@
           anonymiseByDefault = true;
         };
         betterGifPicker.enable = true;
-        betterNotesBox.enable = true;
+        # betterNotesBox.enable = true;
         betterRoleDot.enable = true;
         betterUploadButton.enable = true;
         callTimer.enable = true;

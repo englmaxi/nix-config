@@ -1,5 +1,5 @@
 {inputs, ...}: let
-  userName = builtins.baseNameOf (builtins.toString ./.);
+  userName = baseNameOf (toString ./.);
 in {
   imports = [
     # core
@@ -7,6 +7,7 @@ in {
 
     # optional
     ../../modules/home-manager/optional/browser/firefox.nix
+    ../../modules/home-manager/optional/calibre.nix
     ../../modules/home-manager/optional/desktop/hyprland
     ../../modules/home-manager/optional/editor/nvim
     ../../modules/home-manager/optional/editor/vscode.nix

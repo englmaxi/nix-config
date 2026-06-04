@@ -18,11 +18,9 @@
     };
     dwindle = {
       smart_split = false;
-      pseudotile = true;
       preserve_split = true;
     };
     misc = {
-      vfr = true;
       disable_splash_rendering = true;
     };
     group.groupbar = {

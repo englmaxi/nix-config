@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  hostName = builtins.baseNameOf (builtins.toString ./.);
+  hostName = baseNameOf (toString ./.);
 in {
   imports = [
     # modules
@@ -24,6 +24,7 @@ in {
 
     # optional
     ../../modules/nixos/optional/desktop/hyprland.nix
+    ../../modules/nixos/optional/embedded
     ../../modules/nixos/optional/impermanence.nix
     ../../modules/nixos/optional/podman.nix
     ../../modules/nixos/optional/theme
@@ -45,6 +46,8 @@ in {
   networking = {
     inherit hostName;
     networkmanager.enable = true;
+    firewall.allowedTCPPorts = [9090];
+    firewall.allowedUDPPorts = [54982];
   };
 
   boot = {

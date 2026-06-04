@@ -7,6 +7,7 @@
       # calibre
       chromium
       gimp
+      kicad
       scrcpy
       veracrypt
       vlc

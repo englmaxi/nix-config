@@ -5,6 +5,7 @@
     # example = prev.example.overrideAttrs (oldAttrs: rec {
     #   ...
     # });
+    tuigreet = inputs.tuigreet.packages.${final.stdenv.hostPlatform.system}.tuigreet;
   };
 
   flake-inputs = final: prev: {

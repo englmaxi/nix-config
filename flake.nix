@@ -52,8 +52,7 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    hyprland.url = "github:hyprwm/Hyprland/0002f148c9a4fe421a9d33c0faa5528cdc411e62"; # pin till hyprbars is fixed
-
+    hyprland.url = "github:hyprwm/Hyprland";
     hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
     hyprland-plugins.inputs.hyprland.follows = "hyprland";
 
@@ -71,7 +70,6 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     nixvim.url = "github:nix-community/nixvim";
-    nixvim.inputs.nixpkgs.follows = "nixpkgs";
 
     nur.url = "github:nix-community/NUR";
     nur.inputs.nixpkgs.follows = "nixpkgs";
@@ -84,11 +82,15 @@
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
 
-    stylix.url = "github:danth/stylix";
+    # stylix.url = "github:danth/stylix";
+    stylix.url = "github:nix-community/stylix/pull/2337/head";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
     stylix.inputs.nur.follows = "nur";
 
     systems.url = "github:nix-systems/default-linux";
+
+    tuigreet.url = "github:NotAShelf/tuigreet";
+    tuigreet.inputs.nixpkgs.follows = "nixpkgs";
 
     xremap.url = "github:xremap/nix-flake";
     xremap.inputs.nixpkgs.follows = "nixpkgs";

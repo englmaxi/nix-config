@@ -17,6 +17,7 @@
         config.xdg.userDirs.documents
       ])
       "git"
+      "library"
     ];
   };
 }

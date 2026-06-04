@@ -14,11 +14,10 @@
     colorTheme.enable = true;
   };
 
-  programs.firefox = let
-    c = config.lib.stylix.colors;
-  in {
+  programs.firefox = {
     enable = true;
 
+    configPath = ".mozilla/firefox";
     profiles.default = {
       id = 0;
       name = "default";
@@ -151,67 +150,11 @@
           ublock-origin
           bitwarden
           clearurls
-          enhancer-for-youtube
           sponsorblock
           return-youtube-dislikes
           translate-web-pages
           ;
       };
-      # userContent = ''
-      #   @-moz-document url("about:newtab"), url("about:home") {
-      #       body {
-      #           background-color: #${c.base00} !important;
-      #       }
-      #       .search-handoff-button, .tile {
-      #           background-color: #${c.base01}  !important;
-      #           backdrop-filter: blur(10px);
-      #       }
-      #   }
-      # '';
-      # userChrome = ''
-      #   #main-window {
-      #       background: transparent !important;
-      #       -moz-appearance: transparent !important;
-      #   }
-      #
-      #   #urlbar:not([focused]) > #urlbar-background  {
-      #       border: none !important;
-      #       box-shadow: none !important;
-      #       opacity: 0.3;
-      #   }
-      #
-      #
-      #   #urlbar:not([focused])  {
-      #       text-align: center;
-      #   }
-      #
-      #   toolbar#nav-bar {
-      #       box-shadow: none !important;
-      #       border-top: none !important;
-      #       background: transparent !important;
-      #   }
-      #
-      #   .tab-background[selected] {
-      #       background: #${c.base0E} !important;
-      #       opacity: 0.3;
-      #   }
-      #
-      #   .tab-content::before{
-      #       content: "";
-      #       display: -moz-box;
-      #       -moz-box-flex: 1
-      #   }
-      #
-      #   #tabbrowser-tabs{
-      #     border-inline-start: none !important;
-      #   }
-      #
-      #
-      #   .tab-close-button {
-      #       opacity: 0.5 !important;
-      #   }
-      #
-      # '';
     };
   };
 

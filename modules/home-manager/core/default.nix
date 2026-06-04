@@ -19,29 +19,30 @@
     inherit
       (pkgs)
       btop
-      fd
-      tree
-      fzf
-      ripgrep
-      fastfetch
-      ncdu
-      p7zip
-      zip
-      unzip
-      unrar
-      usbutils
-      killall
-      screen
-      wget
-      xsel
-      wl-clipboard
-      dust
       dua
-      tldr
-      uutils-coreutils-noprefix
+      dust
+      fastfetch
+      fd
+      fzf
+      glow
       hyperfine
       just
-      glow
+      killall
+      ncdu
+      nix-output-monitor
+      p7zip
+      ripgrep
+      screen
+      tldr
+      tree
+      unrar
+      unzip
+      usbutils
+      uutils-coreutils-noprefix
+      wget
+      wl-clipboard
+      xsel
+      zip
       ;
   };
 

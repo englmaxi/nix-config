@@ -18,6 +18,7 @@ in {
         "audio"
         "network"
         "video"
+        "plugdev"
         "podman"
         "wheel"
         "uucp"
