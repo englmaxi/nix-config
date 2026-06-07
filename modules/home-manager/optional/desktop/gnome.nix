@@ -70,7 +70,7 @@ in {
         "/persist".files = [".config/monitors.xml"];
       };
     };
-  
+
   xdg.mimeApps = {
     defaultApplications = {
       "image/png" = "org.gnome.Loupe.desktop";

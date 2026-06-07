@@ -70,7 +70,7 @@
   boot.initrd.systemd.services.rollback = {
     description = "Rollback BTRFS root subvolume";
     wantedBy = ["initrd.target"];
-    requires = [ "initrd-root-device.target" ];
+    requires = ["initrd-root-device.target"];
     after = [
       "initrd-root-device.target"
       "local-fs-pre.target"

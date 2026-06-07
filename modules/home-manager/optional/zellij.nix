@@ -1,7 +1,7 @@
 {...}: {
-    programs.zellij = {
-        enable = true;
-        enableFishIntegration = true;
-        exitShellOnExit = true;
-    };
+  programs.zellij = {
+    enable = true;
+    enableFishIntegration = true;
+    exitShellOnExit = true;
+  };
 }

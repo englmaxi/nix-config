@@ -10,123 +10,321 @@
   fileManager = "kitty -e yazi";
   launcherCmd = concatStringsSep " " [
     "rofi -show combi"
-    "-modes \"calc,combi,window\""
-    "-combi-modes \"drun,run,nerdy,emoji\""
+    "-modes \\\"calc,combi,window\\\""
+    "-combi-modes \\\"drun,run,nerdy,emoji\\\""
     # "-show-icons"
-    "-display-drun \"\""
-    "-display-run \" ❯\""
+    "-display-drun \\\"\\\""
+    "-display-run \\\" ❯\\\""
     "-sidebar-mode"
   ];
+
+  bind = {
+    withMod ? null,
+    withoutMod ? null,
+    cmd,
+    flags ? null,
+  }: let
+    keys =
+      if withMod != null
+      then
+        lib.generators.mkLuaInline ''
+          mod .. " + ${withMod}"
+        ''
+      else withoutMod;
+    exec = lib.generators.mkLuaInline cmd;
+  in {
+    _args = [keys exec] ++ lib.optional (flags != null) flags;
+  };
 
   wsBinds =
     concatLists (genList (
         i: let
           ws = i + 1;
         in [
-          "$mod,       code:1${toString i}, workspace,       ${toString ws}"
-          "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
+          (bind {
+            withMod = toString ws;
+            cmd = ''hl.dsp.focus({workspace = "${toString ws}"})'';
+          })
+          (bind {
+            withMod = "SHIFT + ${toString ws}";
+            cmd = ''hl.dsp.window.move({workspace = "${toString ws}"})'';
+          })
         ]
       )
       9)
     ++ [
-      "ALT_L,      TAB, workspace, m+1"
-      "$mod ALT_L, TAB, workspace, empty"
-      "$mod,        0,  workspace, empty"
+      (bind {
+        withoutMod = "ALT_L + TAB";
+        cmd = ''hl.dsp.focus({workspace = "m+1"})'';
+      })
+      (bind {
+        withMod = "ALT_L + TAB";
+        cmd = ''hl.dsp.focus({workspace = "empty"})'';
+      })
+      (bind {
+        withMod = "0";
+        cmd = ''hl.dsp.focus({workspace = "empty"})'';
+      })
     ];
 
   appBinds = [
-    "$mod,       RETURN, exec, uwsm app -- $terminal"
-    "$mod,       E,      exec, uwsm app -- $fileManager"
-    "$mod,       SPACE,  exec, uwsm app -- ${launcherCmd}"
-    "$mod ALT_L, V,      exec, uwsm app -- kitty --class clipse -e clipse"
+    (bind {
+      withMod = "RETURN";
+      cmd = ''hl.dsp.exec_cmd("uwsm app -- " .. terminal)'';
+    })
+    (bind {
+      withMod = "E";
+      cmd = ''hl.dsp.exec_cmd("uwsm app -- " .. fileManager)'';
+    })
+    (bind {
+      withMod = "SPACE";
+      cmd = ''hl.dsp.exec_cmd("uwsm app -- ${launcherCmd}")'';
+    })
+    (bind {
+      withMod = "ALT_L + V";
+      cmd = ''hl.dsp.exec_cmd("uwsm app -- kitty --class clipse -e clipse")'';
+    })
 
-    "$mod,       L, exec, loginctl lock-session"
-    "$mod SHIFT, L, exec, systemctl suspend-then-hibernate"
-    "$mod ALT,   L, exec, systemctl hibernate"
+    (bind {
+      withMod = "L";
+      cmd = ''hl.dsp.exec_cmd("loginctl lock-session")'';
+    })
+    (bind {
+      withMod = "SHIFT + L";
+      cmd = ''hl.dsp.exec_cmd("systemctl suspend-then-hibernate")'';
+    })
+    (bind {
+      withMod = "ALT + L";
+      cmd = ''hl.dsp.exec_cmd("systemctl hibernate")'';
+    })
   ];
 
   screenshotDir = "${config.xdg.userDirs.pictures}/screenshots";
   screenshotBinds = [
-    ",           PRINT, exec, uwsm app -- hyprshot -o ${screenshotDir} -zm region"
-    "$mod,       PRINT, exec, uwsm app -- hyprshot -o ${screenshotDir} -zm window"
-    "$mod SHIFT, PRINT, exec, uwsm app -- hyprshot -o ${screenshotDir} -zm output"
+    (bind {
+      withoutMod = "PRINT";
+      cmd = ''hl.dsp.exec_cmd("uwsm app -- hyprshot -o ${screenshotDir} -zm region")'';
+    })
+    (bind {
+      withMod = "PRINT";
+      cmd = ''hl.dsp.exec_cmd("uwsm app -- hyprshot -o ${screenshotDir} -zm window")'';
+    })
+    (bind {
+      withMod = "SHIFT + PRINT";
+      cmd = ''hl.dsp.exec_cmd("uwsm app -- hyprshot -o ${screenshotDir} -zm output")'';
+    })
   ];
 
   windowBinds = [
-    "$mod, C,  killactive"
-    "ALT,  F4, forcekillactive"
+    (bind {
+      withMod = "C";
+      cmd = "hl.dsp.window.close()";
+    })
+    (bind {
+      withoutMod = "ALT + F4";
+      cmd = "hl.dsp.window.kill()";
+    })
 
-    "$mod,       F, fullscreen, 1"
-    "$mod SHIFT, F, fullscreen, 0"
+    (bind {
+      withMod = "F";
+      cmd = ''hl.dsp.window.fullscreen({mode = "maximized"})'';
+    })
+    (bind {
+      withMod = "SHIFT + F";
+      cmd = ''hl.dsp.window.fullscreen({mode = "fullscreen"})'';
+    })
 
-    "$mod, V, togglefloating"
-    "$mod, P, pin"
-    "$mod, S, layoutmsg, togglesplit"
+    (bind {
+      withMod = "V";
+      cmd = "hl.dsp.window.float()";
+    })
+    (bind {
+      withMod = "P";
+      cmd = "hl.dsp.window.pin()";
+    })
+    (bind {
+      withMod = "S";
+      cmd = ''hl.dsp.layout("togglesplit")'';
+    })
 
-    "$mod,         G,     togglegroup"
-    "$mod Control, left,  changegroupactive, l"
-    "$mod Control, right, changegroupactive, r"
+    (bind {
+      withMod = "G";
+      cmd = "hl.dsp.group.toggle()";
+    })
+    (bind {
+      withMod = "CTRL + LEFT";
+      cmd = "hl.dsp.group.next()";
+    })
+    (bind {
+      withMod = "CTRL + RIGHT";
+      cmd = "hl.dsp.group.prev()";
+    })
 
-    "$mod, left,  movefocus, l"
-    "$mod, right, movefocus, r"
-    "$mod, up,    movefocus, u"
-    "$mod, down,  movefocus, d"
+    (bind {
+      withMod = "LEFT";
+      cmd = ''hl.dsp.focus({direction = "l"})'';
+    })
+    (bind {
+      withMod = "RIGHT";
+      cmd = ''hl.dsp.focus({direction = "r"})'';
+    })
+    (bind {
+      withMod = "UP";
+      cmd = ''hl.dsp.focus({direction = "u"})'';
+    })
+    (bind {
+      withMod = "DOWN";
+      cmd = ''hl.dsp.focus({direction = "d"})'';
+    })
 
-    "$mod SHIFT, left,  swapwindow, l"
-    "$mod SHIFT, right, swapwindow, r"
-    "$mod SHIFT, up,    swapwindow, u"
-    "$mod SHIFT, down,  swapwindow, d"
+    (bind {
+      withMod = "SHIFT + LEFT";
+      cmd = ''hl.dsp.window.swap({direction = "l"})'';
+    })
+    (bind {
+      withMod = "SHIFT + RIGHT";
+      cmd = ''hl.dsp.window.swap({direction = "r"})'';
+    })
+    (bind {
+      withMod = "SHIFT + UP";
+      cmd = ''hl.dsp.window.swap({direction = "u"})'';
+    })
+    (bind {
+      withMod = "SHIFT + DOWN";
+      cmd = ''hl.dsp.window.swap({direction = "d"})'';
+    })
 
-    "$mod,       N, togglespecialworkspace, scratchpad"
-    "$mod SHIFT, N, movetoworkspace,        special:scratchpad"
+    (bind {
+      withMod = "N";
+      cmd = ''hl.dsp.workspace.toggle_special("scratchpad")'';
+    })
+    (bind {
+      withMod = "SHIFT + N";
+      cmd = ''hl.dsp.window.move({workspace = "special:scratchpad"})'';
+    })
 
-    "$mod, P, togglespecialworkspace, spotify"
+    (bind {
+      withMod = "P";
+      cmd = ''hl.dsp.workspace.toggle_special("spotify")'';
+    })
   ];
 
-  mediaBinds = [
-    ", XF86AudioRaiseVolume, exec, pamixer -i 5"
-    ", XF86AudioLowerVolume, exec, pamixer -d 5"
-    ", XF86AudioMute,        exec, pamixer -t"
-    ", XF86AudioPlay,        exec, playerctl play-pause"
-    ", XF86AudioPause,       exec, playerctl play-pause"
-    ", XF86AudioNext,        exec, playerctl next"
-    ", XF86AudioPrev,        exec, playerctl previous"
+  mediaBinds = let
+    addFlags = attrs:
+      attrs
+      // {
+        flags = {
+          locked = true;
+          repeating = true;
+        };
+      };
+  in
+    map (attrs: bind (addFlags attrs)) [
+      {
+        withoutMod = "XF86AudioRaiseVolume";
+        cmd = ''hl.dsp.exec_cmd("pamixer -i 5")'';
+      }
+      {
+        withoutMod = "XF86AudioLowerVolume";
+        cmd = ''hl.dsp.exec_cmd("pamixer -d 5")'';
+      }
+      {
+        withoutMod = "XF86AudioMute";
+        cmd = ''hl.dsp.exec_cmd("pamixer -t")'';
+      }
+      {
+        withoutMod = "XF86AudioPlay";
+        cmd = ''hl.dsp.exec_cmd("playerctl play-pause")'';
+      }
+      {
+        withoutMod = "XF86AudioPause";
+        cmd = ''hl.dsp.exec_cmd("playerctl play-pause")'';
+      }
+      {
+        withoutMod = "XF86AudioNext";
+        cmd = ''hl.dsp.exec_cmd("playerctl next")'';
+      }
+      {
+        withoutMod = "XF86AudioPrev";
+        cmd = ''hl.dsp.exec_cmd("playerctl previous")'';
+      }
 
-    ", XF86MonBrightnessUp,   exec, brightnessctl set 5%-"
-    ", XF86MonBrightnessDown, exec, brightnessctl set +5%"
-  ];
+      {
+        withoutMod = "XF86MonBrightnessUp";
+        cmd = ''hl.dsp.exec_cmd("brightnessctl set 5%-")'';
+      }
+      {
+        withoutMod = "XF86MonBrightnessDown";
+        cmd = ''hl.dsp.exec_cmd("brightnessctl set +5%")'';
+      }
+    ];
 
-  mouseBinds = [
-    "$mod, mouse:272, movewindow"
-    "$mod, Control_L, movewindow"
-    "$mod, mouse:273, resizewindow"
-    "$mod, ALT_L,     resizewindow"
-  ];
+  mouseBinds = let
+    addFlags = attrs:
+      attrs
+      // {
+        flags = {
+          mouse = true;
+        };
+      };
+  in
+    map (attrs: bind (addFlags attrs)) [
+      {
+        withMod = "mouse:272";
+        cmd = "hl.dsp.window.drag()";
+      }
+      {
+        withMod = "CTRL";
+        cmd = "hl.dsp.window.drag()";
+      }
+      {
+        withMod = "mouse:273";
+        cmd = "hl.dsp.window.resize()";
+      }
+      {
+        withMod = "ALT_L";
+        cmd = "hl.dsp.window.resize()";
+      }
+    ];
 
   gestures = [
-    "3, horizontal, workspace"
-    "3, down,       special,    scratchpad"
-    "3, up,         special,    scratchpad"
+    {
+      fingers = 3;
+      direction = "horizontal";
+      action = "workspace";
+    }
+    {
+      fingers = 3;
+      direction = "down";
+      action = "special";
+      workspace_name = "scratchpad";
+    }
+    {
+      fingers = 3;
+      direction = "up";
+      action = "special";
+      workspace_name = "scratchpad";
+    }
   ];
 
   cfg = config.modules.home-manager.optional.desktop.hyprland;
 in {
   wayland.windowManager.hyprland.settings = {
-    "$mod" = mod;
-    "$terminal" = terminal;
-    "$fileManager" = fileManager;
+    mod._var = mod;
+    terminal._var = terminal;
+    fileManager._var = fileManager;
 
     bind =
       appBinds
       ++ screenshotBinds
       ++ windowBinds
-      ++ wsBinds;
+      ++ wsBinds
+      ++ mediaBinds
+      ++ mouseBinds;
 
-    bindel = mediaBinds;
-    bindm = mouseBinds;
     gesture = gestures;
 
-    input = {
+    config.input = {
       kb_layout = cfg.keyMap;
       touchpad.natural_scroll = true;
     };

@@ -1,78 +1,102 @@
-{lib, ...}: let
-  mkWindowRule = app: rule: map (r: "${r}, ${app}") rule;
-  mkLayerRule = layer: rule: map (r: "${r}, ${layer}") rule;
-in {
+{...}: {
   wayland.windowManager.hyprland.settings = {
-    layerrule =
-      mkLayerRule "match:namespace waybar" [
-        "blur on"
-        "ignore_alpha 0"
-      ]
-      ++ mkLayerRule "match:namespace rofi" [
-        "blur on"
-        "ignore_alpha 0"
-        "dim_around on"
-      ];
+    layer_rule = [
+      {
+        match.namespace = "waybar";
+        blur = true;
+        ignore_alpha = 0;
+      }
+      {
+        match.namespace = "rofi";
+        blur = true;
+        ignore_alpha = 0;
+        dim_around = true;
+      }
+    ];
 
-    windowrule =
-      mkWindowRule "match:class .*" [
-        "suppress_event maximize"
-      ]
-      ++ mkWindowRule "match:float true" [
-        "max_size 1200 800"
-        "center on"
-      ]
-      ++ mkWindowRule "match:class clipse" [
-        "float on"
-        "size 850 700"
-        "stay_focused on"
-      ]
-      ++ mkWindowRule "match:class ^(Gimp)$" [
-        "opacity 1.0 override"
-      ]
-      ++ mkWindowRule "match:class ^(MEGAsync)$" [
-        # "float on"
-        "border_size 0"
-        "no_blur on"
-        "no_shadow on"
-        "opacity 1.0 override"
-        # "fullscreen on" # enable if there are problems while configurating
-      ]
-      # ++ mkWindowRule "match:class ^(MEGAsync)$, match:title ^(Add sync)$" [
-      #   "float on"
-      #   "size 800 600"
-      #   "center on"
-      #   "no_focus on"
-      #   "border_size 0"
-      #   "no_blur on"
-      #   "no_shadow on"
-      #   "opacity 1.0 override"
-      # ]
-      ++ mkWindowRule "match:title ^(Picture-in-Picture)$" [
-        "float on"
-        "pin on"
-        "size 270 204"
-        "move 100%-270 100%-204"
-        "border_size 0"
-        "no_initial_focus on"
-        "opacity 1.0 override"
-      ]
-      ++ mkWindowRule "match:class ^(org.pulseaudio.pavucontrol)$" [
-        "float on"
-        "size 1200 800"
-        "stay_focused on"
-        "dim_around on"
-        "center on"
-      ];
+    window_rule = [
+      {
+        match.class = ".*";
+        suppress_event = "maximize";
+      }
+      {
+        match.float = true;
+        max_size = [
+          1200
+          800
+        ];
+        center = true;
+      }
+      {
+        match.class = "clipse";
+        float = true;
+        size = [
+          850
+          700
+        ];
+        stay_focused = true;
+      }
+      {
+        match.class = "^(Gimp)$";
+        opacity = "1.0 override";
+      }
+      {
+        match.title = "^(Picture-in-Picture)$";
+        float = true;
+        pin = true;
+        size = [
+          270
+          204
+        ];
+        move = "100%-270 100%-204";
+        border_size = 0;
+        no_initial_focus = true;
+        opacity = "1.0 override";
+      }
+      {
+        match.class = "^(org.pulseaudio.pavucontrol)$";
+        float = true;
+        size = [
+          1200
+          800
+        ];
+        stay_focused = true;
+        dim_around = true;
+        center = true;
+      }
+    ];
 
-    workspace = [
-      "s[true], gapsout:80"
-      "s[true]m[DP-2], gapsout:80 600"
-
-      "special:scratchpad, on-created-empty:$terminal"
-      "special:spotify,    on-created-empty:spotify"
-
-      "w[tv1]s[false]m[DP-2], gapsout:20 520"
+    workspace_rule = [
+      {
+        workspace = "s[true]";
+        gaps_out = 80;
+      }
+      {
+        workspace = "s[true]m[DP-2]";
+        gaps_out = {
+          top = 80;
+          bottom = 80;
+          left = 600;
+          right = 600;
+        };
+      }
+      {
+        workspace = "special:scratchpad";
+        on_created_empty = "kitty";
+      }
+      {
+        workspace = "special:spotify";
+        on_created_empty = "spotify";
+      }
+      {
+        workspace = "w[tv1]s[false]m[DP-2]";
+        gaps_out = {
+          top = 20;
+          bottom = 20;
+          left = 520;
+          right = 520;
+        };
+      }
     ];
   };
 }

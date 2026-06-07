@@ -33,10 +33,12 @@ in {
         shortNames = true;
       };
     };
-    optional.desktop.hyprland = {
+    optional.desktop.hyprland = let
+      mainMonitor = "eDP-1";
+    in {
+      inherit mainMonitor;
       monitors = [
-        "eDP-1,preferred,0x0,1"
-        ",preferred,auto,auto,mirror,eDP-1"
+        {output = mainMonitor;}
       ];
     };
   };

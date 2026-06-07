@@ -1,7 +1,13 @@
 {...}: {
   wayland.windowManager.hyprland.settings = {
     animation = [
-      "specialWorkspace, 1, 6, default, slidefadevert"
+      {
+        leaf = "specialWorkspace";
+        enabled = true;
+        speed = 6.0;
+        bezier = "default";
+        style = "slidefadevert";
+      }
     ];
   };
 }

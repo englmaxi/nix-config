@@ -7,13 +7,44 @@
   imports = [
     ./settings
     ./tools
-    ./plugins
+    # ./plugins
   ];
 
   options.modules.home-manager.optional.desktop.hyprland = with lib; {
     monitors = mkOption {
-      type = types.listOf types.str;
+      type = types.listOf (types.submodule {
+        options = {
+          output = mkOption {
+            type = types.str;
+            description = "e.g 'DP-1'";
+          };
+          mode = mkOption {
+            type = types.str;
+            default = "preferred";
+            description = "e.g. '1920x1080@144'";
+          };
+          position = mkOption {
+            type = types.str;
+            default = "0x0";
+            description = "e.g. '1920x0'";
+          };
+          scale = mkOption {
+            type = types.int;
+            default = 1;
+            description = "e.g. '1'";
+          };
+          transform = mkOption {
+            type = types.int;
+            default = 0;
+            description = "Rotation/flip transform (0–7)";
+          };
+        };
+      });
       default = [];
+    };
+    mainMonitor = mkOption {
+      type = types.str;
+      description = "Main monitor, set as mirror for unknown displays";
     };
     keyMap = mkOption {
       type = types.str;
@@ -28,12 +59,18 @@
       enable = true;
       package = pkgs.inputs.hyprland.hyprland;
       systemd.enable = false;
-      configType = "hyprlang";
+      configType = "lua";
       settings = {
         monitor =
           cfg.monitors
           ++ [
-            ", preferred, auto, 1"
+            {
+              output = "";
+              mode = "preferred";
+              position = "auto";
+              scale = 1;
+              mirror = cfg.mainMonitor;
+            }
           ];
       };
     };

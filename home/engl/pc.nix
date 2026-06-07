@@ -37,10 +37,21 @@ in {
         shortNames = true;
       };
     };
-    optional.desktop.hyprland = {
+    optional.desktop.hyprland = let
+      mainMonitor = "DP-2";
+    in {
+      inherit mainMonitor;
       monitors = [
-        "DP-2,highrr,0x0,1"
-        "HDMI-A-3,highres,3440x-270,1,transform,1"
+        {
+          output = mainMonitor;
+          mode = "highrr";
+        }
+        {
+          output = "HDMI-A-3";
+          mode = "highres";
+          position = "3440x-270";
+          transform = 1;
+        }
       ];
     };
   };

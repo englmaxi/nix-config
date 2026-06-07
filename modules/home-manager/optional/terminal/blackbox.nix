@@ -16,7 +16,10 @@
       in
         mkTuple [p p p p];
       font = let
-        inherit (config.stylix.fonts) monospace sizes
+        inherit
+          (config.stylix.fonts)
+          monospace
+          sizes
           ;
       in
         lib.strings.concatStringsSep " " [
