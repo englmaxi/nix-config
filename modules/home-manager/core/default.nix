@@ -6,6 +6,7 @@
 }: {
   imports = [
     ./comma.nix
+    ./fastfetch.nix
     ./fonts.nix
     ./git.nix
     ./ssh.nix
@@ -21,7 +22,6 @@
       btop
       dua
       dust
-      fastfetch
       fd
       fzf
       glow
