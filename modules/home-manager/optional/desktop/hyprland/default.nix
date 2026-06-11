@@ -7,7 +7,7 @@
   imports = [
     ./settings
     ./tools
-    # ./plugins
+    ./plugins
   ];
 
   options.modules.home-manager.optional.desktop.hyprland = with lib; {
