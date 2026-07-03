@@ -40,7 +40,6 @@
           "fish-you-should-use"
           "fzf-fish"
           "grc"
-          "plugin-sudope"
         ];
     };
 

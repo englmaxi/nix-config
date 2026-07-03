@@ -28,6 +28,7 @@
           user.name = cfg.userName;
           user.email = cfg.email;
           init.defaultBranch = "main";
+          core.autocrlf = true;
         };
         signing =
           {

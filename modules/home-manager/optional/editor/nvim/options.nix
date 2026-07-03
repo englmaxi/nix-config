@@ -42,7 +42,7 @@
 
       list = true;
       listchars = {
-        tab = "» ";
+        tab = " ";
         trail = "·";
         nbsp = "␣";
       };

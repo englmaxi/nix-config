@@ -1,6 +1,7 @@
 {...}: {
   imports = [
     ./blink-cmp.nix
+    ./codediff.nix
     ./colorizer.nix
     ./conform-nvim.nix
     ./gitblame.nix
@@ -14,6 +15,7 @@
     ./lspsaga.nix
     ./lualine.nix
     ./mini.nix
+    ./neogit.nix
     ./telescope.nix
     ./todo-comments.nix
     ./treesitter.nix

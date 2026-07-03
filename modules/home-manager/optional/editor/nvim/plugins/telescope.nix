@@ -11,8 +11,12 @@
         options.desc = "[S]earch [K]eymaps";
       };
       "<leader>sf" = {
-        action = "find_files";
+        action = "git_files";
         options.desc = "[S]earch [F]iles";
+      };
+      "<leader>sa" = {
+        action = "find_files";
+        options.desc = "[S]earch [A]ll files";
       };
       "<leader>sd" = {
         action = "diagnostics";
