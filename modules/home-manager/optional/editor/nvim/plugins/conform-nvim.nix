@@ -68,13 +68,13 @@
   programs.nixvim.keymaps = [
     {
       mode = "";
-      key = "<leader>fb";
+      key = "<leader>ff";
       action.__raw = ''
         function()
           require('conform').format { async = true, lsp_format = 'fallback' }
         end
       '';
-      options.desc = "[F]ormat [B]uffer";
+      options.desc = "[F]ormat buffer";
     }
     {
       mode = "";
@@ -97,6 +97,33 @@
         end
       '';
       options.desc = "[F]ormat [C]hanges";
+    }
+    {
+      mode = "v";
+      key = "<leader>fs";
+      action.__raw = ''
+        function()
+          local conform = require("conform")
+
+          local start_pos = vim.fn.getpos("'<")
+          local end_pos = vim.fn.getpos("'>")
+
+          local start_line = start_pos[2]
+          local start_col = start_pos[3] - 1
+          local end_line = end_pos[2]
+          local end_col = end_pos[3]
+
+          conform.format({
+            async = true,
+            lsp_format = "fallback",
+            range = {
+              start = { start_line, start_col },
+              ["end"] = { end_line, end_col },
+            },
+          })
+        end
+      '';
+      options.desc = "[F]ormat [S]election";
     }
   ];
 }
