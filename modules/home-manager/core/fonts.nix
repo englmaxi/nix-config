@@ -1,18 +1,13 @@
-{pkgs, ...}: {
-  home.packages = builtins.attrValues {
-    inherit
-      (pkgs.nerd-fonts)
-      fira-code
-      symbols-only
-      ;
-  };
+{config, pkgs, ...}: let
+  inherit (config.stylix) fonts;
+in {
+  home.packages = [
+    fonts.monospace.package
+    fonts.sansSerif.package
+    fonts.serif.package
+    fonts.emoji.package
+    pkgs.nerd-fonts.symbols-only
+  ];
 
-  fonts.fontconfig = {
-    enable = true;
-    defaultFonts = {
-      monospace = ["FiraCode Nerd Font"];
-      sansSerif = ["Fira Sans"];
-      serif = ["Fira Sans"];
-    };
-  };
+  fonts.fontconfig.enable = true;
 }

@@ -59,6 +59,9 @@
     impermanence.url = "github:nix-community/impermanence";
     impermanence.inputs.nixpkgs.follows = "nixpkgs";
 
+    misra-rules.url = "git+https://gitlab.com/MISRA/MISRA-C/MISRA-C-2012/tools.git";
+    misra-rules.flake = false;
+
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
 

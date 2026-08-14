@@ -1,0 +1,23 @@
+{pkgs}: {
+  base16Scheme = "${pkgs.base16-schemes}/share/themes/rebecca.yaml";
+  override.base01 = "323353";
+  override.base07 = "A3A3FA";
+  override.base09 = "FAC297";
+  override.base0A = "EFE4A1";
+  override.base0D = "78B2FF";
+  polarity = "dark";
+
+  fonts = {
+    sansSerif.package = pkgs.atkinson-hyperlegible-next;
+    sansSerif.name = "Atkinson Hyperlegible Next";
+
+    serif.package = pkgs.atkinson-hyperlegible-next;
+    serif.name = "Atkinson Hyperlegible Next";
+
+    monospace.package = pkgs.nerd-fonts.jetbrains-mono;
+    monospace.name = "JetBrainsMono Nerd Font Mono";
+
+    emoji.package = pkgs.noto-fonts-color-emoji;
+    emoji.name = "Noto Color Emoji";
+  };
+}

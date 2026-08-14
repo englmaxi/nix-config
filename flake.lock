@@ -783,6 +783,22 @@
         "type": "github"
       }
     },
+    "misra-rules": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1730719548,
+        "narHash": "sha256-jufQn2L0cq6AgjUTW97HvhRERc4jjaCdsjUDxZV9NPM=",
+        "ref": "refs/heads/main",
+        "rev": "73090ff370020fc577359e18817ecbb0a6a335de",
+        "revCount": 2,
+        "type": "git",
+        "url": "https://gitlab.com/MISRA/MISRA-C/MISRA-C-2012/tools.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://gitlab.com/MISRA/MISRA-C/MISRA-C-2012/tools.git"
+      }
+    },
     "nix-index-database": {
       "inputs": {
         "nixpkgs": [
@@ -1023,6 +1039,7 @@
         "hyprland": "hyprland",
         "hyprland-plugins": "hyprland-plugins",
         "impermanence": "impermanence",
+        "misra-rules": "misra-rules",
         "nix-index-database": "nix-index-database",
         "nixcord": "nixcord",
         "nixos-hardware": "nixos-hardware",

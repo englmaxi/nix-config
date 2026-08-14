@@ -50,7 +50,7 @@
       set -g status-position bottom
       set -g status-justify left
       set -g status-right ' '
-      set -g status-left '#[bold,bg=${base00},fg=${base01}]#[bg=${base01}]#[#{?client_prefix,fg=${base0E},fg=${base04}}]#{?client_prefix,,} #[fg=${base04}]#S#[bg=${base00},fg=${base01}] #[fg=${base01}]| '
+      set -g status-left '#[bold,bg=${base00},fg=${base01}]#[bg=${base01}]#[#{?client_prefix,fg=${base0E},fg=${base04}}]#{?client_prefix,,󰙀} #[fg=${base04}]#S#[bg=${base00},fg=${base01}] #[fg=${base01}]| '
       set -g status-left-length 100
       set -g window-status-current-format '#[bold,fg=${base01}]#[fg=${base0A},bg=${base01}]#I #[fg=${base0A},bg=${base00}] #W '
       set -g window-status-format '#[nobold,fg=${base01}]#[bg=${base01},fg=${base04}]#I  #W#[bg=${base00},fg=${base01}]'
@@ -58,10 +58,10 @@
       bind-key "${config.programs.sesh.tmuxKey}" run-shell "sesh connect \"$(
             sesh list --icons | fzf --tmux 80%,70% \
               --no-sort --ansi --border-label ' sesh ' --prompt '  ' \
-              --header '  ^a , ^t , ^g , ^x , ^d , ^f , ^s ' \
+              --header '  ^a , ^t 󰙀, ^g , ^x , ^d , ^f , ^s ' \
               --bind 'tab:down,btab:up' \
               --bind 'ctrl-a:change-prompt(  )+reload(sesh list --icons)' \
-              --bind 'ctrl-t:change-prompt(  )+reload(sesh list --icons -t)' \
+              --bind 'ctrl-t:change-prompt(󰙀  )+reload(sesh list --icons -t)' \
               --bind 'ctrl-g:change-prompt(  )+reload(sesh list --icons -c)' \
               --bind 'ctrl-x:change-prompt(  )+reload(sesh list --icons -z)' \
               --bind 'ctrl-f:change-prompt(  )+reload(fd -H -d 2 -t d -E .Trash . ~)' \

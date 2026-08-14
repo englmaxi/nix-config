@@ -6,7 +6,7 @@
   programs.kitty = {
     enable = true;
     font.size = 12;
-    font.name = lib.mkDefault "FiraCode Nerd Font Mono";
+    font.name = lib.mkDefault config.stylix.fonts.monospace.name;
     extraConfig = ''
       window_padding_width 0 8 8
       map kitty_mod+up resize_window taller

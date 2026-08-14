@@ -30,7 +30,7 @@
       []
       ++ km "i" "jj" "<Esc>" "Enter NORMAL mode"
       ++ km "n" "<Esc><Esc>" ":w<CR>" "Save"
-      ++ km "n" "<Esc>" "<cmd>nohlsearch<CR>" "Remove higlight from search"
+      ++ km "n" "<Esc>" "<cmd>nohlsearch<CR>" "Remove highlight from search"
       ++ km "t" "<Esc><Esc>" "<C-\\><C-n>" "Enter NORMAL mode (from TERMINAL mode)"
       ++ km "x" "<leader>p" "\"_dP" "[P]aste without yanking"
       ++ km ["n" "v"] "<leader>x" "\"_d" "[X] Delete without yanking"

@@ -7,29 +7,9 @@
     inputs.stylix.nixosModules.stylix
   ];
 
-  stylix = {
+  stylix = import ../../../shared/stylix.nix {inherit pkgs;} // {
     enable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/rebecca.yaml";
-    override.base01 = "323353";
-    override.base07 = "A3A3FA";
-    override.base09 = "FAC297";
-    override.base0A = "EFE4A1";
-    override.base0D = "78B2FF";
-    polarity = "dark";
     image = ./wallpaper.png;
-    fonts = {
-      sansSerif.package = pkgs.atkinson-hyperlegible-next;
-      sansSerif.name = "Atkinson Hyperlegible Next";
-
-      serif.package = pkgs.atkinson-hyperlegible-next;
-      serif.name = "Atkinson Hyperlegible Next";
-
-      monospace.package = pkgs.nerd-fonts.jetbrains-mono;
-      monospace.name = "JetBrainsMono Nerd Font Mono";
-
-      emoji.package = pkgs.noto-fonts-color-emoji;
-      emoji.name = "Noto Color Emoji";
-    };
     cursor = {
       package = pkgs.phinger-cursors;
       name = "phinger-cursors-dark";

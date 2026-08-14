@@ -9,6 +9,7 @@
     ./guess-indent.nix
     ./illuminate.nix
     ./indent-blankline.nix
+    ./lint.nix
     ./lsp.nix
     ./lsp-lines.nix
     ./lsp-signature.nix

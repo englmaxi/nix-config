@@ -6,7 +6,7 @@
 }: {
   programs.obsidian = {
     enable = true;
-    vaults.vault.settings.appearance."textFontFamily" = "Atkinson Hyperlegible Next";
+    vaults.vault.settings.appearance."textFontFamily" = config.stylix.fonts.sansSerif.name;
   };
   stylix.targets.obsidian = {
     vaultNames = ["vault"];

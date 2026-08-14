@@ -1,6 +1,12 @@
 {...}: {
   programs.nixvim.plugins.telescope = {
     enable = true;
+    extensions.advanced-git-search = {
+    enable = true;
+      settings = {
+        entry_default_author_or_date = "both";
+      };
+    };
     keymaps = {
       "<leader>sh" = {
         action = "help_tags";
@@ -33,6 +39,10 @@
       "<leader><leader>" = {
         action = "buffers";
         options.desc = "[ ] Find buffers";
+      };
+      "<leader>sl" = {
+        action = "advanced_git_search search_log_content_file";
+        options.desc = "[S]earch Git [L]og content";
       };
     };
   };
