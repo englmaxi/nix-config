@@ -274,7 +274,7 @@
         cmd = "hl.dsp.window.drag()";
       }
       {
-        withMod = "CTRL";
+        withMod = "Control_L";
         cmd = "hl.dsp.window.drag()";
       }
       {

@@ -20,7 +20,7 @@
 
   services = {
     clipse.enable = true;
-    clipse.imageDisplay.type = "kitty";
+    clipse.settings.imageDisplay.type = "kitty";
     hyprpolkitagent.enable = true;
     blueman-applet.enable = true;
     udiskie.enable = true;

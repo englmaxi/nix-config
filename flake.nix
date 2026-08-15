@@ -91,7 +91,7 @@
 
     systems.url = "github:nix-systems/default-linux";
 
-    tuigreet.url = "github:NotAShelf/tuigreet";
+    tuigreet.url = "github:tuigreet/tuigreet";
     tuigreet.inputs.nixpkgs.follows = "nixpkgs";
 
     xremap.url = "github:xremap/nix-flake";

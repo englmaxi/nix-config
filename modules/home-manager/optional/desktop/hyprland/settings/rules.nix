@@ -51,7 +51,7 @@
         move = "100%-270 100%-204";
         border_size = 0;
         no_initial_focus = true;
-        opacity = "1.0 override";
+        opacity = "1.0 override 1.0 override";
       }
       {
         match.class = "^(org.pulseaudio.pavucontrol)$";
@@ -63,6 +63,14 @@
         stay_focused = true;
         dim_around = true;
         center = true;
+      }
+      {
+        match.content = "video";
+        opacity = "1.0 override 1.0 override";
+      }
+      {
+        match.title = ".*(YouTube|Twitch|Netflix|Prime Video|Picture-in-Picture).*";
+        opacity = "1.0 override 1.0 override";
       }
     ];
 
