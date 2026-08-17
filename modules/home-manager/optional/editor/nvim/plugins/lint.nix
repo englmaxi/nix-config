@@ -22,7 +22,7 @@
               misra-c2012-8.7  # checking external linkage can not be done without a database
               misra-c2012-17.3 # implicit declarations are better handled by clangd
               misra-c2012-19.2 # unions are a very useful tool in embedded C
-              misra-c2012-21.6 # don't warn about the Standard Library input/output functions
+              misra-c2012-21.6 # do not warn about the Standard Library input/output functions
               misra-config     # misra config warnings
               unknownMacro     # handled by clangd
             '';
@@ -42,6 +42,15 @@
         ];
       };
     };
+    extraConfigLua = ''
+      local cppcheck_cache = vim.fn.stdpath("cache") .. "/cppcheck"
+      vim.fn.mkdir(cppcheck_cache, "p")
+
+      table.insert(
+        require("lint").linters.cppcheck.args,
+        "--cppcheck-build-dir=" .. cppcheck_cache
+      )
+    '';
     extraPackages = [
       pkgs.cppcheck
       pkgs.python3
