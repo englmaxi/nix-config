@@ -16,6 +16,7 @@
     ./lspsaga.nix
     ./lualine.nix
     ./mini.nix
+    ./neogen.nix
     ./neogit.nix
     ./telescope.nix
     ./todo-comments.nix
