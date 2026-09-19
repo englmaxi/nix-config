@@ -6,9 +6,9 @@
     keymaps = [
       {
         mode = "n";
-        key = "<leader>gs";
+        key = "<leader>gc";
         action = "<cmd>Gitsigns preview_hunk_inline<cr>";
-        options.desc = "[G]it [S]how Changes";
+        options.desc = "[G]it show [C]hanges";
       }
       {
         mode = "n";
