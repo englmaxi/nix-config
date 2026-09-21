@@ -6,7 +6,35 @@
         ts_ls.enable = true;
         lua_ls.enable = true;
         pyright.enable = true;
-        clangd.enable = true;
+        clangd = {
+          enable = true;
+          cmd = let
+            mkQueryDrivers = compilers: let
+              roots = [
+                "/usr/bin"
+                "/opt/toolchains/**/bin"
+                "/nix/store/*/bin"
+              ];
+
+              names =
+                builtins.concatMap (compiler: [
+                  compiler
+                  "*-${compiler}"
+                ])
+                compilers;
+
+              patterns =
+                builtins.concatMap (
+                  root: map (name: "${root}/${name}") names
+                )
+                roots;
+            in
+              builtins.concatStringsSep "," patterns;
+          in [
+            "clangd"
+            "--query-driver=${mkQueryDrivers ["gcc" "g++"]}"
+          ];
+        };
         lemminx.enable = true;
         nixd.enable = true;
         rust_analyzer = {
