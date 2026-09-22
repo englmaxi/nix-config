@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: {
   options.modules.home-manager.core.git = with lib; {
@@ -28,6 +29,8 @@
           user.name = cfg.userName;
           user.email = cfg.email;
           init.defaultBranch = "main";
+          diff.algorithm = "histogram";
+          merge.conflictStyle = "zdiff3";
         };
         signing =
           {
@@ -43,6 +46,15 @@
         disableStartupPopups = true;
         quitOnTopLevelReturn = true;
         git.overrideGpg = true;
+        git.diffRenderers = lib.lists.singleton {
+          command = lib.strings.escapeShellArgs [
+            "${lib.getExe pkgs.delta}"
+            "--paging=never"
+            "--line-numbers"
+            "--hyperlinks"
+            "--hyperlinks-file-link-format=lazygit-edit://{path}:{line}"
+          ];
+        };
         gui.showRandomTip = false;
         gui.fileTreeSortOrder = "foldersFirst";
         gui.nerdFontsVersion = "3";

@@ -9,9 +9,9 @@
       enable = true;
       shellAliases = {
         ls = "eza --group-directories-first";
-        ll = "eza -l --group-directories-first";
+        ll = "eza -lM --group-directories-first";
         la = "eza -a --group-directories-first";
-        lla = "eza -la --group-directories-first";
+        lla = "eza -lMa --group-directories-first";
         cat = "bat -Pp";
         man = "batman";
         diff = "batdiff";
