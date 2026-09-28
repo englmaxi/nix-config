@@ -22,6 +22,12 @@
       }
       {
         mode = "n";
+        key = "<leader>to";
+        action = "<cmd>Lspsaga outline<cr>";
+        options.desc = "[T]oggle [O]utline";
+      }
+      {
+        mode = "n";
         key = "<leader>df";
         action = "<cmd>Lspsaga finder<cr>";
         options.desc = "[D]iagnostics: [F]inder";
