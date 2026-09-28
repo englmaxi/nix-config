@@ -52,15 +52,15 @@
       }
       {
         mode = "n";
-        key = "<leader>dhi";
+        key = "<leader>di";
         action = "<cmd>Lspsaga incoming_calls<cr>";
-        options.desc = "[D]iagnostics: [H]ierarchy [I]ncoming";
+        options.desc = "[D]iagnostics: Hierarchy [I]ncoming";
       }
       {
         mode = "n";
-        key = "<leader>dho";
+        key = "<leader>do";
         action = "<cmd>Lspsaga outgoing_calls<cr>";
-        options.desc = "[D]iagnostics: [H]ierarchy [O]utgoing";
+        options.desc = "[D]iagnostics: Hierarchy [O]utgoing";
       }
     ];
   };

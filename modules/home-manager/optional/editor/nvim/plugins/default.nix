@@ -4,6 +4,7 @@
     ./codediff.nix
     ./colorizer.nix
     ./conform-nvim.nix
+    ./dap.nix
     ./gitblame.nix
     ./gitsigns.nix
     ./guess-indent.nix
