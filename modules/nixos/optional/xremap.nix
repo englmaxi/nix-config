@@ -3,10 +3,13 @@
     inputs.xremap.nixosModules.default
   ];
 
-  services.xremap.config.modmap = [
-    {
-      name = "Global";
-      remap = {"CapsLock" = "Esc";};
-    }
-  ];
+  services.xremap = {
+    enable = true;
+    config.modmap = [
+      {
+        name = "Global";
+        remap = {"CapsLock" = "Esc";};
+      }
+    ];
+  };
 }

@@ -6,7 +6,9 @@
   imports = [
     inputs.stylix.homeModules.stylix
   ];
-  stylix = import ../../shared/stylix.nix {inherit pkgs;} // {
-    enable = true;
-  };
+  stylix =
+    import ../../shared/stylix.nix {inherit pkgs;}
+    // {
+      enable = true;
+    };
 }

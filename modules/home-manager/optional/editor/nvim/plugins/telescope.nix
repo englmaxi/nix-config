@@ -2,7 +2,7 @@
   programs.nixvim.plugins.telescope = {
     enable = true;
     extensions.advanced-git-search = {
-    enable = true;
+      enable = true;
       settings = {
         entry_default_author_or_date = "both";
       };

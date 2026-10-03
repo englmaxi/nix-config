@@ -20,8 +20,8 @@
     };
 
     gc = {
-      automatic = false;
-      dates = "monthly";
+      automatic = true;
+      dates = "weekly";
       options = "--delete-older-than 30d";
     };
   };

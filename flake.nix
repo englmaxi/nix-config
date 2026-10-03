@@ -22,6 +22,10 @@
         import ./shell.nix {inherit pkgs;}
     );
 
+    formatter = forAllSystems (
+      system: nixpkgs.legacyPackages.${system}.alejandra
+    );
+
     nixosConfigurations = {
       pc = lib.nixosSystem {
         inherit specialArgs;

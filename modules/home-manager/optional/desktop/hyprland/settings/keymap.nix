@@ -250,11 +250,11 @@
       }
 
       {
-        withoutMod = "XF86MonBrightnessUp";
+        withoutMod = "XF86MonBrightnessDown";
         cmd = ''hl.dsp.exec_cmd("brightnessctl set 5%-")'';
       }
       {
-        withoutMod = "XF86MonBrightnessDown";
+        withoutMod = "XF86MonBrightnessUp";
         cmd = ''hl.dsp.exec_cmd("brightnessctl set +5%")'';
       }
     ];

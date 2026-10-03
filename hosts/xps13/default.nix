@@ -30,6 +30,9 @@ in {
     core = {
       locales.keyMap = "de";
     };
+    optional.desktop.hyprland = {
+      autologin.userName = "engl";
+    };
   };
 
   networking = {

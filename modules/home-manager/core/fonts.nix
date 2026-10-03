@@ -1,4 +1,8 @@
-{config, pkgs, ...}: let
+{
+  config,
+  pkgs,
+  ...
+}: let
   inherit (config.stylix) fonts;
 in {
   home.packages = [

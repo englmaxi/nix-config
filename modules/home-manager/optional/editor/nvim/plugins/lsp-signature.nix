@@ -1,4 +1,4 @@
-{config,...}: {
+{config, ...}: {
   programs.nixvim.plugins.lsp-signature = {
     enable = true;
     settings = {
