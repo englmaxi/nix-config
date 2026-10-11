@@ -43,13 +43,16 @@
           installRustc = false;
           installCargo = false;
         };
-        qmlls.enable = true;
+        qmlls = {
+          enable = true;
+          cmd = ["qmlls" "-E"];
+        };
         zls.enable = true;
         bashls.enable = true;
         typos_lsp.enable = true;
       };
       postConfig = ''
-        vim.diagnostic.config {
+        vim.diagnostic.config({
           signs = {
             text = {
               [vim.diagnostic.severity.ERROR] = "",
@@ -57,8 +60,14 @@
               [vim.diagnostic.severity.INFO] = "󰋼",
               [vim.diagnostic.severity.HINT] = "󰌵",
             },
-          }
-        }
+          },
+          virtual_text = {
+            current_line = false,
+          },
+          virtual_lines = {
+            current_line = true,
+          },
+        })
       '';
       keymaps.lspBuf = {
         # K = "hover";
