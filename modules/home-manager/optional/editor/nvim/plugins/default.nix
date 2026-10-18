@@ -2,7 +2,7 @@
   imports = [
     ./blink-cmp.nix
     ./codediff.nix
-    ./colorizer.nix
+    ./highlight-colors.nix
     ./conform-nvim.nix
     ./dap.nix
     ./gitblame.nix
