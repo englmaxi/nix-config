@@ -1,4 +1,4 @@
-{...}: {
+_: {
   programs.nixvim = {
     globals.mapleader = " ";
     globals.maplocalleader = " ";
@@ -20,15 +20,14 @@
             map (k: {
               mode = m;
               key = k;
-              action = action;
+              inherit action;
               options.desc = desc;
             })
             ks
         )
         modes;
     in
-      []
-      ++ km "i" "jj" "<Esc>" "Enter NORMAL mode"
+      km "i" "jj" "<Esc>" "Enter NORMAL mode"
       # ++ km "n" "<Esc><Esc>" ":w<CR>" "Save"
       ++ km "n" "<Esc>" "<cmd>nohlsearch<CR>" "Remove highlight from search"
       ++ km "t" "<Esc><Esc>" "<C-\\><C-n>" "Enter NORMAL mode (from TERMINAL mode)"

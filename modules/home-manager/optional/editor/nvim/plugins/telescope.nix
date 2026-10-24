@@ -1,4 +1,4 @@
-{...}: {
+_: {
   programs.nixvim.plugins.telescope = {
     enable = true;
     extensions.advanced-git-search = {
@@ -38,7 +38,7 @@
       };
       "<leader><leader>" = {
         action = "buffers";
-        options.desc = "[ ] Find buffers";
+        options.desc = "Find buffers";
       };
       "<leader>sl" = {
         action = "advanced_git_search search_log_content_file";
@@ -53,9 +53,9 @@
       action.__raw = ''
         function()
           require('telescope.builtin').current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-        		winblend = 10,
-        		previewer = false,
-        	}))
+            winblend = 10,
+            previewer = false,
+          }))
         end
       '';
       options.desc = "Fuzzily search in current buffer";
@@ -72,6 +72,18 @@
         end
       '';
       options.desc = "Fuzzily [S]earch in [/] open files";
+    }
+    {
+      mode = "n";
+      key = "<leader>s.";
+      action.__raw = ''
+        function()
+          require('telescope.builtin').find_files({
+            cwd = require('telescope.utils').buffer_dir(),
+          })
+        end
+      '';
+      options.desc = "[S]earch in [.] current directory";
     }
   ];
 }

@@ -37,9 +37,9 @@
         };
       };
       lintersByFt = {
-        c = [
-          "cppcheck"
-        ];
+        c = ["cppcheck"];
+        dockerfile = ["hadolint"];
+        nix = ["statix"];
       };
     };
     extraConfigLua = ''
@@ -54,6 +54,8 @@
     extraPackages = [
       pkgs.cppcheck
       pkgs.python3
+      pkgs.hadolint
+      pkgs.statix
     ];
   };
 }

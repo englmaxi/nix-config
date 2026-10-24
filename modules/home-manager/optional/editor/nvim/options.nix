@@ -1,4 +1,4 @@
-{...}: {
+_: {
   programs.nixvim = {
     globals.have_nerd_font = true;
     opts = {

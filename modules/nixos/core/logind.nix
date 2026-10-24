@@ -1,4 +1,4 @@
-{...}: {
+_: {
   services.logind.settings.Login = {
     HandlePowerKey = "poweroff";
     HanldePowerKeyLongPress = "reboot";

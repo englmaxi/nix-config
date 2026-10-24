@@ -1,4 +1,4 @@
-{...}: {
+_: {
   programs.nixvim = {
     lsp.inlayHints.enable = true;
     plugins.lsp = {
@@ -33,6 +33,11 @@
               builtins.concatStringsSep "," patterns;
           in [
             "clangd"
+            "--background-index"
+            "--clang-tidy"
+            "--header-insertion=iwyu"
+            "--completion-style=detailed"
+            "--function-arg-placeholders"
             "--query-driver=${mkQueryDrivers ["gcc" "g++"]}"
           ];
         };
@@ -47,6 +52,9 @@
           enable = true;
           cmd = ["qmlls" "-E"];
         };
+        neocmake.enable = true;
+        dockerls.enable = true;
+        docker_compose_language_service.enable = true;
         zls.enable = true;
         bashls.enable = true;
         typos_lsp.enable = true;
@@ -61,8 +69,10 @@
               [vim.diagnostic.severity.HINT] = "󰌵",
             },
           },
+          severity_sort = true,
           virtual_text = {
             current_line = false,
+            prefix = "󱓻 ",
           },
           virtual_lines = {
             current_line = true,
@@ -71,7 +81,8 @@
       '';
       keymaps.lspBuf = {
         # K = "hover";
-        gD = "references";
+        gr = "references";
+        gD = "declaration";
         gd = "definition";
         gi = "implementation";
         gt = "type_definition";
