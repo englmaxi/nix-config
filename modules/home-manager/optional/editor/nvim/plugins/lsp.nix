@@ -1,6 +1,16 @@
 _: {
   programs.nixvim = {
     lsp.inlayHints.enable = true;
+    diagnostic.settings = {
+      severity_sort = true;
+      virtual_text = {
+        current_line = false;
+        prefix = "󱓻 " ;
+      };
+      virtual_lines = {
+        current_line = true;
+      };
+    };
     plugins.lsp = {
       enable = true;
       servers = {
@@ -68,14 +78,6 @@ _: {
               [vim.diagnostic.severity.INFO] = "󰋼",
               [vim.diagnostic.severity.HINT] = "󰌵",
             },
-          },
-          severity_sort = true,
-          virtual_text = {
-            current_line = false,
-            prefix = "󱓻 ",
-          },
-          virtual_lines = {
-            current_line = true,
           },
         })
       '';

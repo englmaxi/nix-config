@@ -1,5 +1,6 @@
 _: {
   programs.nixvim = {
+    # NOTE: color scheme is provided by stylix
     extraConfigLuaPost = ''
       local highlights = {
         -- Comments
@@ -32,6 +33,19 @@ _: {
         ["@markup.strikethrough"] = { strikethrough = true },
         ["@markup.underline"] = { underline = true },
         ["@markup.heading"] = { bold = true },
+
+        -- Diagnostic
+        ["DiagnosticUnderlineError"] = { undercurl = true },
+        ["DiagnosticUnderlineWarn"] = { undercurl = true },
+        ["DiagnosticUnderlineInfo"] = { undercurl = true },
+        ["DiagnosticUnderlineHint"] = { undercurl = true },
+        ["DiagnosticError"] = { italic = true },
+        ["DiagnosticWarn"] = { italic = true },
+        ["DiagnosticInfo"] = { italic = true },
+        ["DiagnosticHint"] = { italic = true },
+
+        -- Inlay hint
+        ["NonText"] = { italic = true },
       }
 
       for group, style in pairs(highlights) do

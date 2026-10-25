@@ -27,7 +27,7 @@ _: {
             __unkeyed-1 = "filename";
             path = 1;
             symbols = {
-              modified = " ";
+              modified = " ";
               readonly = " ";
               unnamed = "󱁐 ";
               new = " ";
@@ -55,18 +55,10 @@ _: {
           {
             __unkeyed-1 = "progress";
             separator = "";
-            padding = 1;
           }
         ];
         lualine_z = [
-          {
-            __unkeyed-1 = "location";
-            separator = "";
-            padding = {
-              left = 0;
-              right = 1;
-            };
-          }
+          "location"
         ];
       };
     };
