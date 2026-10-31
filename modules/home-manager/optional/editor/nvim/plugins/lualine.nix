@@ -9,8 +9,8 @@ _: {
           right = "";
         };
         component_separators = {
-          left = ""; #"";
-          right = ""; #"";
+          left = ""; # "";
+          right = ""; # "";
         };
       };
       sections = {
@@ -48,17 +48,38 @@ _: {
             };
           }
           "fileformat"
-          "encoding"
+          {
+            # encoding
+            __unkeyed-1.__raw = ''
+              function()
+                local enc = vim.bo.fileencoding
+                if enc ~= "" and enc:lower() ~= "utf-8" then
+                  return enc
+                end
+                return ""
+              end
+            '';
+          }
         ];
         lualine_y = [
           "filesize"
-          {
-            __unkeyed-1 = "progress";
-            separator = "";
-          }
         ];
         lualine_z = [
-          "location"
+          {
+            __unkeyed-1 = "location";
+            separator = "/";
+            padding = {
+              left = 1;
+              right = 0;
+            };
+          }
+          {
+            __unkeyed-1 = "%L";
+            padding = {
+              left = 0;
+              right = 1;
+            };
+          }
         ];
       };
     };

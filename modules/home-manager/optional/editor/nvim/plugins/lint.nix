@@ -40,6 +40,7 @@
         c = ["cppcheck"];
         dockerfile = ["hadolint"];
         nix = ["statix"];
+        Makefile = ["checkmake"];
       };
     };
     extraConfigLua = ''
@@ -56,6 +57,7 @@
       pkgs.python3
       pkgs.hadolint
       pkgs.statix
+      pkgs.checkmake
     ];
   };
 }
