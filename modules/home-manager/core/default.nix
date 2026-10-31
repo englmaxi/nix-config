@@ -16,35 +16,32 @@
     ./fish.nix
   ];
 
-  home.packages = builtins.attrValues {
-    inherit
-      (pkgs)
-      btop
-      dua
-      dust
-      fd
-      fzf
-      glow
-      hyperfine
-      just
-      killall
-      ncdu
-      nix-output-monitor
-      p7zip
-      ripgrep
-      screen
-      tldr
-      tree
-      unrar
-      unzip
-      usbutils
-      uutils-coreutils-noprefix
-      wget
-      wl-clipboard
-      xsel
-      zip
-      ;
-  };
+  home.packages = with pkgs; [
+    btop
+    dua
+    dust
+    fd
+    fzf
+    glow
+    hyperfine
+    just
+    killall
+    ncdu
+    nix-output-monitor
+    p7zip
+    ripgrep
+    screen
+    tldr
+    tree
+    unrar
+    unzip
+    usbutils
+    uutils-coreutils-noprefix
+    wget
+    wl-clipboard
+    xsel
+    zip
+  ];
 
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
   nixpkgs = {

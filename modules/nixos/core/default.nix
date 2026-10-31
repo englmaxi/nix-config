@@ -20,9 +20,9 @@
     };
   };
 
-  environment.systemPackages = [
-    pkgs.wget
-    pkgs.vim
+  environment.systemPackages = with pkgs; [
+    wget
+    vim
   ];
 
   programs.zsh.enable = true;

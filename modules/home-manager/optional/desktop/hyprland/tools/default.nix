@@ -7,16 +7,13 @@
     ./waybar.nix
   ];
 
-  home.packages = builtins.attrValues {
-    inherit
-      (pkgs)
-      hyprshot
-      nautilus
-      qimgv
-      evince
-      playerctl
-      ;
-  };
+  home.packages = with pkgs; [
+    hyprshot
+    nautilus
+    qimgv
+    evince
+    playerctl
+  ];
 
   services = {
     clipse.enable = true;

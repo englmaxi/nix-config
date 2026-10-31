@@ -1,5 +1,5 @@
 {
-  description = "enGL's nixos-config";
+  description = "nix-config";
 
   outputs = {
     self,

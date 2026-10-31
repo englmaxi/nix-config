@@ -6,14 +6,11 @@
 }: {
   home =
     {
-      packages = builtins.attrValues {
-        inherit
-          (pkgs)
-          steam
-          gamescope
-          protontricks
-          ;
-      };
+      packages = with pkgs; [
+        steam
+        gamescope
+        protontricks
+      ];
     }
     // lib.optionalAttrs (builtins.hasAttr "persistence" config.home)
     {

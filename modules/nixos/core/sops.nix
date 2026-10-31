@@ -23,12 +23,9 @@
     };
   };
 
-  environment.defaultPackages = builtins.attrValues {
-    inherit
-      (pkgs)
-      age
-      sops
-      ssh-to-age
-      ;
-  };
+  environment.defaultPackages = with pkgs; [
+    age
+    sops
+    ssh-to-age
+  ];
 }

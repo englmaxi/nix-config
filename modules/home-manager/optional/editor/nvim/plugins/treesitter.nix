@@ -24,11 +24,8 @@
     };
   };
 
-  home.packages = builtins.attrValues {
-    inherit
-      (pkgs)
-      clang
-      zig
-      ;
-  };
+  home.packages = with pkgs; [
+    clang
+    zig
+  ];
 }
