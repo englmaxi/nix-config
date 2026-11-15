@@ -43,7 +43,7 @@
         '';
         items = [
           {
-            name = "Find files";
+            name = "Search files";
             action = "Telescope find_files";
             section = "Files";
           }
@@ -76,16 +76,16 @@
             local stats = vim.fn.system({
               "${lib.getExe pkgs.eza}",
               "--code",
-              ".",
+              vim.fn.getcwd(),
             })
 
             local result = {
-              "Working directory: " .. cwd,
+              cwd,
               "",
             }
 
             if vim.v.shell_error == 0 then
-              table.insert(result, vim.trim(stats))
+              table.insert(result, stats)
             end
 
             return table.concat(result, "\n")
