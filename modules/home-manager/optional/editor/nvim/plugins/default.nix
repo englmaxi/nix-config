@@ -18,6 +18,7 @@
     ./mini.nix
     ./neogen.nix
     ./neogit.nix
+    ./oil.nix
     ./telescope.nix
     ./todo-comments.nix
     ./treesitter.nix
