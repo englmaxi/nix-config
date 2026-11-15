@@ -57,6 +57,7 @@
 
       bind-key "${config.programs.sesh.tmuxKey}" run-shell "sesh connect \"$(
             sesh list --icons | fzf --tmux 80%,70% \
+              --color='bg:${base00},bg+:${base01},fg:${base05},fg+:${base06},border:${base01},preview-bg:${base00}' \
               --no-sort --ansi --border-label ' sesh ' --prompt '  ' \
               --header '  ^a , ^t 󰙀, ^g , ^x , ^d , ^f , ^s ' \
               --bind 'tab:down,btab:up' \

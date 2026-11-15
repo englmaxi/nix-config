@@ -35,9 +35,9 @@
       openFirewall = true;
       settings.publish = {
         disable-publishing = false;
-        addresses = true;
-        domain = true;
-        hinfo = true;
+        publish-addresses = true;
+        publish-domain = true;
+        publish-hinfo = true;
       };
     };
     printing.enable = true;
