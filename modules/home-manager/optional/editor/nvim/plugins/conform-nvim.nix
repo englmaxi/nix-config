@@ -43,6 +43,9 @@
         xml-formatter = {
           command = lib.getExe pkgs.xmlformat;
         };
+        qmlformat = {
+          command = lib.getExe' pkgs.kdePackages.qtdeclarative "qmlformat";
+        };
       };
       formatters_by_ft = {
         nix = ["alejandra"];
@@ -57,6 +60,7 @@
         html = ["prettierd"];
         rust = ["rustfmt"];
         xml = ["xml-formatter"];
+        qml = ["qmlformat"];
         "_" = [
           "squeeze_blanks"
           "trim_whitespace"

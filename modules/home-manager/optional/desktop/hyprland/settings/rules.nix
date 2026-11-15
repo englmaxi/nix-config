@@ -89,14 +89,6 @@ _: {
         };
       }
       {
-        workspace = "special:scratchpad";
-        on_created_empty = "kitty";
-      }
-      {
-        workspace = "special:spotify";
-        on_created_empty = "spotify";
-      }
-      {
         workspace = "w[tv1]s[false]m[DP-2]";
         gaps_out = {
           top = 20;

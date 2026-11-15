@@ -66,7 +66,6 @@
   in
     lib.concatLines (map mkHomePersist users);
 
-  boot.initrd.systemd.enable = lib.mkDefault true;
   boot.initrd.systemd.services.rollback = {
     description = "Rollback BTRFS root subvolume";
     wantedBy = ["initrd.target"];

@@ -33,8 +33,8 @@
       enable = true;
       nssmdns4 = true;
       openFirewall = true;
-      publish = {
-        enable = true;
+      settings.publish = {
+        disable-publishing = false;
         addresses = true;
         domain = true;
         hinfo = true;
