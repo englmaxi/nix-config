@@ -27,12 +27,12 @@
             local version = vim.version()
 
             return [=[
-                                                      __                
-                         ___      __    ___   __  __ /\_\    ___ ___    
-                       /' _ `\  /'__`\ / __`\/\ \/\ \\/\ \ /' __` __`\  
-                       /\ \/\ \/\  __//\ \L\ \ \ \_/ |\ \ \/\ \/\ \/\ \ 
-                       \ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\
-                        \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/
+                                                      __                           
+                         ___      __    ___   __  __ /\_\    ___ ___               
+                       /' _ `\  /'__`\ / __`\/\ \/\ \\/\ \ /' __` __`\             
+                       /\ \/\ \/\  __//\ \L\ \ \ \_/ |\ \ \/\ \/\ \/\ \            
+                       \ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\           
+                        \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/           
             ]=] .. string.format(
               "\n                                 v%d.%d.%d",
               version.major,
@@ -70,26 +70,39 @@
         };
 
         footer = lib.generators.mkLuaInline ''
-          function()
-            local cwd = vim.fn.fnamemodify(vim.fn.getcwd(), ":~")
+          (function()
+            local cwd = vim.fn.getcwd()
+            local display_cwd = vim.fn.fnamemodify(cwd, ":~")
+            local stats = ""
 
-            local stats = vim.fn.system({
+            vim.system({
               "${lib.getExe pkgs.eza}",
               "--code",
-              vim.fn.getcwd(),
-            })
-
-            local result = {
               cwd,
-              "",
-            }
+            }, { text = true }, function(result)
+              vim.schedule(function()
+                if result.code == 0 then
+                  stats = result.stdout
+                else
+                  stats = ""
+                end
 
-            if vim.v.shell_error == 0 then
-              table.insert(result, stats)
+                for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+                  if vim.bo[buf].filetype == "ministarter" then
+                    require("mini.starter").refresh(buf)
+                  end
+                end
+              end)
+            end)
+
+            return function()
+              return table.concat({
+                display_cwd,
+                "",
+                stats,
+              }, "\n")
             end
-
-            return table.concat(result, "\n")
-          end
+          end)()
         '';
       };
     };
