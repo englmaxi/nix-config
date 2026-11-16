@@ -29,6 +29,8 @@
       set -g default-terminal "tmux-256color"
       set -ga terminal-overrides ",*256col*:Tc"
       set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
+      set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'
+      set -as terminal-overrides ',*:Setulc=\E[58::2::::%p1%{65536}%/%d::%p1%{256}%/%{255}%&%d::%p1%{255}%&%d%;m'
       set-environment -g COLORTERM "truecolor"
       set -g clock-mode-style 24
       set -g mode-keys vi

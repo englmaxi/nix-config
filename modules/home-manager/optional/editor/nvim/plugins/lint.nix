@@ -9,11 +9,10 @@
       linters = {
         cppcheck = {
           args = let
-            misraRules = "${inputs.misra-rules}/misra_c_2012__headlines_for_cppcheck\\ -\\ AMD1+AMD2.txt";
             misraAddon = pkgs.writeText "misra.json" (builtins.toJSON {
               script = "misra.py";
               args = [
-                "--rule-texts=${misraRules}"
+                "--rule-texts=${inputs.misra-rules}/misra_c_2012__headlines_for_cppcheck\\ -\\ AMD1+AMD2.txt"
               ];
             });
             suppressionList = pkgs.writeText "cppcheck-suppression-list" ''

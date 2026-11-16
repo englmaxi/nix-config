@@ -50,6 +50,8 @@ _: {
       inccommand = "split";
 
       confirm = true;
+
+      exrc = true;
     };
   };
 }
